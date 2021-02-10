@@ -3,12 +3,20 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}BurbujonRecords{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        {% block stylesheets %}
+            <link href="{{  asset('css/style.css') }}" rel="stylesheet" />
+            <!--<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+            <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />-->
+        {% endblock %}
 
-        {% block javascripts %}{% endblock %}
+        {% block javascripts %}
+            <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
+        {% endblock %}
     </head>
-    <body>
-        {% block titulo %}{% endblock %}
-        {% block menu %}{% endblock %}
+    <body id="page-top">
+        <div class="container d-flex align-items-center flex-column">
+            {% block titulo %}{% endblock %}
+            {% block menu %}{% endblock %}
+        </div>
     </body>
 </html>

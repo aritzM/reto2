@@ -18,7 +18,7 @@ class WebPageController extends AbstractController
      */
     public function index()
     {
-        return $this->render('index.html.twig');
+        return $this->render('prueba.html.twig');
     }
     /**
      * @Route("/admin", name="admin")
