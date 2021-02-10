@@ -1,0 +1,12 @@
+[Unit]
+Description=WebService Service
+After=networking.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/webservice/startUp.sh
+ExecStop=/usr/local/bin/webservice/stop.sh
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
