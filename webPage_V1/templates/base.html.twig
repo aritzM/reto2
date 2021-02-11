@@ -9,14 +9,13 @@
             <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />-->
         {% endblock %}
 
-        {% block javascripts %}
-            <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
-        {% endblock %}
+
     </head>
     <body id="page-top">
-        <div class="container d-flex align-items-center flex-column">
             {% block titulo %}{% endblock %}
             {% block menu %}{% endblock %}
-        </div>
     </body>
+    {% block javascripts %}
+        <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
+    {% endblock %}
 </html>

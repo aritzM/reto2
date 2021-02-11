@@ -18,7 +18,7 @@ class WebPageController extends AbstractController
      */
     public function index()
     {
-        return $this->render('prueba.html.twig');
+        return $this->render('index.html.twig');
     }
     /**
      * @Route("/admin", name="admin")
@@ -54,5 +54,19 @@ class WebPageController extends AbstractController
     public function cursos()
     {
         return $this->render('menu/menu.html.twig');
+    }
+    /**
+     * @Route("/eventosproximos", name="eventos")
+     */
+    public function eventosproximos()
+    {
+        return $this->render('eventos.html.twig');
+    }
+    /**
+     * @Route("/gestion", name="gestion")
+     */
+    public function gestion()
+    {
+        return $this->render('gestion.html.twig');
     }
 }

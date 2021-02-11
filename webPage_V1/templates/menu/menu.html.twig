@@ -5,14 +5,48 @@
     <title>Title</title>
 </head>
 <body>
-    <div>
-        <ul>
-            <li><a href="{{ path('admin') }}">Administracion</li></a>
-            <li><a href="{{ path('maquetas') }}">Maquetas</li></a>
-            <li><a href="{{ path('eventos') }}">Eventos</li></a>
-            <li><a href="{{ path('instrumentos') }}">Instrumentos en venta</li></a>
-            <li><a href="{{ path('cursos') }}">Cursos de piano</li></a>
-        </ul>
-    </div>
+    <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+        <div class="container">
+            <!-- <a class="navbar-brand js-scroll-trigger" href="#page-top">Start Bootstrap</a> -->
+            <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="navbar-collapse collapse show" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ path('admin') }}">Administracion</li></a>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ path('maquetas') }}">Maquetas</li></a>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-toggle="collapse" data-target="#subNavbarResponsive" aria-controls="subNavbarResponsive" aria-expanded="true">Eventos</a></li>
+                    <div class="navbar-collapse collapse show" id="subNavbarResponsive">
+                    <ul>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ path('gestion') }}">Gestion de eventos</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ path('eventos') }}">Eventos proximos</a></li>
+                    </ul>
+                    </div>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ path('instrumentos') }}">Instrumentos en venta</li></a>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ path('cursos') }}">Cursos de piano</li></a>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+
+    <header class="masthead bg-primary text-white text-center">
+        <div class="container d-flex align-items-center flex-column">
+            <!-- Masthead Avatar Image-->
+            <img class="masthead-avatar mb-5" src="assets/img/avataaars.svg" alt="" />
+            <!-- Masthead Heading-->
+            <h1 class="masthead-heading text-uppercase mb-0">Start Bootstrap</h1>
+            <!-- Icon Divider-->
+            <div class="divider-custom divider-light">
+                <div class="divider-custom-line"></div>
+                <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                <div class="divider-custom-line"></div>
+            </div>
+            <!-- Masthead Subheading-->
+            <p class="masthead-subheading font-weight-light mb-0">Graphic Artist - Web Designer - Illustrator</p>
+        </div>
+    </header>
 </body>
 </html>

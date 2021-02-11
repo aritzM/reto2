@@ -1,16 +1,28 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}{% endblock %}
+
 {% block stylesheets %}
+    <link href="{{ asset('css/styles.css') }}" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
 {% endblock %}
 
-{% block javascripts %}
-
-{% endblock %}
 {% block titulo %}
     <h1>contenido</h1>
 {% endblock %}
 
 {% block menu %}
     {% include 'menu/menu.html.twig' %}
+{% endblock %}
+{% block javascripts %}
+    <script type="text/javascript" src="{{ asset('js/scripts.js') }}"></script>
+    <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Third party plugin JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <!-- Contact form JS-->
+    <script src="{{ asset('assets/mail/jqBootstrapValidation.js') }}"></script>
+    <script src="{{ asset('assets/mail/contact_me.js') }}"></script>
 {% endblock %}
