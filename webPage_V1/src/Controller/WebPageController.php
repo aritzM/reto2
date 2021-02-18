@@ -3,12 +3,9 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
-use function Symfony\Component\String\s;
-use Symfony\Flex\Response;
 use Symfony\Component\HttpClient\HttpClient;
-use Symfony\Component\Serializer\Encoder\JsonEncoder;
-use Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer;
-use Symfony\Component\Serializer\Serializer;
+
+
 
 /**
  * Created by PhpStorm.
@@ -73,5 +70,30 @@ class WebPageController extends AbstractController
     public function gestion()
     {
         return $this->render('gestion.html.twig');
+    }
+
+
+    /**
+     * @Route("/prueba", name="prueba")
+     */
+    public function prueba()
+    {
+        //CREAR JSON
+        $data = array('json' => ["nombre" => "h"]);
+        //ENVIAR PETICION
+
+
+        $client = HttpClient::create();
+        $response = $client->request('GET', 'http://127.0.0.1:8000', $data);
+
+        $datos = $response->toArray();
+
+        $parametros = array('prueba' => $datos);
+
+
+        //RECIBIR DATOS
+
+        //INTERPRETAR DATOS (MOSTRARLOS)
+        return $this->render('prueba.html.twig', $parametros);
     }
 }
