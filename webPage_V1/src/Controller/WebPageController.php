@@ -23,7 +23,7 @@ class WebPageController extends AbstractController
      */
     public function index()
     {
-        return $this->render('index.html.twig');
+        return $this->render('prueba.html.twig');
     }
     /**
      * @Route("/admin", name="admin")
@@ -73,35 +73,5 @@ class WebPageController extends AbstractController
     public function gestion()
     {
         return $this->render('gestion.html.twig');
-    }
-
-    /**
-     * @Route("/prueba", name="prueba")
-     */
-    public function prueba()
-    {
-        //CREAR JSON
-        $request= array("nombre" => "h");
-        //ENVIAR PETICION
-        /*$normalizers = array(new GetSetMethodNormalizer());
-        $encoders = array("json" => new JsonEncoder());
-        $serializer = new Serializer($normalizers, $encoders);
-        $json = $serializer->serialize($request, 'json');*/
-        $data = array('body' => $request);
-        $client = HttpClient::create();
-        $response = $client->request('GET', 'http://127.0.0.1:8000', ['json' => ['nombre' => 'h']]);
-        //$statusCode = $response->getStatusCode();
-        $datos = $response->toArray();
-        /*$count = 0;
-        $data = array();
-        foreach ($datos as $dato){
-            $data[$count] = $dato;
-        }*/
-        $parametros = array('prueba' => $datos);
-
-        //$parametros = array('prueba' => $statusCode);
-        //RECIBIR DATOS
-        //INTERPRETAR DATOS (MOSTRARLOS)
-        return $this->render('prueba.html.twig', $parametros);
     }
 }
