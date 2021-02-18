@@ -20,7 +20,7 @@ class WebPageController extends AbstractController
      */
     public function index()
     {
-        return $this->render('prueba.html.twig');
+        return $this->render('index.html.twig');
     }
     /**
      * @Route("/admin", name="admin")
@@ -34,7 +34,7 @@ class WebPageController extends AbstractController
      */
     public function maquetas()
     {
-        return $this->render('menu/menu.html.twig');
+        return $this->render('maquetas.html.twig');
     }
     /**
      * @Route("/eventos", name="eventos")
