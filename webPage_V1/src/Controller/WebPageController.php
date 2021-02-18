@@ -5,14 +5,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpClient\HttpClient;
 
-
-
-/**
- * Created by PhpStorm.
- * User: root
- * Date: 9/02/21
- * Time: 19:59
- */
 class WebPageController extends AbstractController
 {
     /**
@@ -72,11 +64,161 @@ class WebPageController extends AbstractController
         return $this->render('gestion.html.twig');
     }
 
+    /**
+     * @Route("/crearUsu", name="crearUsu")
+     */
+    public function crearUsu()
+    {
+        //CREAR JSON
+        $data = array('json' => ["nombre" => "h"]);
+        //ENVIAR PETICION
+
+
+        $client = HttpClient::create();
+        $response = $client->request('POST', 'http://127.0.0.1:8000', $data);
+
+        $datos = $response->toArray();
+
+        $parametros = array('prueba' => $datos);
+
+
+        //RECIBIR DATOS
+
+        //INTERPRETAR DATOS (MOSTRARLOS)
+        return $this->render('prueba.html.twig', $parametros);
+    }
 
     /**
-     * @Route("/prueba", name="prueba")
+     * @Route("/login", name="login")
      */
-    public function prueba()
+    public function login()
+    {
+        //CREAR JSON
+        $data = array('json' => ["nombre" => "h"]);
+        //ENVIAR PETICION
+
+
+        $client = HttpClient::create();
+        $response = $client->request('POST', 'http://127.0.0.1:8000', $data);
+
+        $datos = $response->toArray();
+
+        $parametros = array('prueba' => $datos);
+
+
+        //RECIBIR DATOS
+
+        //INTERPRETAR DATOS (MOSTRARLOS)
+        return $this->render('prueba.html.twig', $parametros);
+    }
+
+
+    /**
+     * @Route("/eventosM", name="eventosM")
+     */
+    public function eventosM()
+    {
+        //CREAR JSON
+        $data = array('json' => ["nombre" => "h"]);
+        //ENVIAR PETICION
+
+        $client = HttpClient::create();
+
+        $response = $client->request('GET', 'http://127.0.0.1:8000', $data);
+        //RECIBIR DATOS
+        $datos = $response->toArray();
+
+        $parametros = array('prueba' => $datos);
+
+        //INTERPRETAR DATOS (MOSTRARLOS)
+        return $this->render('prueba.html.twig', $parametros);
+    }
+
+    /**
+     * @Route("/mostrelimevento", name="mostrelimevento")
+     */
+    public function mostrelimevento()
+    {
+        //CREAR JSON
+
+        //ENVIAR PETICION
+        $data = null;
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST')
+        {
+            //comprobar campos no vacios
+            if(isset($_POST['btnMostrar']))
+            {
+                /*$eventos = new Eventos();
+                $eventos->setNombre($_POST['nombreEvento']);*/
+
+                $data = array('json' => ["nombre" => "h"]);
+
+            }
+            if(isset($_POST['btnEliminar']))
+            {
+                $data = array('json' => ["nombre" => "h"]);
+            }
+        }
+
+        $client = HttpClient::create();
+        $response = $client->request('POST', 'http://127.0.0.1:8000', $data);
+
+        $datos = $response->toArray();
+
+        $parametros = array('prueba' => $datos);
+
+
+        //RECIBIR DATOS
+
+        //INTERPRETAR DATOS (MOSTRARLOS)
+        return $this->render('prueba.html.twig', $parametros);
+    }
+
+    /**
+     * @Route("/crmodevento", name="crmodevento")
+     */
+    public function crmodeveneto()
+    {
+        //CREAR JSON
+
+        //ENVIAR PETICION
+        $data = null;
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST')
+        {
+            //comprobar campos no vacios
+            if(isset($_POST['btnModificar']))
+            {
+                /*$eventos = new Eventos();
+                $eventos->setNombre($_POST['nombreEvento']);*/
+
+                $data = array('json' => ["nombre" => "h"]);
+
+            }
+            if(isset($_POST['btnEliminar']))
+            {
+                $data = array('json' => ["nombre" => "h"]);
+            }
+        }
+        $client = HttpClient::create();
+        $response = $client->request('GET', 'http://127.0.0.1:8000', $data);
+
+        $datos = $response->toArray();
+
+        $parametros = array('prueba' => $datos);
+
+
+        //RECIBIR DATOS
+
+        //INTERPRETAR DATOS (MOSTRARLOS)
+        return $this->render('prueba.html.twig', $parametros);
+    }
+
+    /**
+     * @Route("/mostrmaquetaciones", name="mostrmaquetaciones")
+     */
+    public function mostrmaquetaciones()
     {
         //CREAR JSON
         $data = array('json' => ["nombre" => "h"]);
@@ -85,6 +227,133 @@ class WebPageController extends AbstractController
 
         $client = HttpClient::create();
         $response = $client->request('GET', 'http://127.0.0.1:8000', $data);
+
+        $datos = $response->toArray();
+
+        $parametros = array('prueba' => $datos);
+
+
+        //RECIBIR DATOS
+
+        //INTERPRETAR DATOS (MOSTRARLOS)
+        return $this->render('prueba.html.twig', $parametros);
+    }
+
+    /**
+     * @Route("/mostrmaquetacion", name="mostrmaquetacion")
+     */
+    public function mostrelimmaquetacion()
+    {
+        //CREAR JSON
+
+        //ENVIAR PETICION
+        $data = null;
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST')
+        {
+            //comprobar campos no vacios
+            if(isset($_POST['btnMostrar']))
+            {
+                /*$eventos = new Eventos();
+                $eventos->setNombre($_POST['nombreEvento']);*/
+
+                $data = array('json' => ["nombre" => "h"]);
+
+            }
+            if(isset($_POST['btnEliminar']))
+            {
+                $data = array('json' => ["nombre" => "h"]);
+            }
+        }
+
+        $client = HttpClient::create();
+        $response = $client->request('POST', 'http://127.0.0.1:8000', $data);
+
+        $datos = $response->toArray();
+
+        $parametros = array('prueba' => $datos);
+
+
+        //RECIBIR DATOS
+
+        //INTERPRETAR DATOS (MOSTRARLOS)
+        return $this->render('prueba.html.twig', $parametros);
+    }
+
+    /**
+     * @Route("/cractmaquetacion", name="cractmaquetacion")
+     */
+    public function cractmaquetacion()
+    {
+        //CREAR JSON
+
+        //ENVIAR PETICION
+        $data = null;
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST')
+        {
+            //comprobar campos no vacios
+            if(isset($_POST['btnCrear']))
+            {
+                /*$eventos = new Eventos();
+                $eventos->setNombre($_POST['nombreEvento']);*/
+
+                $data = array('json' => ["nombre" => "h"]);
+
+            }
+            if(isset($_POST['btnActualizar']))
+            {
+                $data = array('json' => ["nombre" => "h"]);
+            }
+        }
+
+        $client = HttpClient::create();
+        $response = $client->request('POST', 'http://127.0.0.1:8000', $data);
+
+        $datos = $response->toArray();
+
+        $parametros = array('prueba' => $datos);
+
+
+        //RECIBIR DATOS
+
+        //INTERPRETAR DATOS (MOSTRARLOS)
+        return $this->render('prueba.html.twig', $parametros);
+    }
+    /**
+     * @Route("/comprInstru", name="comprInstru")
+     */
+    public function comprarInstru()
+    {
+        //CREAR JSON
+        $data = array('json' => ["nombre" => "h"]);
+        //ENVIAR PETICION
+
+
+        $client = HttpClient::create();
+        $response = $client->request('POST', 'http://127.0.0.1:8000', $data);
+
+        $datos = $response->toArray();
+
+        $parametros = array('prueba' => $datos);
+
+
+        //RECIBIR DATOS
+
+        //INTERPRETAR DATOS (MOSTRARLOS)
+        return $this->render('prueba.html.twig', $parametros);
+    }
+    /**
+     * @Route("/mostrarInstruComp", name="mostrarInstruComp")
+     */
+    public function mostrarInstruComp()
+    {
+        //CREAR JSON
+        $data = array('json' => ["nombre" => "h"]);
+        //ENVIAR PETICION
+
+        $client = HttpClient::create();
+        $response = $client->request('POST', 'http://127.0.0.1:8000', $data);
 
         $datos = $response->toArray();
 
