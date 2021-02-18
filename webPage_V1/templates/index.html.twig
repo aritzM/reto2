@@ -2,11 +2,6 @@
 
 {% block title %}{% endblock %}
 
-{% block stylesheets %}
-    <link href="{{ asset('css/styles.css') }}" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
-{% endblock %}
 
 {% block titulo %}
     <h1>contenido</h1>
@@ -14,17 +9,324 @@
 
 {% block menu %}
     {% include 'menu/menu.html.twig' %}
-{% endblock %}
-{% block javascripts %}
-    <script type="text/javascript" src="{{ asset('js/scripts.js') }}"></script>
-    <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Third party plugin JS-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
-    <!-- Contact form JS-->
-    <script src="{{ asset('assets/mail/jqBootstrapValidation.js') }}"></script>
-    <script src="{{ asset('assets/mail/contact_me.js') }}"></script>
-    <script src="{{ asset('js/scripdesplegable.js') }}"></script>
+    <!--El titulo y la bienvenida -->
 
+    <header class="masthead bg-primary text-white text-center">
+        <div class="container d-flex align-items-center flex-column">
+            <h3 class="masthead-heading" style="color: black; position: relative; top: -50px;">Bienvenidos</h3>
+            <!-- Masthead Avatar Image-->
+            <img class="masthead-avatar mb-5" src="assets/img/burbu.jpg" alt=""/>
+            <!-- Masthead Heading-->
+            <h1 class="masthead-heading text-uppercase mb-0">Burbujon Records</h1>
+            <!-- Icon Divider-->
+            <div class="divider-custom divider-light">
+                <div class="divider-custom-line"></div>
+                <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                <div class="divider-custom-line"></div>
+            </div>
+            <!-- Masthead Subheading-->
+            <p class="masthead-subheading font-weight-light mb-0">Servicios de discografia</p>
+        </div>
+    </header>
+{% endblock %}
+{% block galeria %}
+    <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0" style="margin-bottom: 20px;">Nuestros instrumentos en venta</h2>
+    <section class="page-section portfolio" id="portfolio">
+        <div class="container">
+
+            <div class="row justify-content-center">
+                <!-- Portfolio Item 1-->
+                <div class="col-md-6 col-lg-4 mb-5">
+                    <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal1">
+                        <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                            <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
+                        </div>
+                        <img class="img-fluid" src="assets/img/flauta.jpg" alt="" />
+                    </div>
+                </div>
+                <!-- Portfolio Item 2-->
+                <div class="col-md-6 col-lg-4 mb-5">
+                    <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal2">
+                        <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                            <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
+                        </div>
+                        <img class="img-fluid" src="assets/img/guitarra.jpg" alt="" />
+                    </div>
+                </div>
+                <!-- Portfolio Item 3-->
+                <div class="col-md-6 col-lg-4 mb-5">
+                    <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal3">
+                        <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                            <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
+                        </div>
+                        <img class="img-fluid" src="assets/img/piano.jpg" alt="" />
+                    </div>
+                </div>
+                <!-- Portfolio Item 4-->
+                <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
+                    <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal4">
+                        <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                            <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
+                        </div>
+                        <img class="img-fluid" src="assets/img/trompeta.jpg" alt="" />
+                    </div>
+                </div>
+                <!-- Portfolio Item 5-->
+                <div class="col-md-6 col-lg-4 mb-5 mb-md-0">
+                    <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal5">
+                        <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                            <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
+                        </div>
+                        <img class="img-fluid" src="assets/img/acordeon2.jpg" alt="" />
+                    </div>
+                </div>
+                <!-- Portfolio Item 6-->
+                <div class="col-md-6 col-lg-4">
+                    <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal6">
+                        <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                            <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
+                        </div>
+                        <img class="img-fluid" src="assets/img/violin.jpeg" alt="" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Portfolio Modal 1-->
+    <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-labelledby="portfolioModal1Label" aria-hidden="true">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content">
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"><i class="fas fa-times"></i></span>
+                </button>
+                <div class="modal-body text-center">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <!-- Portfolio Modal - Title-->
+                                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="portfolioModal1Label">Flauta flautera</h2>
+                                <!-- Icon Divider-->
+                                <div class="divider-custom">
+                                    <div class="divider-custom-line"></div>
+                                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                                    <div class="divider-custom-line"></div>
+                                </div>
+                                <!-- Portfolio Modal - Image-->
+                                <img class="img-fluid rounded mb-5" src="assets/img/flauta.jpg" alt="" />
+                                <!-- Portfolio Modal - Text-->
+                                <p class="mb-5"> Hecho de cuproníquel, C flauta llave con 16 hoyos. Diseño exquisito y elegante para satisfacer su gusto.
+                                    Grasa Poco corcho para ofrecer ayuda para ensamblar cosas juntos.
+                                    El paño azul está diseñado para entrar en la flauta, mejor para ayudar a limpiar el tubo interior. Con un palo de plástico y paño de limpieza para mantener la flauta seco y limpio. </p>
+                                <button class="btn btn-primary" data-dismiss="modal">
+                                    <i class="fas fa-times fa-fw"></i>
+                                    Close Window
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Portfolio Modal 2-->
+    <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-labelledby="portfolioModal2Label" aria-hidden="true">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content">
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"><i class="fas fa-times"></i></span>
+                </button>
+                <div class="modal-body text-center">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <!-- Portfolio Modal - Title-->
+                                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="portfolioModal2Label">Guitarra MK4</h2>
+                                <!-- Icon Divider-->
+                                <div class="divider-custom">
+                                    <div class="divider-custom-line"></div>
+                                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                                    <div class="divider-custom-line"></div>
+                                </div>
+                                <!-- Portfolio Modal - Image-->
+                                <img class="img-fluid rounded mb-5" src="assets/img/guitarra.jpg" alt="" />
+                                <!-- Portfolio Modal - Text-->
+                                <p class="mb-5"> La guitarra de unibody líder mundial: la tecnología moldeada por inyección de una pieza hace que LAVA ME 2 sea más cómoda de sostener y le brinda un excelente rendimiento acústico. LAVA ME 2 puede ofrecer un tono de frecuencia alto y amplio con su cuerpo de 36 pulgadas. Pesa solo 3.7 libras. Incluso más ligero que la mayoría de las computadoras portátiles.
+                                    Juega con efectos sin enchufar: la tecnología FreeBoost en las pastillas L2 utiliza la superficie posterior del LAVA ME como altavoz. Encienda las pastillas en cualquier lugar en cualquier momento, puede tocar libremente con reverb, delay, chorus sin amplificador. Efecto de percusión: la pastilla L2 ahora está habilitada con un micrófono de recepción de sonido de percusión. Mejora y embellece el sonido de percusión sin importar si se usa con o sin enchufarlo.
+                                    Funciona en diferentes condiciones: el material de fibra de carbono Super AirSonic puede adaptarse a temperaturas entre -20℃~80℃. Humedad del 10% al 90%. LAVA ME 2 funcionaría para usted todo el tiempo sin importar si se encuentra en el desierto o en un área polar. </p>
+                                <button class="btn btn-primary" data-dismiss="modal">
+                                    <i class="fas fa-times fa-fw"></i>
+                                    Close Window
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Portfolio Modal 3-->
+    <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-labelledby="portfolioModal3Label" aria-hidden="true">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content">
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"><i class="fas fa-times"></i></span>
+                </button>
+                <div class="modal-body text-center">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <!-- Portfolio Modal - Title-->
+                                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="portfolioModal3Label">Piano tensi</h2>
+                                <!-- Icon Divider-->
+                                <div class="divider-custom">
+                                    <div class="divider-custom-line"></div>
+                                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                                    <div class="divider-custom-line"></div>
+                                </div>
+                                <!-- Portfolio Modal - Image-->
+                                <img class="img-fluid rounded mb-5" src="assets/img/piano.jpg" alt="" />
+                                <!-- Portfolio Modal - Text-->
+                                <p class="mb-5">    Acabado: Blanco pulido
+                                    88 teclas
+                                    3 pedales
+                                    Auriculares incluidos
+                                    Dimensiones: 161 x 149 x 101 cm
+                                    Peso: 295 kg
+                                    Más que un simple piano intérprete, el Disklavier ENSPIRE ST fue creado pensando en el oyente y el intérprete
+                                    La funcionalidad de grabación y reproducción totalmente integrada, así como la tecnología patentada SILENT Piano de Yamaha, hacen de este instrumento la opción perfecta para ahorrar espacio para la familia en crecimiento, el aficionado establecido o el ávido oyente
+                                    La tecnología DSP Servo Drive System de vanguardia garantiza una reproducción precisa de la interpretación al monitorear y calibrar automáticamente el movimiento de las teclas y pedales en tiempo real durante la interpretación
+                                    Superficie en blanco pulido
+                                </p>
+                                <button class="btn btn-primary" data-dismiss="modal">
+                                    <i class="fas fa-times fa-fw"></i>
+                                    Close Window
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Portfolio Modal 4-->
+    <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-labelledby="portfolioModal4Label" aria-hidden="true">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content">
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"><i class="fas fa-times"></i></span>
+                </button>
+                <div class="modal-body text-center">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <!-- Portfolio Modal - Title-->
+                                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="portfolioModal4Label">Trompeta lisa</h2>
+                                <!-- Icon Divider-->
+                                <div class="divider-custom">
+                                    <div class="divider-custom-line"></div>
+                                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                                    <div class="divider-custom-line"></div>
+                                </div>
+                                <!-- Portfolio Modal - Image-->
+                                <img class="img-fluid rounded mb-5" src="assets/img/trompeta.jpg" alt="" />
+                                <!-- Portfolio Modal - Text-->
+                                <p class="mb-5">
+
+                                    Modelo Gileno Santana
+                                    3 pistones perinet
+                                    Pabellon afinable de latón lacado
+                                    Calibre L
+                                    Tudel de latón dorado
+
+                                </p>
+                                <button class="btn btn-primary" data-dismiss="modal">
+                                    <i class="fas fa-times fa-fw"></i>
+                                    Close Window
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Portfolio Modal 5-->
+    <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-labelledby="portfolioModal5Label" aria-hidden="true">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content">
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"><i class="fas fa-times"></i></span>
+                </button>
+                <div class="modal-body text-center">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <!-- Portfolio Modal - Title-->
+                                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="portfolioModal5Label">Acordeon pro</h2>
+                                <!-- Icon Divider-->
+                                <div class="divider-custom">
+                                    <div class="divider-custom-line"></div>
+                                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                                    <div class="divider-custom-line"></div>
+                                </div>
+                                <!-- Portfolio Modal - Image-->
+                                <img class="img-fluid rounded mb-5" src="assets/img/acordeon2.jpg" alt="" />
+                                <!-- Portfolio Modal - Text-->
+                                <p class="mb-5">
+
+                                    120 teclas de bajos
+                                    41 teclas de agudos
+                                    11 registros agudos
+                                    4 bancos de lengüetas en el lado de agudos
+                                    5 registros bajos
+
+                                </p>
+                                <button class="btn btn-primary" data-dismiss="modal">
+                                    <i class="fas fa-times fa-fw"></i>
+                                    Close Window
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Portfolio Modal 6-->
+    <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-labelledby="portfolioModal6Label" aria-hidden="true">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content">
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"><i class="fas fa-times"></i></span>
+                </button>
+                <div class="modal-body text-center">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <!-- Portfolio Modal - Title-->
+                                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="portfolioModal6Label">Violin chin</h2>
+                                <!-- Icon Divider-->
+                                <div class="divider-custom">
+                                    <div class="divider-custom-line"></div>
+                                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                                    <div class="divider-custom-line"></div>
+                                </div>
+                                <!-- Portfolio Modal - Image-->
+                                <img class="img-fluid rounded mb-5" src="assets/img/violin.jpeg" alt="" />
+                                <!-- Portfolio Modal - Text-->
+                                <p class="mb-5"> Violín de tamaño completo con parte superior de abeto, cuello de arce, espalda y laterales, diapasón de ébano, piquetas y descanso de barniz antiguo
+                                    Cuerpo barnizado, suave y fino se beneficia de la exquisita habilidad de pintura para que el violín suene claro, brillante y agradecido con una calidad uniforme
+                                    El violín hecho a mano adopta la madera que se ha secado de forma natural más de 10 años por lo que suena más suave y espacioso, que es fácil de vibrar y transmitir el sonido rápidamente
+                                    Viene con bolsa de regalo ligera, lazo de madera de abrazo con caballo sin blanquear, puente, cuerdas, rosin y reposabrazos </p>
+                                <button class="btn btn-primary" data-dismiss="modal">
+                                    <i class="fas fa-times fa-fw"></i>
+                                    Close Window
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
