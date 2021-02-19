@@ -113,7 +113,7 @@ class WebPageController extends AbstractController
 
 
         $client = HttpClient::create();
-        $response = $client->request('POST', 'http://127.0.0.1:8000', $data);
+        $response = $client->request('POST', 'http://192.168.4.96:8000', $data);
 
         $datos = $response->toArray();
 
@@ -138,7 +138,7 @@ class WebPageController extends AbstractController
 
         $client = HttpClient::create();
 
-        $response = $client->request('GET', 'http://127.0.0.1:8000', $data);
+        $response = $client->request('GET', 'http://192.168.4.96:8000', $data);
         //RECIBIR DATOS
         $datos = $response->toArray();
 
@@ -176,7 +176,7 @@ class WebPageController extends AbstractController
         }
 
         $client = HttpClient::create();
-        $response = $client->request('POST', 'http://127.0.0.1:8000', $data);
+        $response = $client->request('POST', '192.168.4.96:8000', $data);
 
         $datos = $response->toArray();
 
@@ -216,7 +216,7 @@ class WebPageController extends AbstractController
             }
         }
         $client = HttpClient::create();
-        $response = $client->request('GET', 'http://127.0.0.1:8000', $data);
+        $response = $client->request('GET', '192.168.4.96:8000', $data);
 
         $datos = $response->toArray();
 
@@ -240,7 +240,7 @@ class WebPageController extends AbstractController
 
 
         $client = HttpClient::create();
-        $response = $client->request('GET', 'http://127.0.0.1:8000', $data);
+        $response = $client->request('GET', '192.168.4.96:8000', $data);
 
         $datos = $response->toArray();
 
@@ -281,7 +281,7 @@ class WebPageController extends AbstractController
         }
 
         $client = HttpClient::create();
-        $response = $client->request('POST', 'http://127.0.0.1:8000', $data);
+        $response = $client->request('POST', '192.168.4.96:8000', $data);
 
         $datos = $response->toArray();
 
@@ -322,7 +322,7 @@ class WebPageController extends AbstractController
         }
 
         $client = HttpClient::create();
-        $response = $client->request('POST', 'http://127.0.0.1:8000', $data);
+        $response = $client->request('POST', 'http://192.168.4.96:8000', $data);
 
         $datos = $response->toArray();
 
@@ -345,7 +345,7 @@ class WebPageController extends AbstractController
 
 
         $client = HttpClient::create();
-        $response = $client->request('POST', 'http://127.0.0.1:8000', $data);
+        $response = $client->request('POST', '192.168.4.96:8000', $data);
 
         $datos = $response->toArray();
 
@@ -367,7 +367,7 @@ class WebPageController extends AbstractController
         //ENVIAR PETICION
 
         $client = HttpClient::create();
-        $response = $client->request('POST', 'http://127.0.0.1:8000', $data);
+        $response = $client->request('POST', '192.168.4.96:8000', $data);
 
         $datos = $response->toArray();
 
