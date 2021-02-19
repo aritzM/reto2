@@ -26,7 +26,7 @@ class WebPageController extends AbstractController
      */
     public function maquetas()
     {
-        return $this->render('maquetas.html.twig');
+        return $this->render('menu/menu.html.twig');
     }
     /**
      * @Route("/eventos", name="eventos")
@@ -62,6 +62,20 @@ class WebPageController extends AbstractController
     public function gestion()
     {
         return $this->render('gestion.html.twig');
+    }
+    /**
+     * @Route("/ventamaquetas", name="ventamaquetas")
+     */
+    public function ventamaquetas()
+    {
+        return $this->render('ventamaquetas.html.twig');
+    }
+    /**
+     * @Route("/gestionmaquetas", name="gestionmaquetas")
+     */
+    public function gestionmaquetas()
+    {
+        return $this->render('gestionmaquetas.html.twig');
     }
 
     /**
