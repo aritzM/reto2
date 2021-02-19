@@ -89,7 +89,7 @@ class WebPageController extends AbstractController
 
 
         $client = HttpClient::create();
-        $response = $client->request('POST', 'http://127.0.0.1:8000', $data);
+        $response = $client->request('POST', 'http://192.168.4.96:8000', $data);
 
         $datos = $response->toArray();
 
@@ -99,7 +99,7 @@ class WebPageController extends AbstractController
         //RECIBIR DATOS
 
         //INTERPRETAR DATOS (MOSTRARLOS)
-        return $this->render('prueba.html.twig', $parametros);
+        return $this->render('index.html.twig', $parametros);
     }
 
     /**
