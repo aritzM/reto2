@@ -25,8 +25,13 @@
       <file leaf-file-name="WebServiceController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Controller/WebServiceController.php">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="508">
               <caret line="38" column="5" lean-forward="true" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
+=======
+            <state relative-caret-position="480">
+              <caret line="24" column="27" lean-forward="false" selection-start-line="24" selection-start-column="27" selection-end-line="24" selection-end-column="27" />
+>>>>>>> bfa343b9cd4be167df559b4c3bfcdaa829036750
               <folding>
                 <element signature="e#34#99#0#PHP" expanded="true" />
               </folding>
@@ -73,8 +78,8 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="67" />
     <option name="y" value="25" />
-    <option name="width" value="1301" />
-    <option name="height" value="767" />
+    <option name="width" value="1227" />
+    <option name="height" value="635" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -165,13 +170,14 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Escritorio/LIBRERIA" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -278,20 +284,29 @@
       <workItem from="1613673684158" duration="598000" />
       <workItem from="1613675616143" duration="599000" />
       <workItem from="1613677433938" duration="597000" />
+<<<<<<< HEAD
       <workItem from="1613743749774" duration="598000" />
       <workItem from="1613745963489" duration="597000" />
       <workItem from="1613749142529" duration="598000" />
       <workItem from="1613759948786" duration="1581000" />
+=======
+      <workItem from="1613761234171" duration="615000" />
+>>>>>>> bfa343b9cd4be167df559b4c3bfcdaa829036750
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="15916000" />
+=======
+    <option name="totallyTimeSpent" value="13157000" />
+>>>>>>> bfa343b9cd4be167df559b4c3bfcdaa829036750
   </component>
   <component name="ToolWindowManager">
-    <frame x="67" y="25" width="1301" height="767" extended-state="6" />
+    <frame x="67" y="25" width="1227" height="635" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24980783" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24938875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -745,8 +760,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/WebServiceController.php">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="508">
           <caret line="38" column="5" lean-forward="true" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
+=======
+        <state relative-caret-position="480">
+          <caret line="24" column="27" lean-forward="false" selection-start-line="24" selection-start-column="27" selection-end-line="24" selection-end-column="27" />
+>>>>>>> bfa343b9cd4be167df559b4c3bfcdaa829036750
           <folding>
             <element signature="e#34#99#0#PHP" expanded="true" />
           </folding>
