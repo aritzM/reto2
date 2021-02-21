@@ -15,11 +15,11 @@ class WebPageController extends AbstractController
         return $this->render('index.html.twig');
     }
     /**
-     * @Route("/admin", name="admin")
+     * @Route("/produccion", name="produccion")
      */
-    public function admin()
+    public function produccion()
     {
-        return $this->render('menu/menu.html.twig');
+        return $this->render('produccion.html.twig');
     }
     /**
      * @Route("/maquetas", name="maquetas")
@@ -57,11 +57,11 @@ class WebPageController extends AbstractController
         return $this->render('eventos.html.twig');
     }
     /**
-     * @Route("/gestion", name="gestion")
+     * @Route("/gestioneventos", name="gestioneventos")
      */
-    public function gestion()
+    public function gestioneventos()
     {
-        return $this->render('gestion.html.twig');
+        return $this->render('gestioneventos.html.twig');
     }
     /**
      * @Route("/ventamaquetas", name="ventamaquetas")
@@ -378,5 +378,23 @@ class WebPageController extends AbstractController
 
         //INTERPRETAR DATOS (MOSTRARLOS)
         return $this->render('prueba.html.twig', $parametros);
+    }
+
+    /**
+     * @Route("/mostrarinstruventa", name="mostrarinstruventa")
+     */
+    public function mostrarinstruventa()
+    {
+        //INTERPRETAR DATOS (MOSTRARLOS)
+        return $this->render('ventainstrumentos.html.twig');
+    }
+
+    /**
+     * @Route("/cursosdepiano", name="cursosdepiano")
+     */
+    public function cursosdepiano()
+    {
+        //INTERPRETAR DATOS (MOSTRARLOS)
+        return $this->render('cursosdepiano.html.twig');
     }
 }
