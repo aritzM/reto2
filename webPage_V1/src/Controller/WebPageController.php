@@ -192,7 +192,7 @@ class WebPageController extends AbstractController
     /**
      * @Route("/crmodevento", name="crmodevento")
      */
-    public function crmodeveneto()
+    public function crmodevento()
     {
         //CREAR JSON
 
@@ -212,7 +212,7 @@ class WebPageController extends AbstractController
             }
             if(isset($_POST['btnEliminar']))
             {
-                $data = array('json' => ["nombre" => "h"]);
+                $data = array('json' => ["nombre" => "Q"]);
             }
         }
         $client = HttpClient::create();
