@@ -26,7 +26,63 @@ class WebServiceController extends AbstractController
     {
         $datos = file_get_contents('php://input');
         $request = json_decode($datos);
-        if($request->nombre == "h")
+        if ($request->nombre == "h") {
+            $datos = array("hola" => "holamundo");
+        }
+        else
+        {
+            $datos = array("error" => "error");
+        }
+
+        return $this->jsonDam($datos);
+    }
+
+        /**
+     * @Route("/crearUsu", name="crearUsu", methods={"POST"})
+     */
+    public function crearUsu()
+    {
+        $datos = file_get_contents('php://input');
+        $request = json_decode($datos);
+        if ($request->nombre == "h") {
+            $datos = array("hola" => "holamundo");
+        }
+        else
+        {
+            $datos = array("error" => "error");
+        }
+
+        return $this->jsonDam($datos);
+    }
+
+
+    /**
+     * @Route("/login", name="login", methods={"POST"})
+     */
+    public function login()
+    {
+        $datos = file_get_contents('php://input');
+        $request = json_decode($datos);
+        if ($request->nombre == "h") {
+            $datos = array("hola" => "holamundo");
+        }
+        else
+        {
+            $datos = array("error" => "error");
+        }
+
+        return $this->jsonDam($datos);
+    }
+
+
+    /**
+     * @Route("/eventosM", name="eventosM", methods={"GETT"})
+     */
+    public function eventosM()
+    {
+        $datos = file_get_contents('php://input');
+        $request = json_decode($datos);
+        if ($request->nombre == "h")
         {
             $datos = array("hola" => "holamundo");
         }
@@ -38,7 +94,123 @@ class WebServiceController extends AbstractController
         return $this->jsonDam($datos);
     }
 
-    public function jsonDam($data){
+
+    /**
+     * @Route("/mostrelimeventos", name="mostrelimeventos", methods={"POST"})
+     */
+    public function mostrelimeventos()
+    {
+        $datos = file_get_contents('php://input');
+        $request = json_decode($datos);
+        if ($request->nombre == "h")
+        {
+            $datos = array("hola" => "holamundo");
+        }
+        else if($request->nombre == "Q")
+        {
+            $datos = array("hola" => "holamundo");
+        }
+        else
+        {
+            $datos = array("error" => "error");
+        }
+
+        return $this->jsonDam($datos);
+    }
+
+
+    /**
+     * @Route("/crmodeventos", name="crmodeventos", methods={"POST"})
+     */
+    public function crmodeventos()
+    {
+        $datos = file_get_contents('php://input');
+        $request = json_decode($datos);
+        if ($request->nombre == "h")
+        {
+            $datos = array("hola" => "holamundo");
+        }
+        else if($request->nombre == "Q")
+        {
+            $datos = array("hola" => "holamundo");
+        }
+        else
+        {
+            $datos = array("error" => "error");
+        }
+
+        return $this->jsonDam($datos);
+    }
+
+
+    /**
+     * @Route("/mostrmaquetaciones", name="mostrmaquetaciones", methods={"POST"})
+     */
+    public function mostrmaquetaciones()
+    {
+        $datos = file_get_contents('php://input');
+        $request = json_decode($datos);
+        if ($request->nombre == "h")
+        {
+            $datos = array("hola" => "holamundo");
+        }
+        else
+        {
+            $datos = array("error" => "error");
+        }
+
+        return $this->jsonDam($datos);
+    }
+
+
+    /**
+     * @Route("/mostrmaquetacion", name="mostrmaquetacion", methods={"POST"})
+     */
+    public function mostrelimmaquetacion()
+    {
+        $datos = file_get_contents('php://input');
+        $request = json_decode($datos);
+        if ($request->nombre == "h") {
+            $datos = array("hola" => "holamundo");
+        }
+        else if($request->nombre == "Q")
+        {
+            $datos = array("hola" => "holamundo");
+        }
+        else
+        {
+            $datos = array("error" => "error");
+        }
+
+        return $this->jsonDam($datos);
+    }
+
+
+    /**
+     * @Route("/cractmaquetacion", name="cractmaquetacion", methods={"POST"})
+     */
+    public function cractmaquetacion()
+    {
+        $datos = file_get_contents('php://input');
+        $request = json_decode($datos);
+        if ($request->nombre == "h")
+        {
+            $datos = array("hola" => "holamundo");
+        }
+        else if($request->nombre == "Q")
+        {
+            $datos = array("hola" => "holamundo");
+        }
+        else
+        {
+            $datos = array("error" => "error");
+        }
+
+        return $this->jsonDam($datos);
+    }
+
+    public function jsonDam($data)
+    {
         $normalizers = array(new GetSetMethodNormalizer());
         $encoders = array("json" => new JsonEncoder());
         $serializer = new Serializer($normalizers, $encoders);
