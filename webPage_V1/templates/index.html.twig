@@ -53,7 +53,54 @@
         </div>
         </div>
     </section>
+{% endblock %}
 
+{% block login %}
+    <body class="container page-section bg-primary text-white mb-0">
+
+    <form class="container page-section bg-primary text-white mb-0" style="width: 100%;" method="post">
+
+        <fieldset class="container page-section bg-primary text-white mb-0">
+
+                <form method="POST" action="">
+                    <div class="container page-section bg-primary text-white mb-0">
+                        <label for="uname"><b>Username</b></label>
+                        <input type="text" placeholder="Enter Username" name="uname" required><br>
+
+                        <label for="psw"><b>Password</b></label>
+                        <input type="password" placeholder="Enter Password" name="psw" required>
+
+                        <button type="submit">Login</button>
+                        <label>
+                            <input type="checkbox" checked="checked" name="remember"> Remember me
+                        </label>
+                    </div>
+
+                    <div class="container" style="background-color:#f1f1f1">
+                        <button type="button" class="cancelbtn">Cancel</button>
+                        <span class="psw">Forgot <a href="#">password?</a></span>
+                    </div>
+
+                </form>
+
+
+            <form method="post">
+                <h4>Sexo:</h4>
+                <input type="radio" id="hombre" name="sexo" value="hombre">
+                <label for="hombre">Hombre</label><br>
+                <input type="radio" id="mujer" name="sexo" value="mujer">
+                <label for="hombre">Mujer</label><br>
+                <input type="radio" id="otro" name="sexo" value="otro">
+                <label for="otro">Otro</label><br><br>
+            </form>
+
+
+            <button type="submit">Registrar</button>
+
+        </fieldset>
+    </form>
+
+    </body>
 
 
 {% endblock %}
