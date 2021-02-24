@@ -1,10 +1,106 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-    <h1>PePo SiGuE sIeNdO mArIkA</h1>
-</body>
-</html>
+{% extends 'base.html.twig' %}
+{% block title%}{% endblock %}
+{% block titulo%}{% endblock %}
+{% block menu%}{% include 'menu/menu.html.twig' %}{% endblock %}
+{% block table%}
+<h1>Eventos próximos</h1>
+<div style="position: relative; top: 150px;">
+    <table>
+        <thead>
+        <ul style="display: flex; width: 100%;">
+            <li style="width: 100%; display: inline; font-size: 20px;"><b>Horas</b></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <li style="width: 100%; display: inline; font-size: 20px;"><b>Lunes</b></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <li style="width: 100%; display: inline; font-size: 20px;"><b>Martes</b></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <li style="width: 100%; display: inline; font-size: 20px;"><b>Miercoles</b></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <li style="width: 100%; display: inline; font-size: 20px;"><b>Jueves</b></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <li style="width: 100%; display: inline; font-size: 20px;"><b>Viernes</b></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </ul><br>
+
+        </thead>
+    </table>
+
+    <table>
+        <tbody>
+
+        <ul style="display: flex;">&nbsp;&nbsp;
+            <li style="width: 100%; display: inline;">11:00-12:30</li>
+            <li style="width: 100%; display: inline;">3 plazas disponibles</li>
+            <li style="width: 100%; display: inline;">1 plaza disponible</li>
+            <li style="width: 100%; display: inline; ">Ocupado</li>
+            <li style="width: 100%; display: inline;">1 plaza disponible</li>
+            <li style="width: 100%; display: inline;">Ocupado</li>
+        </ul><br>
+
+        </tbody>
+    </table>
+
+
+    <table>
+        <tbody>
+
+        <ul style="display: flex;">&nbsp;&nbsp;
+            <li style="width: 100%; display: inline;">13:00-14:30</li>
+            <li style="width: 100%; display: inline;">1 plaza disponible</li>
+            <li style="width: 100%; display: inline;">1 plaza disponible</li>
+            <li style="width: 100%; display: inline; ">Ocupado</li>
+            <li style="width: 100%; display: inline;">3 plaza disponibles</li>
+            <li style="width: 100%; display: inline;">Ocupado</li>
+        </ul><br>
+
+        </tbody>
+    </table>
+
+
+    <table>
+        <tbody>
+
+        <ul style="display: flex;">&nbsp;&nbsp;
+            <li style="width: 100%; display: inline;">16:00-17:30</li>
+            <li style="width: 100%; display: inline;">Ocupado</li>
+            <li style="width: 100%; display: inline;">3 plaza disponibles</li>
+            <li style="width: 100%; display: inline; ">1 plaza disponibles</li>
+            <li style="width: 100%; display: inline;">Ocupado</li>
+            <li style="width: 100%; display: inline;">1 plaza disponible</li>
+        </ul><br>
+
+        </tbody>
+    </table>
+
+
+    <table>
+        <tbody>
+
+        <ul style="display: flex;">&nbsp;&nbsp;
+            <li style="width: 100%; display: inline;">18:00-19:30</li>
+            <li style="width: 100%; display: inline;">Todo disponible</li>
+            <li style="width: 100%; display: inline;">Ocupado</li>
+            <li style="width: 100%; display: inline; ">2 plaza disponibles</li>
+            <li style="width: 100%; display: inline;">1 plaza disponible</li>
+            <li style="width: 100%; display: inline;">3 plazas disponibles</li>
+        </ul><br>
+
+        </tbody>
+    </table>
+
+
+    <table>
+        <tbody>
+
+        <ul style="display: flex;">&nbsp;&nbsp;
+            <li style="width: 100%; display: inline;">20:00-21:30</li>
+            <li style="width: 100%; display: inline;">Ocupado</li>
+            <li style="width: 100%; display: inline;">1 plaza disponible</li>
+            <li style="width: 100%; display: inline; ">Todo disponible</li>
+            <li style="width: 100%; display: inline;">2 plazas disponibles</li>
+            <li style="width: 100%; display: inline;">Todo disponible</li>
+        </ul><br>
+
+        </tbody>
+    </table>
+{% endblock %}
+
+
+
+
+
+
