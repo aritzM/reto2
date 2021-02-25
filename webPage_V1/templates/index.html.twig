@@ -4,7 +4,7 @@
 
 
 {% block titulo %}
-    <h1>contenido</h1>
+
 {% endblock %}
 
 {% block menu %}
@@ -28,6 +28,17 @@
             <p class="masthead-subheading font-weight-light mb-0">Servicios de discografia</p>
         </div>
     </header>
+    <div class="divider-custom divider-light">
+    <form method="POST" action="">
+        <div class="container page-section bg-primary text-white mb-0">
+            <label for="Usuario">Usuario:</label>
+            <input type="text" name="Usuario"><br><br>
+            <label for="Contraseña">Contraseña:</label>
+            <input type="password" name="Contraseña"><br><br>
+            <p>¿No tienes cuenta?</p><button onClick="jump()" name="btn" placeholder="btn">Registrate aqui</button>
+        </div>
+    </form>
+    </div>
 {% endblock %}
 {% block galeria %}
     <section class="page-section bg-primary text-white mb-0" id="about">
@@ -62,29 +73,24 @@
 
         <fieldset class="container page-section bg-primary text-white mb-0">
 
-                <form method="POST" action="">
-                    <div class="container page-section bg-primary text-white mb-0">
-                        <label for="uname"><b>Username</b></label>
-                        <input type="text" placeholder="Enter Username" name="uname" required><br>
-
-                        <label for="psw"><b>Password</b></label>
-                        <input type="password" placeholder="Enter Password" name="psw" required>
-
-                        <button type="submit">Login</button>
-                        <label>
-                            <input type="checkbox" checked="checked" name="remember"> Remember me
-                        </label>
-                    </div>
-
-                    <div class="container" style="background-color:#f1f1f1">
-                        <button type="button" class="cancelbtn">Cancel</button>
-                        <span class="psw">Forgot <a href="#">password?</a></span>
-                    </div>
-
-                </form>
 
 
             <form method="post">
+                <span id='jump_to_this_location'></span>
+                <script>
+                    function jump()
+                    {
+                        window.location.hash = "jump_to_this_location";
+                    }
+                </script>
+                <label for="usuario">Usuario:</label>
+                <input type="text" name="usuario"><br><br>
+                <label for="email">Email:</label>
+                <input type="email" name="email"><br><br>
+                <label for="contrasena">Contraseña:</label>
+                <input type="password" name="contrasena"><br><br>
+                <label for="repetircontrasena">Repetir Contraseña:</label>
+                <input type="password" name="repetircontrasena"><br><br>
                 <h4>Sexo:</h4>
                 <input type="radio" id="hombre" name="sexo" value="hombre">
                 <label for="hombre">Hombre</label><br>
@@ -92,10 +98,13 @@
                 <label for="hombre">Mujer</label><br>
                 <input type="radio" id="otro" name="sexo" value="otro">
                 <label for="otro">Otro</label><br><br>
+                <button type="submit">Iniciar sesion</button>
+
             </form>
 
 
-            <button type="submit">Registrar</button>
+
+
 
         </fieldset>
     </form>
