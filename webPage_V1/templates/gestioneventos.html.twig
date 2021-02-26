@@ -7,6 +7,7 @@
 {% block titulo %}
     GESTION DE EVENTOS
 {% endblock %}
+<<<<<<< HEAD
 
 
 {% block menu %}
@@ -74,6 +75,20 @@
         <button type="submit">Reenviar</button>
     </div>
     <!--Portfolio 1 -->
+=======
+{% block gestioneventos %}
+    <!-- Portfolio Item 1-->
+    <div class="col-md-6 col-lg-4 mb-5">
+        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal1" style="margin-top: 205px;">
+            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
+            </div>
+            <h3 class="img-fluid">CREAR EVENTO</h3>
+
+        </div>
+    </div>
+    <!-- Portfolio Modal 1-->
+>>>>>>> 9cc0e19b81c1535ab8ed49c463623e7fc42693d7
     <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-labelledby="portfolioModal1Label" aria-hidden="true">
         <div class="modal-dialog modal-xl" role="document">
             <div class="modal-content">
@@ -85,6 +100,7 @@
                         <div class="row justify-content-center">
                             <div class="col-lg-8">
                                 <!-- Portfolio Modal - Title-->
+<<<<<<< HEAD
                                 <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="portfolioModal1Label">Arenal sound</h2>
                                 <!-- Icon Divider-->
                                 <div class="divider-custom">
@@ -99,6 +115,23 @@
                                 <button class="btn btn-primary" data-dismiss="modal">
                                     <i class="fas fa-times fa-fw"></i>
                                     Close Window
+=======
+                                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="portfolioModal1Label">Evento nuevo</h2>
+                                <!-- Portfolio Modal - Text-->
+                                <form style="margin-top: 35px;" method="post">
+                                    <label for="usuario">Nombre del evento:</label>
+                                    <input type="text" name="nombre"><br><br>
+                                    <label for="evento">Descripcion del evento:</label>
+                                    <input type="text" name="descripcion"><br><br>
+                                    <label for="ubicacion">Ubicacion del evento:</label>
+                                    <input type="text" name="ubicacion"><br><br>
+                                    <label for="fecha">Fecha del evento:</label>
+                                    <input type="date" name="fecha"><br><br>
+                                </form>
+                                <p class="mb-5"></p>
+                                <button class="btn btn-primary" >
+                                   Crear Evento
+>>>>>>> 9cc0e19b81c1535ab8ed49c463623e7fc42693d7
                                 </button>
                             </div>
                         </div>
@@ -107,6 +140,7 @@
             </div>
         </div>
     </div>
+<<<<<<< HEAD
     <!-- Portfolio Modal 2-->
     <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-labelledby="portfolioModal2Label" aria-hidden="true">
         <div class="modal-dialog modal-xl" role="document">
@@ -211,3 +245,8 @@
         </div>
     </div>
 {% endblock %}
+=======
+
+
+{% endblock %}
+>>>>>>> 9cc0e19b81c1535ab8ed49c463623e7fc42693d7
