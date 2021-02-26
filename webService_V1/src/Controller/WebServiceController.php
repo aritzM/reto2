@@ -2,6 +2,9 @@
 
 namespace App\Controller;
 
+use App\Entity\Clientes;
+use App\Entity\Conciertos;
+use App\Entity\Trajadores;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
@@ -37,15 +40,91 @@ class WebServiceController extends AbstractController
         return $this->jsonDam($datos);
     }
 
-        /**
+    /**
      * @Route("/crearUsu", name="crearUsu", methods={"POST"})
      */
     public function crearUsu()
     {
         $datos = file_get_contents('php://input');
         $request = json_decode($datos);
-        if ($request->nombre == "h") {
+
+
+        if ($request->nombre == "h")
+        {
+            $nombre = "";
+            $apellidos = "";
+            $genero = "";
+            $telefono = "";
+            $email = "";
+            $password = "";
+
+            $cliente = new Clientes();
+            $usuarios = $this->getDoctrine()->getRepository(Clientes::class)->findAll();
+            $ins = false;
+
+            foreach($usuarios as $usuario)
+            {
+                if($usuario->getNombre() != $nombre)
+                {
+                    $ins = true;
+                }
+            }
+
+            if($ins == true)
+            {
+                $cliente->setNombre($nombre);
+                $cliente->setApellidos($apellidos);
+                $cliente->setGenero($genero);
+                $cliente->setTelefono($telefono);
+                $cliente->setEmail($email);
+                $cliente->setPassword($password);
+                $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->persist($cliente);
+                $entityManager->flush();
+            }
+            else
+            {
+                $datos = array("error" => "Usuario existente");
+            }
+        }
+        else if($request->nombre == "Q")
+        {
+            $dni = "";
+            $nombre = "";
+            $apellidos = "";
+            $direccion = "";
+            $telefono = "";
+            $email = "";
+            $password = "";
+            $sexo = "";
+            $trabajor = new Trajadores();
+            $usuarios = $this->getDoctrine()->getRepository(Clientes::class)->findAll();
+            $ins = false;
+
+            foreach($usuarios as $usuario)
+            {
+                if($usuario->getNombre() != $nombre && $usuario->getDni() != $dni)
+                {
+                    $ins = true;
+                }
+            }
+            if($ins == true)
+            {
+                $trabajor->setDni($dni);
+                $trabajor->setNombre($nombre);
+                $trabajor->setApellidos($apellidos);
+                $trabajor->setDireccion($direccion);
+                $trabajor->setTelefono($telefono);
+                $trabajor->setEmail($email);
+                $trabajor->setPassword($password);
+                $trabajor->setSexo($sexo);
+                $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->persist($trabajor);
+                $entityManager->flush();
+            }
+
             $datos = array("hola" => "holamundo");
+
         }
         else
         {
@@ -63,8 +142,34 @@ class WebServiceController extends AbstractController
     {
         $datos = file_get_contents('php://input');
         $request = json_decode($datos);
-        if ($request->nombre == "h") {
-            $datos = array("hola" => "holamundo");
+
+        if ($request->nombre == "h")
+        {
+
+            $email = "";
+            $password = "";
+            $usuarios = $this->getDoctrine()->getRepository(Clientes::class)->findAll();
+            foreach ($usuarios as $usuario)
+            {
+                if($email == $usuario->getEmail() && $password == $usuario->getPassword())
+                {
+                    $datos = array("login" => "true", "usuario" => ["dni" => $usuario->getDni(), "nombre" => $usuario->getNombre(), "apellidos" => $usuario->getApellidos(), "direccion" => $usuario->getDireccion(), "telefono" => $usuario->getTelefono(), "sexo" => $usuario->getSexo()]);
+                }
+            }
+
+        }
+        else if($request->nombre == "Q")
+        {
+            $email = "";
+            $password = "";
+            $usuarios = $this->getDoctrine()->getRepository(Clientes::class)->findAll();
+            foreach ($usuarios as $usuario)
+            {
+                if($email == $usuario->getEmail() && $password == $usuario->getPassword())
+                {
+                    $datos = array("login" => "true", "usuario" => ["nombre" => $usuario->getNombre(), "apellidos" => $usuario->getApellidos(), "telefono" => $usuario->getTelefono(), "genero" => $usuario->getGenero()]);
+                }
+            }
         }
         else
         {
@@ -76,7 +181,7 @@ class WebServiceController extends AbstractController
 
 
     /**
-     * @Route("/eventosM", name="eventosM", methods={"GETT"})
+     * @Route("/eventosM", name="eventosM", methods={"GET"})
      */
     public function eventosM()
     {
@@ -84,7 +189,21 @@ class WebServiceController extends AbstractController
         $request = json_decode($datos);
         if ($request->nombre == "h")
         {
-            $datos = array("hola" => "holamundo");
+            $eventos = $this->getDoctrine()->getRepository(Conciertos::class)->findAll();
+            $eventosM = array();
+            $count = 0;
+            foreach($eventos as $evento)
+            {
+                $count = $count + 1;
+                $eventoM = new Conciertos();
+                $eventoM->setIdEvento($evento->getIdEvento());
+                $eventoM->setNombre($evento->getNombre());
+                $eventoM->setUbicacion($evento->getUbicacion());
+                $eventoM->setDescripcion($evento->getDescripcion());
+                $eventoM->setFechaevento($evento->getFechaevento()->format('Y-m-d'));
+                $eventosM[$count] = $eventoM;
+            }
+            $datos = array("eventos" => $eventosM);
         }
         else
         {
@@ -100,14 +219,25 @@ class WebServiceController extends AbstractController
      */
     public function mostrelimeventos()
     {
+        //REVISAR
         $datos = file_get_contents('php://input');
         $request = json_decode($datos);
         if ($request->nombre == "h")
         {
-            $datos = array("hola" => "holamundo");
+            $idEvento = "";
+            $eventos = $this->getDoctrine()->getRepository(Conciertos::class)->findAll();
+
+            foreach($eventos as $evento)
+            {
+                if($idEvento == $evento->getIdEvento())
+                {
+                }
+            }
+
         }
         else if($request->nombre == "Q")
         {
+            $idEvento = "";
             $datos = array("hola" => "holamundo");
         }
         else
@@ -126,12 +256,23 @@ class WebServiceController extends AbstractController
     {
         $datos = file_get_contents('php://input');
         $request = json_decode($datos);
+
         if ($request->nombre == "h")
         {
+            $nombre = "";
+            $decripcion = "";
+            $ubicacion = "";
+            $fechaevento = "";
+
             $datos = array("hola" => "holamundo");
         }
         else if($request->nombre == "Q")
         {
+            $nombre = "";
+            $decripcion = "";
+            $ubicacion = "";
+            $fechaevento = "";
+
             $datos = array("hola" => "holamundo");
         }
         else
@@ -170,11 +311,14 @@ class WebServiceController extends AbstractController
     {
         $datos = file_get_contents('php://input');
         $request = json_decode($datos);
-        if ($request->nombre == "h") {
+        if ($request->nombre == "h")
+        {
+            $idMaquetaciones = "";
             $datos = array("hola" => "holamundo");
         }
         else if($request->nombre == "Q")
         {
+            $idMaquetaciones = "";
             $datos = array("hola" => "holamundo");
         }
         else
@@ -195,10 +339,18 @@ class WebServiceController extends AbstractController
         $request = json_decode($datos);
         if ($request->nombre == "h")
         {
+            $nombre = "";
+            $nombreArtista = "";
+            $descripcion = "";
+
             $datos = array("hola" => "holamundo");
         }
         else if($request->nombre == "Q")
         {
+            $nombre = "";
+            $nombreArtista = "";
+            $descripcion = "";
+
             $datos = array("hola" => "holamundo");
         }
         else
@@ -207,6 +359,30 @@ class WebServiceController extends AbstractController
         }
 
         return $this->jsonDam($datos);
+    }
+    /**
+     * @Route("/comprinst", name="comprInst", methods={"POST"})
+     */
+    public function comprinst()
+    {
+        $datos = file_get_contents('php://input');
+        $request = json_decode($datos);
+        if($request->nombre == "h")
+        {
+            $nombreInst = ""; //para sacar la id
+            $idInst = "";
+            $nombreCli = ""; //para sacar el nombre del cliente
+            $idUsu = "";
+            $fecha = "";
+            $hora = "";
+            $unidades = "";
+
+            $datos = array("hola"=>"holamundo");
+        }
+        else
+        {
+            $datos = array("error"=>"error");
+        }
     }
 
     public function jsonDam($data)

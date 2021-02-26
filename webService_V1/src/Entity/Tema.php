@@ -35,5 +35,53 @@ class Tema
      */
     private $fechacreacion;
 
+    /**
+     * @return int
+     */
+    public function getIdTema()
+    {
+        return $this->idTema;
+    }
+
+    /**
+     * @param int $idTema
+     */
+    public function setIdTema($idTema)
+    {
+        $this->idTema = $idTema;
+    }
+
+    /**
+     * @return string
+     */
+    public function getNombre()
+    {
+        return $this->nombre;
+    }
+
+    /**
+     * @param string $nombre
+     */
+    public function setNombre($nombre)
+    {
+        $this->nombre = $nombre;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getFechacreacion()
+    {
+        return $this->fechacreacion;
+    }
+
+    /**
+     * @param \DateTime $fechacreacion
+     */
+    public function setFechacreacion($fechacreacion)
+    {
+        $this->fechacreacion = $fechacreacion;
+    }
+
 
 }

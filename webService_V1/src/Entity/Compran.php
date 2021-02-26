@@ -56,5 +56,101 @@ class Compran
      */
     private $unidades;
 
+    /**
+     * @return int
+     */
+    public function getIdCompra()
+    {
+        return $this->idCompra;
+    }
+
+    /**
+     * @param int $idCompra
+     */
+    public function setIdCompra($idCompra)
+    {
+        $this->idCompra = $idCompra;
+    }
+
+    /**
+     * @return int
+     */
+    public function getIdInstrumento()
+    {
+        return $this->idInstrumento;
+    }
+
+    /**
+     * @param int $idInstrumento
+     */
+    public function setIdInstrumento($idInstrumento)
+    {
+        $this->idInstrumento = $idInstrumento;
+    }
+
+    /**
+     * @return int
+     */
+    public function getIdCliente()
+    {
+        return $this->idCliente;
+    }
+
+    /**
+     * @param int $idCliente
+     */
+    public function setIdCliente($idCliente)
+    {
+        $this->idCliente = $idCliente;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getFecha()
+    {
+        return $this->fecha;
+    }
+
+    /**
+     * @param \DateTime $fecha
+     */
+    public function setFecha($fecha)
+    {
+        $this->fecha = $fecha;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getHora()
+    {
+        return $this->hora;
+    }
+
+    /**
+     * @param \DateTime $hora
+     */
+    public function setHora($hora)
+    {
+        $this->hora = $hora;
+    }
+
+    /**
+     * @return int
+     */
+    public function getUnidades()
+    {
+        return $this->unidades;
+    }
+
+    /**
+     * @param int $unidades
+     */
+    public function setUnidades($unidades)
+    {
+        $this->unidades = $unidades;
+    }
+
 
 }

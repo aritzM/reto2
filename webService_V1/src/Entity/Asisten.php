@@ -42,5 +42,69 @@ class Asisten
      */
     private $fecha;
 
+    /**
+     * @return int
+     */
+    public function getIdAsistencia()
+    {
+        return $this->idAsistencia;
+    }
+
+    /**
+     * @param int $idAsistencia
+     */
+    public function setIdAsistencia($idAsistencia)
+    {
+        $this->idAsistencia = $idAsistencia;
+    }
+
+    /**
+     * @return int
+     */
+    public function getIdCliente()
+    {
+        return $this->idCliente;
+    }
+
+    /**
+     * @param int $idCliente
+     */
+    public function setIdCliente($idCliente)
+    {
+        $this->idCliente = $idCliente;
+    }
+
+    /**
+     * @return int
+     */
+    public function getIdEvento()
+    {
+        return $this->idEvento;
+    }
+
+    /**
+     * @param int $idEvento
+     */
+    public function setIdEvento($idEvento)
+    {
+        $this->idEvento = $idEvento;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getFecha()
+    {
+        return $this->fecha;
+    }
+
+    /**
+     * @param \DateTime $fecha
+     */
+    public function setFecha($fecha)
+    {
+        $this->fecha = $fecha;
+    }
+
 
 }

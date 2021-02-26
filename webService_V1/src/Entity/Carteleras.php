@@ -35,5 +35,53 @@ class Carteleras
      */
     private $idTema;
 
+    /**
+     * @return int
+     */
+    public function getIdCartelera()
+    {
+        return $this->idCartelera;
+    }
+
+    /**
+     * @param int $idCartelera
+     */
+    public function setIdCartelera($idCartelera)
+    {
+        $this->idCartelera = $idCartelera;
+    }
+
+    /**
+     * @return int
+     */
+    public function getIdEvento()
+    {
+        return $this->idEvento;
+    }
+
+    /**
+     * @param int $idEvento
+     */
+    public function setIdEvento($idEvento)
+    {
+        $this->idEvento = $idEvento;
+    }
+
+    /**
+     * @return int
+     */
+    public function getIdTema()
+    {
+        return $this->idTema;
+    }
+
+    /**
+     * @param int $idTema
+     */
+    public function setIdTema($idTema)
+    {
+        $this->idTema = $idTema;
+    }
+
 
 }

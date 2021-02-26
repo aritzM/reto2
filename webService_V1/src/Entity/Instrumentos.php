@@ -49,5 +49,85 @@ class Instrumentos
      */
     private $precio;
 
+    /**
+     * @return int
+     */
+    public function getIdInstrumentos()
+    {
+        return $this->idInstrumentos;
+    }
+
+    /**
+     * @param int $idInstrumentos
+     */
+    public function setIdInstrumentos($idInstrumentos)
+    {
+        $this->idInstrumentos = $idInstrumentos;
+    }
+
+    /**
+     * @return string
+     */
+    public function getNombre()
+    {
+        return $this->nombre;
+    }
+
+    /**
+     * @param string $nombre
+     */
+    public function setNombre($nombre)
+    {
+        $this->nombre = $nombre;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTamaño()
+    {
+        return $this->tamaño;
+    }
+
+    /**
+     * @param string $tamaño
+     */
+    public function setTamaño($tamaño)
+    {
+        $this->tamaño = $tamaño;
+    }
+
+    /**
+     * @return string
+     */
+    public function getColor()
+    {
+        return $this->color;
+    }
+
+    /**
+     * @param string $color
+     */
+    public function setColor($color)
+    {
+        $this->color = $color;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPrecio()
+    {
+        return $this->precio;
+    }
+
+    /**
+     * @param string $precio
+     */
+    public function setPrecio($precio)
+    {
+        $this->precio = $precio;
+    }
+
 
 }

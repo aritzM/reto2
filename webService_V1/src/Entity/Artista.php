@@ -28,5 +28,37 @@ class Artista
      */
     private $nombre;
 
+    /**
+     * @return int
+     */
+    public function getIdArtista()
+    {
+        return $this->idArtista;
+    }
+
+    /**
+     * @param int $idArtista
+     */
+    public function setIdArtista($idArtista)
+    {
+        $this->idArtista = $idArtista;
+    }
+
+    /**
+     * @return string
+     */
+    public function getNombre()
+    {
+        return $this->nombre;
+    }
+
+    /**
+     * @param string $nombre
+     */
+    public function setNombre($nombre)
+    {
+        $this->nombre = $nombre;
+    }
+
 
 }

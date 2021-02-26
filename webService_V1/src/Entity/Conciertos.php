@@ -49,5 +49,85 @@ class Conciertos
      */
     private $fechaevento;
 
+    /**
+     * @return int
+     */
+    public function getIdEvento()
+    {
+        return $this->idEvento;
+    }
+
+    /**
+     * @param int $idEvento
+     */
+    public function setIdEvento($idEvento)
+    {
+        $this->idEvento = $idEvento;
+    }
+
+    /**
+     * @return string
+     */
+    public function getNombre()
+    {
+        return $this->nombre;
+    }
+
+    /**
+     * @param string $nombre
+     */
+    public function setNombre($nombre)
+    {
+        $this->nombre = $nombre;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDescripcion()
+    {
+        return $this->descripcion;
+    }
+
+    /**
+     * @param string $descripcion
+     */
+    public function setDescripcion($descripcion)
+    {
+        $this->descripcion = $descripcion;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUbicacion()
+    {
+        return $this->ubicacion;
+    }
+
+    /**
+     * @param string $ubicacion
+     */
+    public function setUbicacion($ubicacion)
+    {
+        $this->ubicacion = $ubicacion;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getFechaevento()
+    {
+        return $this->fechaevento;
+    }
+
+    /**
+     * @param \DateTime $fechaevento
+     */
+    public function setFechaevento($fechaevento)
+    {
+        $this->fechaevento = $fechaevento;
+    }
+
 
 }

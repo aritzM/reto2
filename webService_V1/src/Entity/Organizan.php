@@ -35,5 +35,53 @@ class Organizan
      */
     private $idTrabajador;
 
+    /**
+     * @return int
+     */
+    public function getIdOrganiza()
+    {
+        return $this->idOrganiza;
+    }
+
+    /**
+     * @param int $idOrganiza
+     */
+    public function setIdOrganiza($idOrganiza)
+    {
+        $this->idOrganiza = $idOrganiza;
+    }
+
+    /**
+     * @return int
+     */
+    public function getIdConcierto()
+    {
+        return $this->idConcierto;
+    }
+
+    /**
+     * @param int $idConcierto
+     */
+    public function setIdConcierto($idConcierto)
+    {
+        $this->idConcierto = $idConcierto;
+    }
+
+    /**
+     * @return int
+     */
+    public function getIdTrabajador()
+    {
+        return $this->idTrabajador;
+    }
+
+    /**
+     * @param int $idTrabajador
+     */
+    public function setIdTrabajador($idTrabajador)
+    {
+        $this->idTrabajador = $idTrabajador;
+    }
+
 
 }

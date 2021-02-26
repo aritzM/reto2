@@ -56,5 +56,124 @@ class Clientes
      */
     private $email;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="password", type="string", length=256, nullable=false)
+     */
+    private $password;
+
+    /**
+     * @return int
+     */
+    public function getIdCliente()
+    {
+        return $this->idCliente;
+    }
+
+    /**
+     * @param int $idCliente
+     */
+    public function setIdCliente($idCliente)
+    {
+        $this->idCliente = $idCliente;
+    }
+
+    /**
+     * @return string
+     */
+    public function getNombre()
+    {
+        return $this->nombre;
+    }
+
+    /**
+     * @param string $nombre
+     */
+    public function setNombre($nombre)
+    {
+        $this->nombre = $nombre;
+    }
+
+    /**
+     * @return string
+     */
+    public function getApellidos()
+    {
+        return $this->apellidos;
+    }
+
+    /**
+     * @param string $apellidos
+     */
+    public function setApellidos($apellidos)
+    {
+        $this->apellidos = $apellidos;
+    }
+
+    /**
+     * @return string
+     */
+    public function getGenero()
+    {
+        return $this->genero;
+    }
+
+    /**
+     * @param string $genero
+     */
+    public function setGenero($genero)
+    {
+        $this->genero = $genero;
+    }
+
+    /**
+     * @return int
+     */
+    public function getTelefono()
+    {
+        return $this->telefono;
+    }
+
+    /**
+     * @param int $telefono
+     */
+    public function setTelefono($telefono)
+    {
+        $this->telefono = $telefono;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * @param string $email
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPassword()
+    {
+        return $this->password;
+    }
+
+    /**
+     * @param string $password
+     */
+    public function setPassword($password)
+    {
+        $this->password = $password;
+    }
+
 
 }

@@ -35,5 +35,53 @@ class Compuestos
      */
     private $idMaqueta;
 
+    /**
+     * @return int
+     */
+    public function getIdCompuesto()
+    {
+        return $this->idCompuesto;
+    }
+
+    /**
+     * @param int $idCompuesto
+     */
+    public function setIdCompuesto($idCompuesto)
+    {
+        $this->idCompuesto = $idCompuesto;
+    }
+
+    /**
+     * @return int
+     */
+    public function getIdTema()
+    {
+        return $this->idTema;
+    }
+
+    /**
+     * @param int $idTema
+     */
+    public function setIdTema($idTema)
+    {
+        $this->idTema = $idTema;
+    }
+
+    /**
+     * @return int
+     */
+    public function getIdMaqueta()
+    {
+        return $this->idMaqueta;
+    }
+
+    /**
+     * @param int $idMaqueta
+     */
+    public function setIdMaqueta($idMaqueta)
+    {
+        $this->idMaqueta = $idMaqueta;
+    }
+
 
 }

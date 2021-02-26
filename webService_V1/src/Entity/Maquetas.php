@@ -42,5 +42,69 @@ class Maquetas
      */
     private $descripcion;
 
+    /**
+     * @return int
+     */
+    public function getIdMaquetas()
+    {
+        return $this->idMaquetas;
+    }
+
+    /**
+     * @param int $idMaquetas
+     */
+    public function setIdMaquetas($idMaquetas)
+    {
+        $this->idMaquetas = $idMaquetas;
+    }
+
+    /**
+     * @return string
+     */
+    public function getNombre()
+    {
+        return $this->nombre;
+    }
+
+    /**
+     * @param string $nombre
+     */
+    public function setNombre($nombre)
+    {
+        $this->nombre = $nombre;
+    }
+
+    /**
+     * @return int
+     */
+    public function getIdArtista()
+    {
+        return $this->idArtista;
+    }
+
+    /**
+     * @param int $idArtista
+     */
+    public function setIdArtista($idArtista)
+    {
+        $this->idArtista = $idArtista;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDescripcion()
+    {
+        return $this->descripcion;
+    }
+
+    /**
+     * @param string $descripcion
+     */
+    public function setDescripcion($descripcion)
+    {
+        $this->descripcion = $descripcion;
+    }
+
 
 }
