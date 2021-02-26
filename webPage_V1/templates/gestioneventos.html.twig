@@ -10,7 +10,6 @@
 {% endblock %}
 
 
-
 {% block gestioneventos %}
     <!-- Portfolio Item 1-->
     <div class="col-md-6 col-lg-4 mb-5">
@@ -21,26 +20,250 @@
             <h3 class="img-fluid">CREAR EVENTO</h3>
         </div>
     </div>
+    <!-- Portfolio Modal 1-->
+    <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-labelledby="portfolioModal1Label" aria-hidden="true">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content">
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"><i class="fas fa-times"></i></span>
+                </button>
+                <div class="modal-body text-center">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <!-- Portfolio Modal - Title-->
+                                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="portfolioModal1Label">Crear evento</h2>
+                                <!-- Portfolio Modal - Text-->
+                                <form style="margin-top: 35px;" method="post">
+                                    <label for="usuario">Nombre del evento:</label>
+                                    <input type="text" name="nombre"><br><br>
+                                    <label for="evento">Descripcion del evento:</label>
+                                    <input type="text" name="descripcion"><br><br>
+                                    <label for="ubicacion">Ubicacion del evento:</label>
+                                    <input type="text" name="ubicacion"><br><br>
+                                    <label for="fecha">Fecha del evento:</label>
+                                    <input type="date" name="fecha"><br><br>
+                                </form>
+                                <button class="btn btn-primary" >
+                                    Crear Evento
+                                </button>
 
-    <form style="margin-top: 35px;" method="post">
-        <label for="usuario">Nombre del evento:</label>
-        <input type="text" name="nombre"><br><br>
-        <label for="evento">Descripcion del evento:</label>
-        <input type="text" name="descripcion"><br><br>
-        <label for="ubicacion">Ubicacion del evento:</label>
-        <input type="text" name="ubicacion"><br><br>
-        <label for="fecha">Fecha del evento:</label>
-        <input type="date" name="fecha"><br><br>
-    </form>
-    <p class="mb-5"></p>
-    <button class="btn btn-primary" >
-        Crear Evento
-    </button>
+                                <p class="mb-5"></p>
+                                <button class="btn btn-primary" data-dismiss="modal">
+                                    <i class="fas fa-times fa-fw"></i>
+                                    Close Window
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 
 {% endblock %}
+{% block tablaeventos %}
+    <div style="position: relative; top: 150px;">
+        <table>
+            <thead>
+            <ul style="display: flex;">
+                <div class="portfolio-item mx-auto col-md-6 col-lg-4 mb- portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                    <li style="width: 100%; display: inline;">ID</li>
+                </div>&nbsp;&nbsp;
+                <li style="width: 100%; display: inline;">NOMBRE</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <li style="width: 100%; display: inline;">DESCRIPCION</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <li style="width: 100%; display: inline;">SONIDO</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <li style="width: 100%; display: inline;">FECHA</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </ul>
 
+            </thead>
+        </table>
+        <table>
+            <tbody>
 
+            <ul style="display: flex;">
+                <div class="portfolio-item mx-auto col-md-6 col-lg-4 mb- portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100" data-toggle="modal" data-target="#portfolioModal13">
+                    <li style="width: 100%; display: inline;">Are</li>
+                </div>&nbsp;&nbsp;
+                <li style="width: 100%; display: inline;">Arenal sound</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <li style="width: 100%; display: inline;">Es un festival en Valencia</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <li style="width: 100%; display: inline;">De todo tipo</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <li style="width: 100%; display: inline; ">15/07/2021</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </ul>
+            <ul style="display: flex;">
+                <div class="portfolio-item mx-auto col-md-6 col-lg-4 mb- portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100" data-toggle="modal" data-target="#portfolioModal2">
+                    <li style="width: 100%; display: inline;">Tomo</li>
+                </div>&nbsp;&nbsp;
+                <li style="width: 100%; display: inline;">Tomorrowland</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <li style="width: 100%; display: inline;">Es un evento en Belgica</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <li style="width: 100%; display: inline;">TECH</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <li style="width: 100%; display: inline; ">24/07/2021</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </ul>
+            <ul style="display: flex;">
+                <div class="portfolio-item mx-auto col-md-6 col-lg-4 mb- portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100" data-toggle="modal" data-target="#portfolioModal3">
+                    <li style="width: 100%; display: inline;">RBF</li>
+                </div>&nbsp;&nbsp;
+                <li style="width: 100%; display: inline;">Reggaeton beach festival</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <li style="width: 100%; display: inline;">El evento esta situado en santander y barcelona</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <li style="width: 100%; display: inline;">Reggaeton</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <li style="width: 100%; display: inline; ">13/08/2021</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </ul>
+            <ul style="display: flex;">
+                <div class="portfolio-item mx-auto col-md-6 col-lg-4 mb- portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100" data-toggle="modal" data-target="#portfolioModal4">
+                    <li style="width: 100%; display: inline;">Sonus</li>
+                </div>&nbsp;&nbsp;
+                <li style="width: 100%; display: inline;">Sonus festival</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <li style="width: 100%; display: inline;">El evento esta situado en el sur de croacia</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <li style="width: 100%; display: inline;">Tech</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <li style="width: 100%; display: inline; ">15/08/2021</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </ul>
+
+            </tbody>
+        </table>
+        <button type="submit">Enviar</button>
+        <button type="submit">Reenviar</button>
+    </div>
+    <!-- Portfolio Modal 1-->
+    <div class="portfolio-modal modal fade" id="portfolioModal13" tabindex="-1" role="dialog" aria-labelledby="portfolioModal1Label" aria-hidden="true">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content">
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"><i class="fas fa-times"></i></span>
+                </button>
+                <div class="modal-body text-center">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <!-- Portfolio Modal - Title-->
+                                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="portfolioModal1Label">Arenal sound</h2>
+                                <!-- Icon Divider-->
+                                <div class="divider-custom">
+                                    <div class="divider-custom-line"></div>
+                                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                                    <div class="divider-custom-line"></div>
+                                </div>
+                                <!-- Portfolio Modal - Image-->
+                                <img class="img-fluid rounded mb-5" src="assets/img/arenal.jpg" alt="" />
+                                <!-- Portfolio Modal - Text-->
+                                <p class="mb-5"></p>
+                                <button class="btn btn-primary" data-dismiss="modal">
+                                    <i class="fas fa-times fa-fw"></i>
+                                    Close Window
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Portfolio Modal 2-->
+    <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-labelledby="portfolioModal2Label" aria-hidden="true">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content">
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"><i class="fas fa-times"></i></span>
+                </button>
+                <div class="modal-body text-center">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <!-- Portfolio Modal - Title-->
+                                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="portfolioModal2Label">Tomorrowland</h2>
+                                <!-- Icon Divider-->
+                                <div class="divider-custom">
+                                    <div class="divider-custom-line"></div>
+                                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                                    <div class="divider-custom-line"></div>
+                                </div>
+                                <!-- Portfolio Modal - Image-->
+                                <img class="img-fluid rounded mb-5" src="assets/img/tomorrow.jpg" alt="" />
+                                <!-- Portfolio Modal - Text-->
+                                <p class="mb-5">Tomorrowland es un festival de música electrónica de baile celebrado anualmente en la localidad de Boom (Bélgica). El festival es organizado por las empresas propias del festival (We Are One World y Tomorrowland Foundation) en conjunción con la promotora estadounidense LiveStyle, y se calcula que anualmente acuden más de 400.000 personas de casi 200 nacionalidades distintas.1​2​ Es oficialmente el festival más grande del planeta.
+                                </p>
+                                <button class="btn btn-primary" data-dismiss="modal">
+                                    <i class="fas fa-times fa-fw"></i>
+                                    Close Window
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Portfolio Modal 3-->
+    <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-labelledby="portfolioModal3Label" aria-hidden="true">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content">
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"><i class="fas fa-times"></i></span>
+                </button>
+                <div class="modal-body text-center">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <!-- Portfolio Modal - Title-->
+                                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="portfolioModal3Label">RBF</h2>
+                                <!-- Icon Divider-->
+                                <div class="divider-custom">
+                                    <div class="divider-custom-line"></div>
+                                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                                    <div class="divider-custom-line"></div>
+                                </div>
+                                <!-- Portfolio Modal - Image-->
+                                <img class="img-fluid rounded mb-5" src="assets/img/rbf.png" alt="" />
+                                <!-- Portfolio Modal - Text-->
+                                <p class="mb-5">Barcelona reúne a las grandes estrellas del género latino más escuchado en todas las fiestas: el reggaeton. La cita tendrá lugar este sábado 28 de julio, desde las doce de la mañana hasta las doce de la noche. El fenómeno reggaeton celebra su segundo festival en la capital catalana y esta vez, a diferencia de 2017 en Badalona, lo hace en el Parc del Fòrum con los artistas más famosos de este estilo.</p>
+                                <button class="btn btn-primary" data-dismiss="modal">
+                                    <i class="fas fa-times fa-fw"></i>
+                                    Close Window
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Portfolio Modal 4-->
+
+    <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-labelledby="portfolioModal4Label" aria-hidden="true">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content">
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"><i class="fas fa-times"></i></span>
+                </button>
+                <div class="modal-body text-center">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <!-- Portfolio Modal - Title-->
+                                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="portfolioModal4Label">Sonus fest</h2>
+                                <!-- Icon Divider-->
+                                <div class="divider-custom">
+                                    <div class="divider-custom-line"></div>
+                                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                                    <div class="divider-custom-line"></div>
+                                </div>
+                                <!-- Portfolio Modal - Image-->
+                                <img class="img-fluid rounded mb-5" src="assets/img/sonusfest.jpg" alt="" />
+                                <!-- Portfolio Modal - Text-->
+                                <p class="mb-5">Cuando planeas ir al Sonus, no es como para otros festivales, que te lías la manta a la cabeza y de un día para otro te plantas allí como uno más. No. Croacia está en la otra punta de Europa, y si planeas ir en próximas ediciones, te recomiendo que empieces a ahorrar. De momento no hay vuelos low cost, y solo en el billete ya te dejas un pico. Es un festival joven que nació en 2013, pero tremendamente ambicioso, con un cartel que no deja indiferente a nadie. Traen a los grandes de los grandes en pleno agosto, justo cuando en Ibiza está en su momento más álgido. Las entradas cuestan cerca de los 200€, pero si echas cuentas, no es tan caro para ser un festival de 5 días, que en la práctica se convierten en 6 y en el que tenéis la posibilidad de ver a tanto deejay de calidad a la vez. </p>
+                                <button class="btn btn-primary" data-dismiss="modal">
+                                    <i class="fas fa-times fa-fw"></i>
+                                    Close Window
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
 
 
