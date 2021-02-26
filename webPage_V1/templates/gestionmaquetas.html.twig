@@ -66,8 +66,7 @@
 
             </tbody>
         </table>
-        <button type="submit">Enviar</button>
-        <button type="submit">Reenviar</button>
+        <button type="submit">Crear</button>
     </div>
     <!--Portfolio -->
 
@@ -91,13 +90,34 @@
                                     <div class="divider-custom-line"></div>
                                 </div>
                                 <!-- Portfolio Modal - Image-->
-                                <img class="img-fluid rounded mb-5" src="assets/img/maqueta.jpeg" alt="" />
+                                <form method="post">
+                                    <span id='jump_to_this_location'></span>
+                                    <script>
+                                        function jump()
+                                        {
+                                            window.location.hash = "jump_to_this_location";
+                                        }
+                                    </script>
+                                    <label for="nombre">Nombre:</label>
+                                    <input type="text" name="nombre"><br><br>
+                                    <label for="email">Artista:</label>
+                                    <input type="text" name="artisrta"><br><br>
+                                    <label for="descripcion">Descripcion:</label>
+                                    <input type="text" name="descripcion"><br><br>
+                                    <label for="fecha">Fecha:</label>
+                                    <input type="date" name="fecha"><br><br>
+                                    <button type="submit">Iniciar sesion</button>
+
+                                </form>
                                 <!-- Portfolio Modal - Text-->
                                 <p class="mb-5"></p>
                                 <button class="btn btn-primary" data-dismiss="modal">
-                                    <i class="fas fa-times fa-fw"></i>
-                                    Close Window
+                                    Modificar
                                 </button>
+                                <button class="btn btn-primary" data-dismiss="modal">
+                                    Eliminar
+                                </button>
+
                             </div>
                         </div>
                     </div>
@@ -129,8 +149,10 @@
                                 <!-- Portfolio Modal - Text-->
                                 <p class="mb-5"></p>
                                 <button class="btn btn-primary" data-dismiss="modal">
-                                    <i class="fas fa-times fa-fw"></i>
-                                    Close Window
+                                    Modificar
+                                </button>
+                                <button class="btn btn-primary" data-dismiss="modal">
+                                    Eliminar
                                 </button>
                             </div>
                         </div>
@@ -163,8 +185,10 @@
                                 <!-- Portfolio Modal - Text-->
                                 <p class="mb-5"></p>
                                 <button class="btn btn-primary" data-dismiss="modal">
-                                    <i class="fas fa-times fa-fw"></i>
-                                    Close Window
+                                    Modificar
+                                </button>
+                                <button class="btn btn-primary" data-dismiss="modal">
+                                    Eliminar
                                 </button>
                             </div>
                         </div>
@@ -197,8 +221,10 @@
                                 <!-- Portfolio Modal - Text-->
                                 <p class="mb-5"></p>
                                 <button class="btn btn-primary" data-dismiss="modal">
-                                    <i class="fas fa-times fa-fw"></i>
-                                    Close Window
+                                    Modificar
+                                </button>
+                                <button class="btn btn-primary" data-dismiss="modal">
+                                    Eliminar
                                 </button>
                             </div>
                         </div>
@@ -208,3 +234,4 @@
         </div>
     </div>
 {% endblock %}
+
