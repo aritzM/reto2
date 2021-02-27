@@ -77,7 +77,6 @@ class WebPageController extends AbstractController
     {
         return $this->render('gestionmaquetas.html.twig');
     }
-
     /**
      * @Route("/crearUsu", name="crearUsu")
      */

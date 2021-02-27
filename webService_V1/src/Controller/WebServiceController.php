@@ -456,12 +456,12 @@ class WebServiceController extends AbstractController
             foreach ($maquetas as $maqueta)
             {
                 $count = $count + 1;
-                /*$maquetaM = new Maquetas();
-                $maquetaM->setIdMaquetas($maqueta->getIdMaquedas());
+                $maquetaM = new Maquetas();
+                $maquetaM->setIdMaquetas($maqueta->getIdMaquetas());
                 $maquetaM->setIdArtista($maqueta->getIdArtista());
                 $maquetaM->setNombre($maqueta->getNombre());
-                $maquetaM->setDescripcion($maqueta->getDescripcion());*/
-                $maquetasM[$count] = $maqueta;
+                $maquetaM->setDescripcion($maqueta->getDescripcion());
+                $maquetasM[$count] = $maquetaM;
 
             }
             $datos = array("maquetas" => $maquetasM);
