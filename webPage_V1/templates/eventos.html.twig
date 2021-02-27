@@ -6,7 +6,29 @@
 
 {% block titulo %}
 {% endblock %}
+
 {% block ventamaquetas %}
+    {% for evento in eventosM.eventos %}
+        <h1 class=" text-uppercase mb-0">{{ evento.nombre }}</h1>
+        <!-- Icon Divider-->
+        <div class="divider-custom divider-light">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+            <div class="divider-custom-line"></div>
+        </div>
+        <!-- Portfolio Item 1-->
+        <div class="col-md-6 col-lg-4 mb-5">
+            <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal1">
+                <img class="img-fluid" src="assets/img/flauta.jpg" alt="" />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4 ml-auto"><p class="lead">{{ evento.descripcion }}</p></div>
+            <div class="col-lg-4 mr-auto"><p class="lead">Fecha de lanzamiento:<br>2021-03-23</p></div>
+        </div>
+
+    {% endfor %}
     <header class="masthead bg-primary text-white text-center">
         <div class="container d-flex align-items-center flex-column">
             <!-- Masthead Heading-->

@@ -246,7 +246,7 @@ class WebServiceController extends AbstractController
             {
                 if($email == $usuario->getEmail() && $password == $usuario->getPassword())
                 {
-                    $datos = array("login" => "true", "usuario" => ["dni" => $usuario->getDni(), "nombre" => $usuario->getNombre(), "apellidos" => $usuario->getApellidos(), "direccion" => $usuario->getDireccion(), "telefono" => $usuario->getTelefono(), "sexo" => $usuario->getSexo()]);
+                    $datos = array("login" => "true", "usuario" => ["idCliente" => $usuario->getIdCliente(), "nombre" => $usuario->getNombre(), "apellidos" => $usuario->getApellidos(),  "telefono" => $usuario->getTelefono(), "genero" => $usuario->getGenero()]);
                 }
                 else
                 {
@@ -265,7 +265,7 @@ class WebServiceController extends AbstractController
             {
                 if($email == $usuario->getEmail() && $password == $usuario->getPassword())
                 {
-                    $datos = array("login" => "true", "usuario" => ["nombre" => $usuario->getNombre(), "apellidos" => $usuario->getApellidos(), "telefono" => $usuario->getTelefono(), "genero" => $usuario->getGenero()]);
+                    $datos = array("login" => "true", "usuario" => ["dni" => $usuario->getDni(), "nombre" => $usuario->getNombre(), "apellidos" => $usuario->getApellidos(), "telefono" => $usuario->getTelefono(), "sexo" => $usuario->getSexo()]);
                 }
                 else
                 {
@@ -295,6 +295,7 @@ class WebServiceController extends AbstractController
             $eventos = $this->getDoctrine()->getRepository(Conciertos::class)->findAll();
             $eventosM = array();
             $count = 0;
+
             foreach($eventos as $evento)
             {
                 $count = $count + 1;
@@ -304,7 +305,7 @@ class WebServiceController extends AbstractController
                 $eventoM->setUbicacion($evento->getUbicacion());
                 $eventoM->setDescripcion($evento->getDescripcion());
                 $eventoM->setFechaevento($evento->getFechaevento()->format('Y-m-d'));
-                $eventosM[$count] = $evento;
+                $eventosM[$count] = $eventoM;
             }
             $datos = array("eventos" => $eventosM);
         }
