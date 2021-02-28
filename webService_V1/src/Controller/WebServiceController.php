@@ -26,16 +26,19 @@ use Symfony\Component\Serializer\Serializer;
 
 class WebServiceController extends AbstractController
 {
+    //FALTA DEVOLUCION DE ARTISTAS E INSTRUMENTOS
     ////*****REVISAAAAAAAR HABER SI SE PUEDE HACER ALGUNA FUNCION ETC*****/////
     /**
-     * @Route("/", name="index", methods={"GET"})
+     * @Route("/instrumentos", name="instrumentos", methods={"GET"})
      */
-    public function index()
+    public function instrumentos()
     {
         $datos = file_get_contents('php://input');
         $request = json_decode($datos);
-        if ($request->nombre == "h") {
-            $datos = array("hola" => "holamundo");
+        if ($request->nombre == "h")
+        {
+            $instrumentos = $this->getDoctrine()->getRepository(Instrumentos::class)->findAll();
+            $datos = array("instrumentos" => $instrumentos);
         }
         else
         {
@@ -44,7 +47,25 @@ class WebServiceController extends AbstractController
 
         return $this->jsonDam($datos);
     }
+    /**
+     * @Route("/artistas", name="artistas", methods={"GET"})
+     */
+    public function artistas()
+    {
+        $datos = file_get_contents('php://input');
+        $request = json_decode($datos);
+        if ($request->nombre == "h")
+        {
+            $artistas = $this->getDoctrine()->getRepository(Artista::class)->findAll();
+            $datos = array("artistas" => $artistas);
+        }
+        else
+        {
+            $datos = array("error" => "error");
+        }
 
+        return $this->jsonDam($datos);
+    }
     /**
      * @Route("/crearModUsu", name="crearModUsu", methods={"POST"})
      */
@@ -98,7 +119,9 @@ class WebServiceController extends AbstractController
                         $cliente->setGenero($genero);
                         $cliente->setTelefono($telefono);
                         $cliente->setEmail($email);
-                        $cliente->setPassword($password);
+                        $passwordE=password_hash($password,PASSWORD_DEFAULT,[15]);
+
+                        $cliente->setPassword($passwordE);
                         $entityManager = $this->getDoctrine()->getManager();
                         $entityManager->persist($cliente);
                         $entityManager->flush();
@@ -284,7 +307,8 @@ class WebServiceController extends AbstractController
 
             foreach ($usuarios as $usuario)
             {
-                if($email == $usuario->getEmail() && $password == $usuario->getPassword())
+
+                if($email == $usuario->getEmail() && password_verify($password, $usuario->getPassword()))
                 {
                     $datos = array("login" => "true", "usuario" => ["idCliente" => $usuario->getIdCliente(), "nombre" => $usuario->getNombre(), "apellidos" => $usuario->getApellidos(),  "telefono" => $usuario->getTelefono(), "genero" => $usuario->getGenero()]);
                     return $this->jsonDam($datos);
@@ -401,6 +425,8 @@ class WebServiceController extends AbstractController
      */
     public function crmodeventos()
     {
+        //FALTA QUE EVENTOS ESTAN ORGANIZADOS PORQUE TRABAJADOR
+        //FALTA QUE CANCIONES SE TOCA EN ESE EVENTO
         $datos = file_get_contents('php://input');
         $request = json_decode($datos);
 
@@ -568,6 +594,7 @@ class WebServiceController extends AbstractController
      */
     public function cractmaquetacion()
     {
+        //FALTA CREAR PORQUE TEMAS ESTAN COMPUESTOS QUE MAQUETAS
         $datos = file_get_contents('php://input');
         $request = json_decode($datos);
         if ($request->tipo == "Crear")
