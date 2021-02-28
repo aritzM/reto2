@@ -428,7 +428,19 @@ class WebPageController extends AbstractController
      */
     public function gestiontrabajadores()
     {
-        return $this->render('gestiontrabajadores.html.twig');
+        $data = array('json' => ['nombre' => "h"]);
+
+        //ENVIAR PETICION
+
+        $client = HttpClient::create();
+        //$response = $client->request('POST', '192.168.4.96:8000', $data);
+        $response = $client->request('GET', 'http://127.0.0.1:8001/trabajadores', $data);
+
+        $datos = $response->toArray();
+
+        $parametros = array('trabajadores' => $datos);
+
+        return $this->render('gestiontrabajadores.html.twig', $parametros);
     }
 
     /**

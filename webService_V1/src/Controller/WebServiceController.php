@@ -86,7 +86,7 @@ class WebServiceController extends AbstractController
                 $trabajadorM->setPassword(null);
                 $trabajadoresM[$count] = $trabajadorM;
             }
-            $datos = array("artistas" => $trabajadoresM);
+            $datos = array("trabajadores" => $trabajadoresM);
         }
         else
         {
