@@ -7,17 +7,24 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Trajadores
  *
- * @ORM\Table(name="trajadores")
+ * @ORM\Table(name="trajadores", uniqueConstraints={@ORM\UniqueConstraint(name="email", columns={"email"})})
  * @ORM\Entity
  */
 class Trajadores
 {
     /**
+     * @var int
+     *
+     * @ORM\Column(name="id_trabajador", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idTrabajador;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="dni", type="string", length=9, nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $dni;
 
@@ -69,6 +76,22 @@ class Trajadores
      * @ORM\Column(name="sexo", type="string", length=55, nullable=false)
      */
     private $sexo;
+
+    /**
+     * @return int
+     */
+    public function getIdTrabajador()
+    {
+        return $this->idTrabajador;
+    }
+
+    /**
+     * @param int $idTrabajador
+     */
+    public function setIdTrabajador($idTrabajador)
+    {
+        $this->idTrabajador = $idTrabajador;
+    }
 
     /**
      * @return string

@@ -43,13 +43,6 @@ class Compran
     private $fecha;
 
     /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="hora", type="time", nullable=false)
-     */
-    private $hora;
-
-    /**
      * @var int
      *
      * @ORM\Column(name="unidades", type="integer", nullable=false)
@@ -118,22 +111,6 @@ class Compran
     public function setFecha($fecha)
     {
         $this->fecha = $fecha;
-    }
-
-    /**
-     * @return \DateTime
-     */
-    public function getHora()
-    {
-        return $this->hora;
-    }
-
-    /**
-     * @param \DateTime $hora
-     */
-    public function setHora($hora)
-    {
-        $this->hora = $hora;
     }
 
     /**
