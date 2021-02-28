@@ -64,6 +64,13 @@ class Clientes
     private $password;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="passwordtext", type="string", length=55, nullable=false)
+     */
+    private $passwordtext;
+
+    /**
      * @return int
      */
     public function getIdCliente()
@@ -173,6 +180,22 @@ class Clientes
     public function setPassword($password)
     {
         $this->password = $password;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPasswordtext()
+    {
+        return $this->passwordtext;
+    }
+
+    /**
+     * @param string $passwordtext
+     */
+    public function setPasswordtext($passwordtext)
+    {
+        $this->passwordtext = $passwordtext;
     }
 
 

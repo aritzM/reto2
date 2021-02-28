@@ -73,6 +73,13 @@ class Trajadores
     /**
      * @var string
      *
+     * @ORM\Column(name="passwordtext", type="string", length=55, nullable=false)
+     */
+    private $passwordtext;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="sexo", type="string", length=55, nullable=false)
      */
     private $sexo;
@@ -203,6 +210,22 @@ class Trajadores
     public function setPassword($password)
     {
         $this->password = $password;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPasswordtext()
+    {
+        return $this->passwordtext;
+    }
+
+    /**
+     * @param string $passwordtext
+     */
+    public function setPasswordtext($passwordtext)
+    {
+        $this->passwordtext = $passwordtext;
     }
 
     /**
