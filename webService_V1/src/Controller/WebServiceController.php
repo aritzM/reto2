@@ -8,6 +8,7 @@ use App\Entity\Compran;
 use App\Entity\Conciertos;
 use App\Entity\Instrumentos;
 use App\Entity\Maquetas;
+use App\Entity\Organizan;
 use App\Entity\Trajadores;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -26,7 +27,6 @@ use Symfony\Component\Serializer\Serializer;
 
 class WebServiceController extends AbstractController
 {
-    //FALTA DEVOLUCION DE ARTISTAS E INSTRUMENTOS
     ////*****REVISAAAAAAAR HABER SI SE PUEDE HACER ALGUNA FUNCION ETC*****/////
     /**
      * @Route("/instrumentos", name="instrumentos", methods={"GET"})
@@ -425,7 +425,6 @@ class WebServiceController extends AbstractController
      */
     public function crmodeventos()
     {
-        //FALTA QUE EVENTOS ESTAN ORGANIZADOS PORQUE TRABAJADOR
         //FALTA QUE CANCIONES SE TOCA EN ESE EVENTO
         $datos = file_get_contents('php://input');
         $request = json_decode($datos);
@@ -433,12 +432,14 @@ class WebServiceController extends AbstractController
         if ($request->tipo == "Crear")
         {
             $nombre = $request->nombre;
+            $dni = $request->dni;
             $decripcion = $request->descripcion;
             $ubicacion = $request->ubicacion;
             $fechaevento = $request->fechaevento;
 
             $eventos = $this->getDoctrine()->getRepository(Conciertos::class)->findAll();
             $ins = false;
+
             if(empty($eventos))
             {
                 $eventoC = new Conciertos();
@@ -446,10 +447,34 @@ class WebServiceController extends AbstractController
                 $eventoC->setDescripcion($decripcion);
                 $eventoC->setUbicacion($ubicacion);
                 //formatear a date time se hace de otra forma pero es pa dejar estructurao el webservice
-                $eventoC->setFechaevento($fechaevento->format('Y-d-m'));
+                $date = \DateTime::createFromFormat('Y/m/d', $fechaevento);
+                $eventoC->setFechaevento($date);
                 $entityManager = $this->getDoctrine()->getManager();
                 $entityManager->persist($eventoC);
                 $entityManager->flush();
+                $eventosN = $this->getDoctrine()->getRepository(Conciertos::class)->findAll();
+                $idEvento = "";
+                foreach($eventosN as $evento)
+                {
+                    if($evento->getNombre() == $nombre && $evento->getFechaevento() == $date)
+                    {
+                        $idEvento = $evento->getIdEvento();
+                    }
+                }
+                $organizador = $this->getDoctrine()->getRepository(Trajadores::class)->findAll();
+
+                foreach($organizador as $organiza)
+                {
+                    if($organiza->getDni() == $dni)
+                    {
+                        $organizan = new Organizan();
+                        $organizan->setIdConcierto($idEvento);
+                        $organizan->setIdTrabajador($organiza->getIdTrabajador());
+                        $entityManager = $this->getDoctrine()->getManager();
+                        $entityManager->persist($organizan);
+                        $entityManager->flush();
+                    }
+                }
 
                 $datos = array("inserccion" => "El evento o concierto se inserto correctamente");
             }
@@ -475,6 +500,30 @@ class WebServiceController extends AbstractController
                     $entityManager = $this->getDoctrine()->getManager();
                     $entityManager->persist($eventoC);
                     $entityManager->flush();
+                    $eventosN = $this->getDoctrine()->getRepository(Conciertos::class)->findAll();
+                    $idEvento = "";
+
+                    foreach($eventosN as $evento)
+                    {
+                        if($evento->getNombre() == $nombre && $evento->getFechaevento() == $date)
+                        {
+                            $idEvento = $evento->getIdEvento();
+                        }
+                    }
+                    $organizador = $this->getDoctrine()->getRepository(Trajadores::class)->findAll();
+
+                    foreach($organizador as $organiza)
+                    {
+                        if($organiza->getDni() == $dni)
+                        {
+                            $organizan = new Organizan();
+                            $organizan->setIdConcierto($idEvento);
+                            $organizan->setIdTrabajador($organiza->getIdTrabajador());
+                            $entityManager = $this->getDoctrine()->getManager();
+                            $entityManager->persist($organizan);
+                            $entityManager->flush();
+                        }
+                    }
 
                     $datos = array("inserccion" => "El evento o concierto se inserto correctamente");
                 }
@@ -488,6 +537,7 @@ class WebServiceController extends AbstractController
         {
             $idEvento = $request->idEvento;
             $nombre = $request->nombre;
+            $dni = $request->dni;
             $descripcion = $request->descripcion;
             $ubicacion = $request->ubicacion;
             $fechaevento = $request->fechaevento;
@@ -507,6 +557,20 @@ class WebServiceController extends AbstractController
                     $entityManager->persist($evento);
                     $entityManager->flush();
 
+                    $organizador = $this->getDoctrine()->getRepository(Trajadores::class)->findAll();
+
+                    foreach($organizador as $organiza)
+                    {
+                        if($organiza->getDni() == $dni)
+                        {
+                            $organizan = new Organizan();
+                            $organizan->setIdConcierto($idEvento);
+                            $organizan->setIdTrabajador($organiza->getIdTrabajador());
+                            $entityManager = $this->getDoctrine()->getManager();
+                            $entityManager->persist($organizan);
+                            $entityManager->flush();
+                        }
+                    }
                     $datos = array("actualizacion" => "La actualizacion del evento se hizo correctamente");
                     return $this->jsonDam($datos);
                 }
@@ -523,7 +587,6 @@ class WebServiceController extends AbstractController
 
         return $this->jsonDam($datos);
     }
-
 
     /**
      * @Route("/mostrmaquetaciones", name="mostrmaquetaciones", methods={"POST"})
