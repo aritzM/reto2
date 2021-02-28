@@ -119,6 +119,8 @@ class WebServiceController extends AbstractController
                         $cliente->setGenero($genero);
                         $cliente->setTelefono($telefono);
                         $cliente->setEmail($email);
+
+                        //ENCODEPASSWORD
                         $passwordE=password_hash($password,PASSWORD_DEFAULT,[15]);
 
                         $cliente->setPassword($passwordE);
@@ -307,7 +309,7 @@ class WebServiceController extends AbstractController
 
             foreach ($usuarios as $usuario)
             {
-
+                //DECODE PASSWORD
                 if($email == $usuario->getEmail() && password_verify($password, $usuario->getPassword()))
                 {
                     $datos = array("login" => "true", "usuario" => ["idCliente" => $usuario->getIdCliente(), "nombre" => $usuario->getNombre(), "apellidos" => $usuario->getApellidos(),  "telefono" => $usuario->getTelefono(), "genero" => $usuario->getGenero()]);
@@ -371,7 +373,24 @@ class WebServiceController extends AbstractController
                 $eventoM->setUbicacion($evento->getUbicacion());
                 $eventoM->setDescripcion($evento->getDescripcion());
                 $eventoM->setFechaevento($evento->getFechaevento()->format('Y-m-d'));
-                $eventosM[$count] = $eventoM;
+                $organizadores = $this->getDoctrine()->getRepository(Organizan::class)->findAll();
+                $trabajador = new Trajadores();
+                foreach($organizadores as $organizador)
+                {
+                    if($organizador->getIdConcierto() == $evento->getIdEvento())
+                    {
+                        $idTrabajador = $organizador->getIdTrabajador();
+                        $trabajadores = $this->getDoctrine()->getRepository(Trajadores::class)->findAll();
+                        foreach($trabajadores as $trabajadorD)
+                        {
+                            if($trabajadorD->getIdTrabajador() == $idTrabajador)
+                            {
+                                $trabajador = $trabajadorD;
+                            }
+                        }
+                    }
+                }
+                $eventosM[$count] = array('evento' => $eventoM, 'organizador' => $trabajador);
             }
             $datos = array("eventos" => $eventosM);
         }

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 26-02-2021 a las 22:59:14
+-- Tiempo de generación: 28-02-2021 a las 03:39:42
 -- Versión del servidor: 5.7.33-0ubuntu0.18.04.1
 -- Versión de PHP: 7.2.24-0ubuntu0.18.04.7
 
@@ -30,6 +30,14 @@ CREATE TABLE `artista` (
   `id_artista` int(11) NOT NULL,
   `nombre` varchar(55) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `artista`
+--
+
+INSERT INTO `artista` (`id_artista`, `nombre`) VALUES
+(1, 'cool'),
+(2, 'shafir');
 
 -- --------------------------------------------------------
 
@@ -72,6 +80,15 @@ CREATE TABLE `clientes` (
   `password` varchar(256) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Volcado de datos para la tabla `clientes`
+--
+
+INSERT INTO `clientes` (`id_Cliente`, `nombre`, `apellidos`, `genero`, `telefono`, `email`, `password`) VALUES
+(1, 'aritz', 'martin', 'masculino', 1, 'a1@a.com', 'Almi123'),
+(2, 'aritz2', 'martin', 'masculino', 2, 'a@a.com', 'Almi123'),
+(3, 'a', 'a', 'masculino', 2, 'b@a.com', '$2y$10$60AGLDK9tefr8F/y1SG6KO8778PjPZ7v4E/Pv47tsRTJVzjEika5C');
+
 -- --------------------------------------------------------
 
 --
@@ -83,9 +100,15 @@ CREATE TABLE `compran` (
   `id_instrumento` int(11) NOT NULL,
   `id_cliente` int(11) NOT NULL,
   `fecha` date NOT NULL,
-  `hora` time NOT NULL,
   `unidades` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `compran`
+--
+
+INSERT INTO `compran` (`id_compra`, `id_instrumento`, `id_cliente`, `fecha`, `unidades`) VALUES
+(1, 1, 1, '1999-12-12', 2);
 
 -- --------------------------------------------------------
 
@@ -118,7 +141,10 @@ CREATE TABLE `conciertos` (
 --
 
 INSERT INTO `conciertos` (`id_Evento`, `nombre`, `descripcion`, `ubicacion`, `fechaEvento`) VALUES
-(1, 'cualquiera', 'aaaa', 'aaa', '2021-02-02');
+(1, 'eventos', 'aaaaaa', 'enmicasa', '1999-12-12'),
+(2, 'eventoasas', 'aaaaaa', 'enmicasa', '1999-12-12'),
+(3, 'eventos', 'aaaaaa', 'enmicasa', '1999-12-12'),
+(4, 'chupala', 'aaaaaa', 'enmicasa', '1999-12-12');
 
 -- --------------------------------------------------------
 
@@ -134,6 +160,13 @@ CREATE TABLE `instrumentos` (
   `precio` decimal(10,0) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Volcado de datos para la tabla `instrumentos`
+--
+
+INSERT INTO `instrumentos` (`id_instrumentos`, `nombre`, `tamaño`, `color`, `precio`) VALUES
+(1, 'flauta', '150cm', 'negro', '15');
+
 -- --------------------------------------------------------
 
 --
@@ -147,6 +180,14 @@ CREATE TABLE `maquetas` (
   `descripcion` varchar(55) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Volcado de datos para la tabla `maquetas`
+--
+
+INSERT INTO `maquetas` (`id_maquetas`, `nombre`, `id_artista`, `descripcion`) VALUES
+(1, 'shars 2019', 1, 'aaaaaaaa'),
+(2, 'maquetassss', 1, 'aaaaaa');
+
 -- --------------------------------------------------------
 
 --
@@ -158,6 +199,14 @@ CREATE TABLE `organizan` (
   `id_concierto` int(11) NOT NULL,
   `id_trabajador` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `organizan`
+--
+
+INSERT INTO `organizan` (`id_organiza`, `id_concierto`, `id_trabajador`) VALUES
+(1, 2, 1),
+(2, 4, 1);
 
 -- --------------------------------------------------------
 
@@ -178,6 +227,7 @@ CREATE TABLE `tema` (
 --
 
 CREATE TABLE `trajadores` (
+  `id_trabajador` int(11) NOT NULL,
   `dni` varchar(9) NOT NULL,
   `nombre` varchar(55) NOT NULL,
   `apellidos` varchar(55) NOT NULL,
@@ -187,6 +237,14 @@ CREATE TABLE `trajadores` (
   `password` varchar(256) NOT NULL,
   `sexo` varchar(55) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `trajadores`
+--
+
+INSERT INTO `trajadores` (`id_trabajador`, `dni`, `nombre`, `apellidos`, `direccion`, `telefono`, `email`, `password`, `sexo`) VALUES
+(1, '11111111M', 'aritz1', 'martin', 'm', 1, 'aa@a.com', 'Almi123', 'masculino'),
+(2, '11111111F', 'aritz2', 'martin', 'm', 2, 'a@a.com', 'Almi123', 'masculino');
 
 --
 -- Índices para tablas volcadas
@@ -214,7 +272,8 @@ ALTER TABLE `carteleras`
 -- Indices de la tabla `clientes`
 --
 ALTER TABLE `clientes`
-  ADD PRIMARY KEY (`id_Cliente`);
+  ADD PRIMARY KEY (`id_Cliente`),
+  ADD UNIQUE KEY `email` (`email`);
 
 --
 -- Indices de la tabla `compran`
@@ -262,7 +321,8 @@ ALTER TABLE `tema`
 -- Indices de la tabla `trajadores`
 --
 ALTER TABLE `trajadores`
-  ADD PRIMARY KEY (`dni`);
+  ADD PRIMARY KEY (`id_trabajador`),
+  ADD UNIQUE KEY `email` (`email`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -272,7 +332,7 @@ ALTER TABLE `trajadores`
 -- AUTO_INCREMENT de la tabla `artista`
 --
 ALTER TABLE `artista`
-  MODIFY `id_artista` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_artista` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `asisten`
 --
@@ -287,12 +347,12 @@ ALTER TABLE `carteleras`
 -- AUTO_INCREMENT de la tabla `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `id_Cliente` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_Cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT de la tabla `compran`
 --
 ALTER TABLE `compran`
-  MODIFY `id_compra` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_compra` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT de la tabla `compuestos`
 --
@@ -302,27 +362,32 @@ ALTER TABLE `compuestos`
 -- AUTO_INCREMENT de la tabla `conciertos`
 --
 ALTER TABLE `conciertos`
-  MODIFY `id_Evento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_Evento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT de la tabla `instrumentos`
 --
 ALTER TABLE `instrumentos`
-  MODIFY `id_instrumentos` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_instrumentos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT de la tabla `maquetas`
 --
 ALTER TABLE `maquetas`
-  MODIFY `id_maquetas` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_maquetas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `organizan`
 --
 ALTER TABLE `organizan`
-  MODIFY `id_organiza` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_organiza` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `tema`
 --
 ALTER TABLE `tema`
   MODIFY `id_tema` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT de la tabla `trajadores`
+--
+ALTER TABLE `trajadores`
+  MODIFY `id_trabajador` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
