@@ -407,4 +407,12 @@ class WebPageController extends AbstractController
         //INTERPRETAR DATOS (MOSTRARLOS)
         return $this->render('cursosdepiano.html.twig');
     }
+
+    /**
+     * @Route("/gestiontrabajadores", name="gestiontrabajadores")
+     */
+    public function gestiontrabajadores()
+    {
+        return $this->render('gestiontrabajadores.html.twig');
+    }
 }
