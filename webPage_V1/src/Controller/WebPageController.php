@@ -421,6 +421,63 @@ class WebPageController extends AbstractController
      */
     public function perfil()
     {
-        return $this->render('perfil.html.twig');
+        $parametros = array('mensaje'=> ["actualizacion" => null,"error" => null]);
+        return $this->render('perfil.html.twig', $parametros);
     }
+
+
+    /**
+     * @Route("/actusu", name="actusu")
+     */
+    public function actusu()
+    {
+        //CREAR JSON
+
+
+        $data = array('json' => ["tipo" => "Actualizar","tipoUsu"=>"Trabajador", "dni" => $_GET['DNI'], "nombre" =>  $_GET['Nombre'], "apellidos" => $_GET['Apellidos'], "direccion" =>  $_GET['Direccion'], "telefono" => $_GET['Telefono'], "idTrabajador" => 1, "email" => $_GET['Email'], "password" => "Almi123", "sexo" => "masculino"   ]);
+
+        //ENVIAR PETICION
+
+        $client = HttpClient::create();
+        //$response = $client->request('POST', '192.168.4.96:8000', $data);
+        $response = $client->request('POST', 'http://127.0.0.1:8001/crearModUsu', $data);
+
+        $datos = $response->toArray();
+
+        $parametros = array('mensaje' => $datos);
+
+
+        //RECIBIR DATOS
+
+        //INTERPRETAR DATOS (MOSTRARLOS)
+        return $this->render('perfil.html.twig', $parametros);
+
+    }
+    /**
+     * @Route("/actpassword", name="actpassword")
+     */
+    public function actpassword()
+    {
+        //CREAR JSON
+
+        $data = array('json' => ["tipo" => "Actualizar","tipoUsu"=>"Trabajador", "dni" => $_GET['DNI'], "nombre" =>  $_GET['Nombre'], "apellidos" => $_GET['Apellidos'], "direccion" =>  $_GET['Direccion'], "telefono" => $_GET['Telefono'], "idTrabajador" => 1, "email" => $_GET['Email'], "password" => "Almi123", "sexo" => "masculino"   ]);
+
+        //ENVIAR PETICION
+
+        $client = HttpClient::create();
+        //$response = $client->request('POST', '192.168.4.96:8000', $data);
+        $response = $client->request('POST', 'http://127.0.0.1:8001/crearModUsu', $data);
+
+        $datos = $response->toArray();
+
+        $parametros = array('mensaje' => $datos);
+
+
+        //RECIBIR DATOS
+
+        //INTERPRETAR DATOS (MOSTRARLOS)
+        return $this->render('perfil.html.twig', $parametros);
+
+    }
+
 }
