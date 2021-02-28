@@ -67,6 +67,34 @@ class WebServiceController extends AbstractController
         return $this->jsonDam($datos);
     }
     /**
+     * @Route("/trabajadores", name="trabajadores", methods={"GET"})
+     */
+    public function trabajadores()
+    {
+        $datos = file_get_contents('php://input');
+        $request = json_decode($datos);
+        if ($request->nombre == "h")
+        {
+            $trabajadores = $this->getDoctrine()->getRepository(Trajadores::class)->findAll();
+            $trabajadoresM = array();
+            $count = 0;
+            foreach($trabajadores as $trabajador)
+            {
+                $count = $count + 1;
+                $trabajadorM = new Trajadores();
+                $trabajadorM = $trabajador;
+                $trabajadorM->setPassword(null);
+                $trabajadoresM[$count] = $trabajadorM;
+            }
+            $datos = array("artistas" => $trabajadoresM);
+        }
+        else
+        {
+            $datos = array("error" => "error");
+        }
+        return $this->jsonDam($datos);
+    }
+    /**
      * @Route("/crearModUsu", name="crearModUsu", methods={"POST"})
      */
     public function crearModUsu()
