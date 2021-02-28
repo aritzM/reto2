@@ -12,7 +12,8 @@ class WebPageController extends AbstractController
      */
     public function index()
     {
-        return $this->render('index.html.twig');
+        $parametros = array('datos' => null);
+        return $this->render('index.html.twig', $parametros);
     }
     /**
      * @Route("/produccion", name="produccion")
@@ -107,22 +108,31 @@ class WebPageController extends AbstractController
     public function login()
     {
         //CREAR JSON
-        $data = array('json' => ["nombre" => "h"]);
-        //ENVIAR PETICION
+        if(isset($_POST['email']) && isset($_POST['password']))
+        {
 
 
-        $client = HttpClient::create();
-        $response = $client->request('POST', 'http://192.168.4.96:8000', $data);
+            $data = array('json' => ["email" => $_POST['email'], "password" => $_POST['password'], "tipo" => $_POST['tipo']]);
+            //ENVIAR PETICION
 
-        $datos = $response->toArray();
 
-        $parametros = array('prueba' => $datos);
+            $client = HttpClient::create();
+            //$response = $client->request('POST', 'http://192.168.4.96:8000', $data);
 
+            $response = $client->request('POST', 'http://127.0.0.1:8000/login', $data);
+            $datos = $response->toArray();
+
+            $parametros = array('datos' => $datos);
+        }
+        else
+        {
+            $parametros = array('error' => 'email o contraseña son vacion');
+        }
 
         //RECIBIR DATOS
 
         //INTERPRETAR DATOS (MOSTRARLOS)
-        return $this->render('prueba.html.twig', $parametros);
+        return $this->render('index.html.twig', $parametros);
     }
 
 

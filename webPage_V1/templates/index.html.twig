@@ -10,7 +10,18 @@
 {% block menu %}
     {% include 'menu/menu.html.twig' %}
     <!--El titulo y la bienvenida -->
-
+    {% if datos %}
+        {% if datos.error %}
+            {{ datos.error }}
+        {% else %}
+            {{ datos.login }}
+            {{ datos.usuario.idCliente }}
+            {{ datos.usuario.nombre }}
+            {{ datos.usuario.apellidos }}
+            {{ datos.usuario.telefono }}
+            {{ datos.usuario.genero }}
+        {% endif %}
+    {% endif %}
     <header class="masthead bg-primary text-white text-center">
         <div class="container d-flex align-items-center flex-column">
             <h3 class="masthead-heading" style="color: black; position: relative; top: -50px;">Bienvenidos</h3>
@@ -29,12 +40,14 @@
         </div>
     </header>
     <div class="divider-custom divider-light">
-    <form method="POST" action="">
+    <form method="POST" action="{{ path('login') }}">
         <div class="container page-section bg-primary text-white mb-0">
-            <label for="Usuario">Usuario:</label>
-            <input type="text" name="Usuario"><br><br>
+            <label for="Usuario">Email:</label>
+            <input type="text" name="email"><br><br>
             <label for="Contraseña">Contraseña:</label>
-            <input type="password" name="Contraseña"><br><br>
+            <input type="password" name="password"><br><br>
+            <label for="tipo">Tipo:</label>
+            <input type="text" name="tipo">
             <button type="submit">Iniciar sesion</button>
             <p>¿No tienes cuenta?</p><button onClick="jump()" name="btn" placeholder="btn">Registrate aqui</button>
         </div>
@@ -84,14 +97,23 @@
                         window.location.hash = "jump_to_this_location";
                     }
                 </script>
-                <label for="usuario">Usuario:</label>
-                <input type="text" name="usuario"><br><br>
+                <label for="usuario">Nombre:</label>
+                <input type="text" name="nombre"><br><br>
+                <label for="apellidos">Apellidos:</label>
+                <input type="text" name="apellidos">
+                <label for="telefono">Telefono:</label>
+                <input type="tel" name="telefono">
+                <!--Esto es para los trabajadores HAY QUE CREAR UNA APARTADO QUE SEA GESTION D TRABAJADORES
+                YA QUE SI CUALQUIER USUARIO PUDIERA CREARSE UN USUARIO DE TIPO TRABAJADOR PODRIA EDITAR LAS MAQUETAS EVENTOS BORRAR USUARIOS ETC...-->
+                <label for="direccion">Direccion</label>
+                <input type="text" name="direccion">
+                <!--Hasta aqui-->
                 <label for="email">Email:</label>
                 <input type="email" name="email"><br><br>
                 <label for="contrasena">Contraseña:</label>
-                <input type="password" name="contrasena"><br><br>
+                <input type="password" name="password"><br><br>
                 <label for="repetircontrasena">Repetir Contraseña:</label>
-                <input type="password" name="repetircontrasena"><br><br>
+                <input type="password" name="repetirpassword"><br><br>
                 <h4>Sexo:</h4>
                 <input type="radio" id="hombre" name="sexo" value="hombre">
                 <label for="hombre">Hombre</label><br>
