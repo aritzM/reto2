@@ -11,6 +11,11 @@
 
 
 {% block gestioneventos %}
+    {% for trabajador in trabajadores.trabajadores %}
+        {{ trabajador.dni }}
+        {{ trabajador.nombre }}
+
+    {% endfor %}
     <!-- Portfolio Item 1-->
     <div class="col-md-6 col-lg-4 mb-5">
         <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal1" style="margin-top: 205px;">
