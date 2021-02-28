@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 28-02-2021 a las 03:39:42
+-- Tiempo de generación: 28-02-2021 a las 23:05:04
 -- Versión del servidor: 5.7.33-0ubuntu0.18.04.1
 -- Versión de PHP: 7.2.24-0ubuntu0.18.04.7
 
@@ -77,17 +77,18 @@ CREATE TABLE `clientes` (
   `genero` varchar(55) NOT NULL,
   `telefono` int(11) NOT NULL,
   `email` varchar(55) NOT NULL,
-  `password` varchar(256) NOT NULL
+  `password` varchar(256) NOT NULL,
+  `passwordtext` varchar(55) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `clientes`
 --
 
-INSERT INTO `clientes` (`id_Cliente`, `nombre`, `apellidos`, `genero`, `telefono`, `email`, `password`) VALUES
-(1, 'aritz', 'martin', 'masculino', 1, 'a1@a.com', 'Almi123'),
-(2, 'aritz2', 'martin', 'masculino', 2, 'a@a.com', 'Almi123'),
-(3, 'a', 'a', 'masculino', 2, 'b@a.com', '$2y$10$60AGLDK9tefr8F/y1SG6KO8778PjPZ7v4E/Pv47tsRTJVzjEika5C');
+INSERT INTO `clientes` (`id_Cliente`, `nombre`, `apellidos`, `genero`, `telefono`, `email`, `password`, `passwordtext`) VALUES
+(1, 'aritz', 'martin', 'masculino', 1, 'a1@a.com', 'Almi123', ''),
+(2, 'aritz2', 'martin', 'masculino', 2, 'a@a.com', 'Almi123', ''),
+(3, 'a', 'a', 'masculino', 2, 'b@a.com', '$2y$10$60AGLDK9tefr8F/y1SG6KO8778PjPZ7v4E/Pv47tsRTJVzjEika5C', '');
 
 -- --------------------------------------------------------
 
@@ -235,6 +236,7 @@ CREATE TABLE `trajadores` (
   `telefono` int(11) NOT NULL,
   `email` varchar(55) NOT NULL,
   `password` varchar(256) NOT NULL,
+  `passwordtext` varchar(55) NOT NULL,
   `sexo` varchar(55) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -242,9 +244,9 @@ CREATE TABLE `trajadores` (
 -- Volcado de datos para la tabla `trajadores`
 --
 
-INSERT INTO `trajadores` (`id_trabajador`, `dni`, `nombre`, `apellidos`, `direccion`, `telefono`, `email`, `password`, `sexo`) VALUES
-(1, '11111111M', 'aritz1', 'martin', 'm', 1, 'aa@a.com', 'Almi123', 'masculino'),
-(2, '11111111F', 'aritz2', 'martin', 'm', 2, 'a@a.com', 'Almi123', 'masculino');
+INSERT INTO `trajadores` (`id_trabajador`, `dni`, `nombre`, `apellidos`, `direccion`, `telefono`, `email`, `password`, `passwordtext`, `sexo`) VALUES
+(1, '11111111M', 'aritz1', 'martin', 'm', 1, 'aa@a.com', 'Almi123', '', 'masculino'),
+(2, '11111111F', 'aritz2', 'martin', 'm', 2, 'a@a.com', 'Almi123', '', 'masculino');
 
 --
 -- Índices para tablas volcadas
