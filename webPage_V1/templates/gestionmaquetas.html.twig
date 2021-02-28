@@ -71,10 +71,61 @@
 
             </tbody>
         </table>
-        <button type="submit">Crear</button>
+        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal10">
+            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
+            </div>
+            <button type="submit">Crear</button>
+        </div>
     </div>
     <!--Portfolio -->
+    <!-- Portfolio Modal 1-->
+    <div class="portfolio-modal modal fade" id="portfolioModal10" tabindex="-1" role="dialog" aria-labelledby="portfolioModal1Label" aria-hidden="true">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content">
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"><i class="fas fa-times"></i></span>
+                </button>
+                <div class="modal-body text-center">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <!-- Portfolio Modal - Title-->
+                                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="portfolioModal1Label">Maquetas de Rap</h2>
+                                <!-- Icon Divider-->
+                                <div class="divider-custom">
+                                    <div class="divider-custom-line"></div>
+                                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                                    <div class="divider-custom-line"></div>
+                                </div>
+                                <!-- Portfolio Modal - Image-->
+                                <form method="post">
+                                    <label for="nombre">Nombre:</label>
+                                    <input type="text" name="nombre"><br><br>
+                                    <label for="email">Artista:</label>
+                                    <input type="text" name="artisrta"><br><br>
+                                    <label for="descripcion">Descripcion:</label>
+                                    <input type="text" name="descripcion"><br><br>
+                                    <label for="fecha">Fecha:</label>
+                                    <input type="date" name="fecha"><br><br>
 
+                                </form>
+                                <!-- Portfolio Modal - Text-->
+                                <p class="mb-5"></p>
+                                <button class="btn btn-primary">
+                                    Crear
+                                </button>
+                                <button class="btn btn-primary">
+                                    Cancelar
+                                </button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- Portfolio Modal 1-->
     <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-labelledby="portfolioModal1Label" aria-hidden="true">
         <div class="modal-dialog modal-xl" role="document">
@@ -108,10 +159,10 @@
                                 </form>
                                 <!-- Portfolio Modal - Text-->
                                 <p class="mb-5"></p>
-                                <button class="btn btn-primary" data-dismiss="modal">
+                                <button class="btn btn-primary">
                                     Modificar
                                 </button>
-                                <button class="btn btn-primary" data-dismiss="modal">
+                                <button class="btn btn-primary">
                                     Eliminar
                                 </button>
 
@@ -154,10 +205,10 @@
                                 </form>
                                 <!-- Portfolio Modal - Text-->
                                 <p class="mb-5"></p>
-                                <button class="btn btn-primary" data-dismiss="modal">
+                                <button class="btn btn-primary">
                                     Modificar
                                 </button>
-                                <button class="btn btn-primary" data-dismiss="modal">
+                                <button class="btn btn-primary">
                                     Eliminar
                                 </button>
                             </div>
@@ -199,10 +250,10 @@
                                 </form>
                                 <!-- Portfolio Modal - Text-->
                                 <p class="mb-5"></p>
-                                <button class="btn btn-primary" data-dismiss="modal">
+                                <button class="btn btn-primary">
                                     Modificar
                                 </button>
-                                <button class="btn btn-primary" data-dismiss="modal">
+                                <button class="btn btn-primary">
                                     Eliminar
                                 </button>
                             </div>
@@ -244,10 +295,10 @@
                                 </form>
                                 <!-- Portfolio Modal - Text-->
                                 <p class="mb-5"></p>
-                                <button class="btn btn-primary" data-dismiss="modal">
+                                <button class="btn btn-primary">
                                     Modificar
                                 </button>
-                                <button class="btn btn-primary" data-dismiss="modal">
+                                <button class="btn btn-primary">
                                     Eliminar
                                 </button>
                             </div>
