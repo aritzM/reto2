@@ -11,7 +11,6 @@
     {% for evento in eventosM.eventos %}
         <!--Datos Por mostrar-->
         {{ evento.evento.ubicacion }}
-
         {{ evento.organizador.dni }}
         {{ evento.organizador.nombre }}
         {{ evento.organizador.apellidos }}
@@ -19,6 +18,9 @@
         {{ evento.organizador.telefono }}
         {{ evento.organizador.sexo }}
         {{ evento.organizador.email }}
+<header class="masthead bg-primary text-white text-center">
+    <div class="container d-flex align-items-center flex-column">
+
         <h1 class=" text-uppercase mb-0">{{ evento.evento.nombre }}</h1>
         <!-- Icon Divider-->
         <div class="divider-custom divider-light">
@@ -37,8 +39,63 @@
             <div class="col-lg-4 ml-auto"><p class="lead">{{ evento.evento.descripcion }}</p></div>
             <div class="col-lg-4 mr-auto"><p class="lead">Fecha de lanzamiento:<br></p>{{ evento.evento.fechaevento }}</div>
         </div>
-
+    </div>
+</header>
     {% endfor %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <header class="masthead bg-primary text-white text-center">
         <div class="container d-flex align-items-center flex-column">
             <!-- Masthead Heading-->
