@@ -76,7 +76,22 @@ class WebPageController extends AbstractController
      */
     public function gestionmaquetas()
     {
-        return $this->render('gestionmaquetas.html.twig');
+        $data = array('json' => ["nombre" => "h"]);
+        //ENVIAR PETICION
+
+
+        $client = HttpClient::create();
+        $response = $client->request('POST', 'http://127.0.0.1:8001/mostrmaquetaciones', $data);
+
+        $datos = $response->toArray();
+
+        $parametros = array('maquetaciones' => $datos);
+
+
+        //RECIBIR DATOS
+
+        //INTERPRETAR DATOS (MOSTRARLOS)
+        return $this->render('gestionmaquetas.html.twig', $parametros);
     }
     /**
      * @Route("/crearUsu", name="crearUsu")

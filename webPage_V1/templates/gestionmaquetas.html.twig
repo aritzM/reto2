@@ -22,64 +22,88 @@
                 </div>&nbsp;&nbsp;
                 <li style="width: 100%; display: inline;">NOMBRE</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <li style="width: 100%; display: inline;">DESCRIPCION</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <li style="width: 100%; display: inline;">SONIDO</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <li style="width: 100%; display: inline;">FECHA CREACION</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <li style="width: 100%; display: inline;">ARTISTA</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </ul>
 
             </thead>
         </table>
         <table>
             <tbody>
-
+            {% set count = 1 %}
+            {% for  maqueta in maquetaciones.maquetas %}
             <ul style="display: flex;">
-                <div class="portfolio-item mx-auto col-md-6 col-lg-4 mb- portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100" data-toggle="modal" data-target="#portfolioModal1">
+                <div class="portfolio-item mx-auto col-md-6 col-lg-4 mb- portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100" data-toggle="modal" data-target="#portfolioModal{{ count }}">
                     <li style="width: 100%; display: inline;">Rap</li>
                 </div>&nbsp;&nbsp;
-                <li style="width: 100%; display: inline;">Maqueta de rap</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <li style="width: 100%; display: inline;">Grabado en una base</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <li style="width: 100%; display: inline;">RAP</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <li style="width: 100%; display: inline; ">Preparada para fecha cliente</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <li style="width: 100%; display: inline;">{{ maqueta.maquetas.nombre }}</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <li style="width: 100%; display: inline;">{{ maqueta.maquetas.descripcion }}</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <li style="width: 100%; display: inline;">{{ maqueta.artista.nombre }}</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </ul>
-            <ul style="display: flex;">
-                <div class="portfolio-item mx-auto col-md-6 col-lg-4 mb- portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100" data-toggle="modal" data-target="#portfolioModal2">
-                    <li style="width: 100%; display: inline;">Tech</li>
-                </div>&nbsp;&nbsp;
-                <li style="width: 100%; display: inline;">Maqueta de tech</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <li style="width: 100%; display: inline;">La base se crea haciendo la maqueta</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <li style="width: 100%; display: inline;">TECH</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <li style="width: 100%; display: inline; ">Preparada para fecha del artista</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            </ul>
-            <ul style="display: flex;">
-                <div class="portfolio-item mx-auto col-md-6 col-lg-4 mb- portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100" data-toggle="modal" data-target="#portfolioModal3">
-                    <li style="width: 100%; display: inline;">Fla</li>
-                </div>&nbsp;&nbsp;
-                <li style="width: 100%; display: inline;">Maqueta de Flamenco</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <li style="width: 100%; display: inline;">Grabada sobre una base de flamenco</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <li style="width: 100%; display: inline;">FLAMENCO</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <li style="width: 100%; display: inline; ">Preparada para la fecha del artista</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            </ul>
-            <ul style="display: flex;">
-                <div class="portfolio-item mx-auto col-md-6 col-lg-4 mb- portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100" data-toggle="modal" data-target="#portfolioModal4">
-                    <li style="width: 100%; display: inline;">RGB</li>
-                </div>&nbsp;&nbsp;
-                <li style="width: 100%; display: inline;">Maqueta de Reggaeton</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <li style="width: 100%; display: inline;">Grabada sobre una base para reggaeton</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <li style="width: 100%; display: inline;">REGGAETON</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <li style="width: 100%; display: inline; ">Preparada para la fecha del artista</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            </ul>
-
+                {% set count = count + 1 %}
+            {% endfor %}
 
             </tbody>
         </table>
-        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal10">
+        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal10" style="margin-top: 205px;">
             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
+                <button type="submit">Crear</button>
             </div>
-            <button type="submit">Crear</button>
         </div>
     </div>
+    </div>
     <!--Portfolio -->
+    {% set count = 1 %}
+{% for maqueta in maquetaciones.maquetas %}
     <!-- Portfolio Modal 1-->
+
+    <div class="portfolio-modal modal fade" id="portfolioModal{{ count }}" tabindex="-1" role="dialog" aria-labelledby="portfolioModal1Label" aria-hidden="true">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content">
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"><i class="fas fa-times"></i></span>
+                </button>
+                <div class="modal-body text-center">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <!-- Portfolio Modal - Title-->
+                                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="portfolioModal1Label">Maquetas de Rap</h2>
+                                <!-- Icon Divider-->
+                                <div class="divider-custom">
+                                    <div class="divider-custom-line"></div>
+                                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                                    <div class="divider-custom-line"></div>
+                                </div>
+                                <!-- Portfolio Modal - Image-->
+                                <form method="post">
+                                    <label for="nombre">Nombre:</label>
+                                    <input type="text" name="nombre" value="{{ maqueta.maquetas.nombre }}"><br><br>
+                                    <label for="email">Artista:</label>
+                                    <input type="text" name="artisrta" value="{{ maqueta.artista.nombre }}"><br><br>
+                                    <label for="descripcion">Descripcion:</label>
+                                    <input type="text" name="descripcion" value="{{ maqueta.maquetas.descripcion }}"><br><br>
+
+
+                                </form>
+                                <!-- Portfolio Modal - Text-->
+                                <p class="mb-5"></p>
+                                <button class="btn btn-primary">
+                                    Modificar
+                                </button>
+                                <button class="btn btn-primary">
+                                    Eliminar
+                                </button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% set count = count + 1 %}
+{% endfor %}
     <div class="portfolio-modal modal fade" id="portfolioModal10" tabindex="-1" role="dialog" aria-labelledby="portfolioModal1Label" aria-hidden="true">
         <div class="modal-dialog modal-xl" role="document">
             <div class="modal-content">
@@ -106,8 +130,6 @@
                                     <input type="text" name="artisrta"><br><br>
                                     <label for="descripcion">Descripcion:</label>
                                     <input type="text" name="descripcion"><br><br>
-                                    <label for="fecha">Fecha:</label>
-                                    <input type="date" name="fecha"><br><br>
 
                                 </form>
                                 <!-- Portfolio Modal - Text-->
@@ -127,186 +149,7 @@
         </div>
     </div>
     <!-- Portfolio Modal 1-->
-    <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-labelledby="portfolioModal1Label" aria-hidden="true">
-        <div class="modal-dialog modal-xl" role="document">
-            <div class="modal-content">
-                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true"><i class="fas fa-times"></i></span>
-                </button>
-                <div class="modal-body text-center">
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-8">
-                                <!-- Portfolio Modal - Title-->
-                                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="portfolioModal1Label">Maquetas de Rap</h2>
-                                <!-- Icon Divider-->
-                                <div class="divider-custom">
-                                    <div class="divider-custom-line"></div>
-                                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                                    <div class="divider-custom-line"></div>
-                                </div>
-                                <!-- Portfolio Modal - Image-->
-                                <form method="post">
-                                    <label for="nombre">Nombre:</label>
-                                    <input type="text" name="nombre"><br><br>
-                                    <label for="email">Artista:</label>
-                                    <input type="text" name="artisrta"><br><br>
-                                    <label for="descripcion">Descripcion:</label>
-                                    <input type="text" name="descripcion"><br><br>
-                                    <label for="fecha">Fecha:</label>
-                                    <input type="date" name="fecha"><br><br>
 
-                                </form>
-                                <!-- Portfolio Modal - Text-->
-                                <p class="mb-5"></p>
-                                <button class="btn btn-primary">
-                                    Modificar
-                                </button>
-                                <button class="btn btn-primary">
-                                    Eliminar
-                                </button>
 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Portfolio Modal 2-->
-    <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-labelledby="portfolioModal2Label" aria-hidden="true">
-        <div class="modal-dialog modal-xl" role="document">
-            <div class="modal-content">
-                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true"><i class="fas fa-times"></i></span>
-                </button>
-                <div class="modal-body text-center">
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-8">
-                                <!-- Portfolio Modal - Title-->
-                                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="portfolioModal2Label">Maquetas de tech </h2>
-                                <!-- Icon Divider-->
-                                <div class="divider-custom">
-                                    <div class="divider-custom-line"></div>
-                                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                                    <div class="divider-custom-line"></div>
-                                </div>
-                                <!-- Portfolio Modal - Image-->
-                                <form method="post">
-                                    <label for="nombre">Nombre:</label>
-                                    <input type="text" name="nombre"><br><br>
-                                    <label for="email">Artista:</label>
-                                    <input type="text" name="artisrta"><br><br>
-                                    <label for="descripcion">Descripcion:</label>
-                                    <input type="text" name="descripcion"><br><br>
-                                    <label for="fecha">Fecha:</label>
-                                    <input type="date" name="fecha"><br><br>
-                                </form>
-                                <!-- Portfolio Modal - Text-->
-                                <p class="mb-5"></p>
-                                <button class="btn btn-primary">
-                                    Modificar
-                                </button>
-                                <button class="btn btn-primary">
-                                    Eliminar
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Portfolio Modal 3-->
-    <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-labelledby="portfolioModal3Label" aria-hidden="true">
-        <div class="modal-dialog modal-xl" role="document">
-            <div class="modal-content">
-                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true"><i class="fas fa-times"></i></span>
-                </button>
-                <div class="modal-body text-center">
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-8">
-                                <!-- Portfolio Modal - Title-->
-                                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="portfolioModal3Label">Maquetas de flamenco</h2>
-                                <!-- Icon Divider-->
-                                <div class="divider-custom">
-                                    <div class="divider-custom-line"></div>
-                                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                                    <div class="divider-custom-line"></div>
-                                </div>
-                                <!-- Portfolio Modal - Image-->
-                                <form method="post">
-                                    <label for="nombre">Nombre:</label>
-                                    <input type="text" name="nombre"><br><br>
-                                    <label for="email">Artista:</label>
-                                    <input type="text" name="artisrta"><br><br>
-                                    <label for="descripcion">Descripcion:</label>
-                                    <input type="text" name="descripcion"><br><br>
-                                    <label for="fecha">Fecha:</label>
-                                    <input type="date" name="fecha"><br><br>
-                                </form>
-                                <!-- Portfolio Modal - Text-->
-                                <p class="mb-5"></p>
-                                <button class="btn btn-primary">
-                                    Modificar
-                                </button>
-                                <button class="btn btn-primary">
-                                    Eliminar
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Portfolio Modal 4-->
-    <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-labelledby="portfolioModal4Label" aria-hidden="true">
-        <div class="modal-dialog modal-xl" role="document">
-            <div class="modal-content">
-                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true"><i class="fas fa-times"></i></span>
-                </button>
-                <div class="modal-body text-center">
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-8">
-                                <!-- Portfolio Modal - Title-->
-                                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="portfolioModal4Label">Maquetas de reggaeton</h2>
-                                <!-- Icon Divider-->
-                                <div class="divider-custom">
-                                    <div class="divider-custom-line"></div>
-                                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                                    <div class="divider-custom-line"></div>
-                                </div>
-                                <!-- Portfolio Modal - Image-->
-                                <form method="post">
-                                    <label for="nombre">Nombre:</label>
-                                    <input type="text" name="nombre"><br><br>
-                                    <label for="email">Artista:</label>
-                                    <input type="text" name="artisrta"><br><br>
-                                    <label for="descripcion">Descripcion:</label>
-                                    <input type="text" name="descripcion"><br><br>
-                                    <label for="fecha">Fecha:</label>
-                                    <input type="date" name="fecha"><br><br>
-                                </form>
-                                <!-- Portfolio Modal - Text-->
-                                <p class="mb-5"></p>
-                                <button class="btn btn-primary">
-                                    Modificar
-                                </button>
-                                <button class="btn btn-primary">
-                                    Eliminar
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 {% endblock %}
 
