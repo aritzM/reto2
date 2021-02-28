@@ -147,7 +147,7 @@ class WebPageController extends AbstractController
         $client = HttpClient::create();
 
         //$response = $client->request('GET', 'http://192.168.4.96:8000', $data);
-        $response = $client->request('GET', 'http://127.0.0.1:8000/eventosM', $data);
+        $response = $client->request('GET', 'http://127.0.0.1:8001/eventosM', $data);
         //RECIBIR DATOS
         $datos = $response->toArray();
 

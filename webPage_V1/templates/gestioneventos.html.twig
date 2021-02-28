@@ -10,62 +10,10 @@
 {% endblock %}
 
 
-{% block gestioneventos %}
-    <!-- Portfolio Item 1-->
-    <div class="col-md-6 col-lg-4 mb-5">
-        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal1" style="margin-top: 205px;">
-            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
-            </div>
-            <h3 class="img-fluid">CREAR EVENTO</h3>
-        </div>
-    </div>
-    <!-- Portfolio Modal 1-->
-    <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-labelledby="portfolioModal1Label" aria-hidden="true">
-        <div class="modal-dialog modal-xl" role="document">
-            <div class="modal-content">
-                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true"><i class="fas fa-times"></i></span>
-                </button>
-                <div class="modal-body text-center">
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-8">
-                                <!-- Portfolio Modal - Title-->
-                                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="portfolioModal1Label">Crear evento</h2>
-                                <!-- Portfolio Modal - Text-->
-                                <form style="margin-top: 35px;" method="post">
-                                    <label for="usuario">Nombre del evento:</label>
-                                    <input type="text" name="nombre"><br><br>
-                                    <label for="evento">Descripcion del evento:</label>
-                                    <input type="text" name="descripcion"><br><br>
-                                    <label for="ubicacion">Ubicacion del evento:</label>
-                                    <input type="text" name="ubicacion"><br><br>
-                                    <label for="fecha">Fecha del evento:</label>
-                                    <input type="date" name="fecha"><br><br>
-                                </form>
-                                <button class="btn btn-primary" >
-                                    Crear Evento
-                                </button>
 
-                                <p class="mb-5"></p>
-                                <button class="btn btn-primary" data-dismiss="modal">
-                                    <i class="fas fa-times fa-fw"></i>
-                                    Close Window
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
-{% endblock %}
 {% block tablaeventos %}
-    <div style="position: relative; top: 150px;">
+    <div style="margin-top: 160px; position: relative; top: 150px;">
+        <h2 style="margin-bottom: 45px;">Gestion de eventos</h2>
         <table>
             <thead>
             <ul style="display: flex;">
@@ -138,12 +86,16 @@
                             <div class="col-lg-8">
                                 <!-- Portfolio Modal - Title-->
                                 <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="portfolioModal1Label">Arenal sound</h2>
-                                <!-- Icon Divider-->
-                                <div class="divider-custom">
-                                    <div class="divider-custom-line"></div>
-                                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                                    <div class="divider-custom-line"></div>
-                                </div>
+                                <form method="post">
+                                    <label for="nombre">Nombre:</label>
+                                    <input type="text" name="nombre"><br><br>
+                                    <label for="email">Artista:</label>
+                                    <input type="text" name="artisrta"><br><br>
+                                    <label for="descripcion">Descripcion:</label>
+                                    <input type="text" name="descripcion"><br><br>
+                                    <label for="fecha">Fecha:</label>
+                                    <input type="date" name="fecha"><br><br>
+                                </form>
                                 <!-- Portfolio Modal - Image-->
                                 <img class="img-fluid rounded mb-5" src="assets/img/arenal.jpg" alt="" />
                                 <!-- Portfolio Modal - Text-->
@@ -172,12 +124,6 @@
                             <div class="col-lg-8">
                                 <!-- Portfolio Modal - Title-->
                                 <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="portfolioModal2Label">Tomorrowland</h2>
-                                <!-- Icon Divider-->
-                                <div class="divider-custom">
-                                    <div class="divider-custom-line"></div>
-                                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                                    <div class="divider-custom-line"></div>
-                                </div>
                                 <!-- Portfolio Modal - Image-->
                                 <img class="img-fluid rounded mb-5" src="assets/img/tomorrow.jpg" alt="" />
                                 <!-- Portfolio Modal - Text-->
@@ -207,12 +153,6 @@
                             <div class="col-lg-8">
                                 <!-- Portfolio Modal - Title-->
                                 <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="portfolioModal3Label">RBF</h2>
-                                <!-- Icon Divider-->
-                                <div class="divider-custom">
-                                    <div class="divider-custom-line"></div>
-                                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                                    <div class="divider-custom-line"></div>
-                                </div>
                                 <!-- Portfolio Modal - Image-->
                                 <img class="img-fluid rounded mb-5" src="assets/img/rbf.png" alt="" />
                                 <!-- Portfolio Modal - Text-->
@@ -243,12 +183,6 @@
                             <div class="col-lg-8">
                                 <!-- Portfolio Modal - Title-->
                                 <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="portfolioModal4Label">Sonus fest</h2>
-                                <!-- Icon Divider-->
-                                <div class="divider-custom">
-                                    <div class="divider-custom-line"></div>
-                                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                                    <div class="divider-custom-line"></div>
-                                </div>
                                 <!-- Portfolio Modal - Image-->
                                 <img class="img-fluid rounded mb-5" src="assets/img/sonusfest.jpg" alt="" />
                                 <!-- Portfolio Modal - Text-->
