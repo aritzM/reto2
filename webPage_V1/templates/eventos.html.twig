@@ -9,7 +9,18 @@
 
 {% block ventamaquetas %}
     {% for evento in eventosM.eventos %}
-        <h1 class=" text-uppercase mb-0">{{ evento.nombre }}</h1>
+        <!--Datos Por mostrar-->
+        {{ evento.evento.ubicacion }}
+        {{ evento.evento.fechaevento }}
+        {{ evento.evento.ubicacion }}
+        {{ evento.organizador.dni }}
+        {{ evento.organizador.nombre }}
+        {{ evento.organizador.apellidos }}
+        {{ evento.organizador.direccion }}
+        {{ evento.organizador.telefono }}
+        {{ evento.organizador.sexo }}
+        {{ evento.organizador.email }}
+        <h1 class=" text-uppercase mb-0">{{ evento.evento.nombre }}</h1>
         <!-- Icon Divider-->
         <div class="divider-custom divider-light">
             <div class="divider-custom-line"></div>
@@ -24,7 +35,7 @@
         </div>
 
         <div class="row">
-            <div class="col-lg-4 ml-auto"><p class="lead">{{ evento.descripcion }}</p></div>
+            <div class="col-lg-4 ml-auto"><p class="lead">{{ evento.evento.descripcion }}</p></div>
             <div class="col-lg-4 mr-auto"><p class="lead">Fecha de lanzamiento:<br>2021-03-23</p></div>
         </div>
 
