@@ -27,7 +27,15 @@
                 <li style="width: 100%; display: inline;">NOMBRE</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <li style="width: 100%; display: inline;">DESCRIPCION</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <li style="width: 100%; display: inline;">SONIDO</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <li style="width: 100%; display: inline;">FECHA</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                <li style="width: 100%; display: inline;">dni</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <li style="width: 100%; display: inline;">nombre</li>
+                <li style="width: 100%; display: inline;">apellidos</li>
+                <li style="width: 100%; display: inline;">direccion</li>
+                <li style="width: 100%; display: inline;">telefono</li>
+                <li style="width: 100%; display: inline;">email</li>
+                <li style="width: 100%; display: inline;">password</li>
+                <li style="width: 100%; display: inline;">sexo</li>
             </ul>
 
             </thead>
@@ -35,7 +43,7 @@
         <table>
             <tbody>
             {% set count = 1 %}
-            {% for evento in eventosM.eventos %}
+            {% for  maqueta in maquetaciones.maquetas %}
             <ul style="display: flex;">
                 <div class="portfolio-item mx-auto col-md-6 col-lg-4 mb- portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100" data-toggle="modal" data-target="#portfolioModal13">
                     <li style="width: 100%; display: inline;">Are</li>
