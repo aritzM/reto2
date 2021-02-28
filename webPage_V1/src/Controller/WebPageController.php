@@ -415,4 +415,12 @@ class WebPageController extends AbstractController
     {
         return $this->render('gestiontrabajadores.html.twig');
     }
+
+    /**
+     * @Route("/perfil", name="perfil")
+     */
+    public function perfil()
+    {
+        return $this->render('perfil.html.twig');
+    }
 }
