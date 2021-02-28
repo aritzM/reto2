@@ -111,10 +111,9 @@ class WebPageController extends AbstractController
         if(isset($_POST['email']) && isset($_POST['password']))
         {
 
-
-            $data = array('json' => ["email" => $_POST['email'], "password" => $_POST['password'], "tipo" => $_POST['tipo']]);
+            //$passwordE = password_hash($_POST['password'],PASSWORD_DEFAULT,[15]);
+            $data = array('json' => ["email" => $_POST['email'], "password" => $passwordE, "tipo" => $_POST['tipo']]);
             //ENVIAR PETICION
-
 
             $client = HttpClient::create();
             //$response = $client->request('POST', 'http://192.168.4.96:8000', $data);

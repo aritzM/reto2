@@ -309,10 +309,11 @@ class WebServiceController extends AbstractController
 
             foreach ($usuarios as $usuario)
             {
-                //DECODE PASSWORD password_verify($password, $usuario->getPassword())
-                if($email == $usuario->getEmail() && $password == $usuario->getPassword())
+                //DECODE PASSWORD
+                //sin encryptar $password == $usuario->getPassword()
+                if($email == $usuario->getEmail() && password_verify($password, $usuario->getPassword()))
                 {
-                    $datos = array("login" => "true", "error" => null, "usuario" => ["idCliente" => $usuario->getIdCliente(), "nombre" => $usuario->getNombre(), "apellidos" => $usuario->getApellidos(),  "telefono" => $usuario->getTelefono(), "genero" => $usuario->getGenero()]);
+                    $datos = array("login" => "true", "tipo" => "cliente", "error" => null, "usuario" => ["idCliente" => $usuario->getIdCliente(), "nombre" => $usuario->getNombre(), "apellidos" => $usuario->getApellidos(),  "telefono" => $usuario->getTelefono(), "genero" => $usuario->getGenero()]);
                     return $this->jsonDam($datos);
                 }
                 else
@@ -332,7 +333,7 @@ class WebServiceController extends AbstractController
             {
                 if($email == $usuario->getEmail() && $password == $usuario->getPassword())
                 {
-                    $datos = array("login" => "true", "error" => null, "usuario" => ["dni" => $usuario->getDni(), "nombre" => $usuario->getNombre(), "apellidos" => $usuario->getApellidos(), "telefono" => $usuario->getTelefono(), "sexo" => $usuario->getSexo()]);
+                    $datos = array("login" => "true", "tipo" => "trabajador", "error" => null, "usuario" => ["idTrabajador" => $usuario->getIdTrabajador(),"dni" => $usuario->getDni(), "nombre" => $usuario->getNombre(), "apellidos" => $usuario->getApellidos(), "direccion" => $usuario->getDireccion(), "telefono" => $usuario->getTelefono(), "sexo" => $usuario->getSexo()]);
                     return $this->jsonDam($datos);
                 }
                 else

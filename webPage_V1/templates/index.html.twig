@@ -11,15 +11,28 @@
     {% include 'menu/menu.html.twig' %}
     <!--El titulo y la bienvenida -->
     {% if datos %}
+
         {% if datos.error %}
             {{ datos.error }}
         {% else %}
-            {{ datos.login }}
-            {{ datos.usuario.idCliente }}
-            {{ datos.usuario.nombre }}
-            {{ datos.usuario.apellidos }}
-            {{ datos.usuario.telefono }}
-            {{ datos.usuario.genero }}
+            {% if datos.tipo == 'cliente' %}
+                {{ datos.login }}
+                {{ datos.usuario.idCliente }}
+                {{ datos.usuario.nombre }}
+                {{ datos.usuario.apellidos }}
+                {{ datos.usuario.telefono }}
+                {{ datos.usuario.genero }}
+            {% endif %}
+            {% if datos.tipo == 'trabajador' %}
+                {{ datos.login }}
+                {{ datos.usuario.idTrabajador }}
+                {{ datos.usuario.dni }}
+                {{ datos.usuario.nombre }}
+                {{ datos.usuario.apellidos }}
+                {{ datos.usuario.direccion }}
+                {{ datos.usuario.telefono }}
+                {{ datos.usuario.sexo }}
+            {% endif %}
         {% endif %}
     {% endif %}
     <header class="masthead bg-primary text-white text-center">
