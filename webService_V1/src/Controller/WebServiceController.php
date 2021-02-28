@@ -626,13 +626,16 @@ class WebServiceController extends AbstractController
             foreach ($maquetas as $maqueta)
             {
                 $count = $count + 1;
-                $maquetaM = new Maquetas();
-                $maquetaM->setIdMaquetas($maqueta->getIdMaquetas());
-                $maquetaM->setIdArtista($maqueta->getIdArtista());
-                $maquetaM->setNombre($maqueta->getNombre());
-                $maquetaM->setDescripcion($maqueta->getDescripcion());
-                $maquetasM[$count] = $maquetaM;
-
+                $artistas = $this->getDoctrine()->getRepository(Artista::class)->findAll();
+                $artistaM = new Artista();
+                foreach($artistas as $artista)
+                {
+                    if($maqueta->getIdArtista() == $artista->getIdArtista())
+                    {
+                        $artistaM = $artista;
+                    }
+                }
+                $maquetasM[$count] = array('maquetas' => $maqueta, 'artista' => $artistaM);
             }
             $datos = array("maquetas" => $maquetasM);
         }
