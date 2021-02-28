@@ -12,7 +12,9 @@
 {% endblock %}
 {% block galeria %}
     {% for maqueta in maquetaciones.maquetas %}
-       {{ maqueta.nombre }}
+        {{ maqueta.maquetas.nombre }}
+        {{ maqueta.maquetas.descripcion }}
+        {{ maqueta.artista.nombre }}
 {% endfor %}
     <section class="page-section bg-primary text-white mb-0" id="about">
         <div class="container">
