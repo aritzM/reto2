@@ -284,7 +284,7 @@ class WebServiceController extends AbstractController
                 $usuarios = $this->getDoctrine()->getRepository(Trajadores::class)->findAll();
                 foreach ($usuarios as $usuario)
                 {
-                    if($usuario->getDni() == $dni && $usuario->getIdTrabajador() == $idTrabajador)
+                    if( $usuario->getIdTrabajador() == $idTrabajador)
                     {
                         $usuario->setDni($dni);
                         $usuario->setNombre($nombre);
@@ -297,23 +297,23 @@ class WebServiceController extends AbstractController
                         $entityManager = $this->getDoctrine()->getManager();
                         $entityManager->persist($usuario);
                         $entityManager->flush();
-                        $datos = array("actualizacion" => "Trabajador actualizado exitosamente");
+                        $datos = array("actualizacion" => "Trabajador actualizado exitosamente", "error" => null);
                         return $this->jsonDam($datos);
                     }
                     else
                     {
-                        $datos = array("error" => "Trabajador no existente");
+                        $datos = array("error" => "Trabajador no existente", "actualizacion" => null);
                     }
                 }
             }
             else
             {
-                $datos = array("error" => "error");
+                $datos = array("error" => "error", "actualizacion" => null);
             }
         }
         else
         {
-            $datos = array("error" => "error");
+            $datos = array("error" => "error", "actualizacion" => null);
         }
 
         return $this->jsonDam($datos);

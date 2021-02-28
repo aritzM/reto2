@@ -10,15 +10,24 @@
 {% endblock %}
 
 {% block perfil %}
+    {% if mensaje.actualizacion %}
+        {{ mensaje.actualizacion }}
+    {% endif %}
+
+    {% if mensaje.error %}
+    {{ mensaje.error }}
+    {% endif %}
+
     <div class="col-md-6 col-lg-4 mb-5">
         <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal1" style="margin-top: 205px;">
             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
             </div>
 
+            <form action="{{ path('actusu') }}" method="get">
 
                 <label for="DNI">DNI</label>
-                <input type="text" name="DNI" value="69696969e"><br><br>
+                <input type="text" name="DNI" value=""><br><br>
 
                 <label for="Nombre">Nombre</label>
                 <input type="text" name="Nombre" value="kartu"><br><br>
@@ -35,12 +44,6 @@
                 <label for="Email">Email</label>
                 <input type="text" name="Email" value="asassin@gmail.com"><br><br>
 
-                <label for="Password">Password Actual</label>
-                <input type="text" name="Password" value="Almi123"><br><br>
-
-                <label for="Password">Password Nuevo</label>
-                <input type="text" name="Password" value="Almi123"><br><br>
-
                 <label for="Sexo">Sexo</label><br>
                 <input type="radio" id="male" name="gender" value="male">
                 <label for="male">Male</label>
@@ -49,10 +52,33 @@
                 <input type="radio" id="other" name="gender" value="other">
                 <label for="other">Other</label>
 
-            </form>
             <button class="btn btn-primary" >
-                Crear Perfil
+                Editar Perfil
             </button>
+            <br><br>
+
+
+
+            </form>
+
+            <form>
+
+                <label for="Password">Password Actual</label>
+                <input type="text" name="Password" value="Almi123"><br><br>
+
+                <label for="PasswordNuevo">Password Nuevo</label>
+                <input type="text" name="Password" value="Almi123"><br><br>
+
+                <label for="RepitePassword">Repite Password</label>
+                <input type="text" name="RepitePassword" value="Almi123"><br><br>
+
+            </form>
+
+            <button class="btn btn-primary" >
+                Editar Contraseña
+            </button>
+
+
         </div>
     </div>
 <!--<div style="  width: 50%; border: 3px solid cornflowerblue; padding: 200px; display: flex;">
