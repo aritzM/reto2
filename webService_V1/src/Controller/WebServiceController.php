@@ -119,6 +119,7 @@ class WebServiceController extends AbstractController
                 $ins = false;
                 if(empty($usuarios))
                 {
+                    //encriptacion
                     $cliente->setNombre($nombre);
                     $cliente->setApellidos($apellidos);
                     $cliente->setGenero($genero);
@@ -337,9 +338,9 @@ class WebServiceController extends AbstractController
 
             foreach ($usuarios as $usuario)
             {
-                //DECODE PASSWORD
-                //sin encryptar $password == $usuario->getPassword()
-                if($email == $usuario->getEmail() && password_verify($password, $usuario->getPassword()))
+                //DECODE PASSWORD )
+                //sin encryptar
+                if($email == $usuario->getEmail() && password_verify($usuario->getPasswordtext(), $password))
                 {
                     $datos = array("login" => "true", "tipo" => "cliente", "error" => null, "usuario" => ["idCliente" => $usuario->getIdCliente(), "nombre" => $usuario->getNombre(), "apellidos" => $usuario->getApellidos(),  "telefono" => $usuario->getTelefono(), "genero" => $usuario->getGenero()]);
                     return $this->jsonDam($datos);
