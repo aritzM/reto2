@@ -83,7 +83,6 @@ class WebServiceController extends AbstractController
                 $count = $count + 1;
                 $trabajadorM = new Trajadores();
                 $trabajadorM = $trabajador;
-                $trabajadorM->setPassword(null);
                 $trabajadoresM[$count] = $trabajadorM;
             }
             $datos = array("trabajadores" => $trabajadoresM);
@@ -125,6 +124,9 @@ class WebServiceController extends AbstractController
                     $cliente->setGenero($genero);
                     $cliente->setTelefono($telefono);
                     $cliente->setEmail($email);
+                    $cliente->setPasswordtext($password);
+                    $passwordE=password_hash($password,PASSWORD_DEFAULT,[15]);
+                    $cliente->setPassword($passwordE);
                     $cliente->setPassword($password);
                     $entityManager = $this->getDoctrine()->getManager();
                     $entityManager->persist($cliente);
@@ -151,7 +153,7 @@ class WebServiceController extends AbstractController
 
                         //ENCODEPASSWORD
                         $passwordE=password_hash($password,PASSWORD_DEFAULT,[15]);
-
+                        $cliente->setPasswordtext($password);
                         $cliente->setPassword($passwordE);
                         $entityManager = $this->getDoctrine()->getManager();
                         $entityManager->persist($cliente);
@@ -188,7 +190,9 @@ class WebServiceController extends AbstractController
                     $trabajor->setDireccion($direccion);
                     $trabajor->setTelefono($telefono);
                     $trabajor->setEmail($email);
-                    $trabajor->setPassword($password);
+                    $trabajor->setPasswordtext($password);
+                    $passwordE=password_hash($password,PASSWORD_DEFAULT,[15]);
+                    $trabajor->setPassword($passwordE);
                     $trabajor->setSexo($sexo);
                     $entityManager = $this->getDoctrine()->getManager();
                     $entityManager->persist($trabajor);
@@ -213,7 +217,9 @@ class WebServiceController extends AbstractController
                         $trabajor->setDireccion($direccion);
                         $trabajor->setTelefono($telefono);
                         $trabajor->setEmail($email);
-                        $trabajor->setPassword($password);
+                        $trabajor->setPasswordtext($password);
+                        $passwordE=password_hash($password,PASSWORD_DEFAULT,[15]);
+                        $trabajor->setPassword($passwordE);
                         $trabajor->setSexo($sexo);
                         $entityManager = $this->getDoctrine()->getManager();
                         $entityManager->persist($trabajor);
@@ -256,6 +262,9 @@ class WebServiceController extends AbstractController
                         $usuario->setGenero($genero);
                         $usuario->setTelefono($telefono);
                         $usuario->setEmail($email);
+                        $usuario->setPasswordtext($password);
+                        $passwordE=password_hash($password,PASSWORD_DEFAULT,[15]);
+                        $usuario->setPassword($passwordE);
                         $usuario->setPassword($password);
                         $entityManager = $this->getDoctrine()->getManager();
                         $entityManager->persist($usuario);
@@ -293,7 +302,9 @@ class WebServiceController extends AbstractController
                         $usuario->setDireccion($direccion);
                         $usuario->setTelefono($telefono);
                         $usuario->setEmail($email);
-                        $usuario->setPassword($password);
+                        $usuario->setPasswordtext($password);
+                        $passwordE=password_hash($password,PASSWORD_DEFAULT,[15]);
+                        $usuario->setPassword($passwordE);
                         $usuario->setSexo($sexo);
                         $entityManager = $this->getDoctrine()->getManager();
                         $entityManager->persist($usuario);
