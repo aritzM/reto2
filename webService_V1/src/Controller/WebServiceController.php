@@ -665,7 +665,7 @@ class WebServiceController extends AbstractController
                 }
                 $maquetasM[$count] = array('maquetas' => $maqueta, 'artista' => $artistaM);
             }
-            $datos = array("maquetas" => $maquetasM);
+            $datos = array("maquetas" => $maquetasM, "error" => null, "inserccion" => null);
         }
         else
         {
@@ -740,8 +740,24 @@ class WebServiceController extends AbstractController
                 $entityManager = $this->getDoctrine()->getManager();
                 $entityManager->persist($maquetasC);
                 $entityManager->flush();
-
-                $datos = array("inserccion" => "Maqueta creada correctamente");
+                $maquetasM = $this->getDoctrine()->getRepository(Maquetas::class)->findAll();
+                $maquetasMM = array();
+                $count = 0;
+                foreach ($maquetasM as $maqueta)
+                {
+                    $count = $count +1;
+                    $artistas = $this->getDoctrine()->getRepository(Artista::class)->findAll();
+                    $artistaM = new Artista();
+                    foreach($artistas as $artista)
+                    {
+                        if($maqueta->getIdArtista() == $artista->getIdArtista())
+                        {
+                            $artistaM = $artista;
+                        }
+                    }
+                    $maquetasMM[$count] = array("maquetas" => $maqueta, "artista" => $artistaM);
+                }
+                $datos = array("inserccion" => "Maqueta creada correctamente", "error" => null, "maquetas" => $maquetasMM);
             }
             else
             {
@@ -755,13 +771,9 @@ class WebServiceController extends AbstractController
                 }
                 foreach($maquetas as $maqueta)
                 {
-                    if($maqueta->getNombre() != $nombre || $maqueta->getIdArtista() != $idArtista)
+                    if($maqueta->getNombre() != $nombre)
                     {
                         $ins = true;
-                    }
-                    if($maqueta->getNombre() == $nombre || $maqueta->getIdArtista() == $idArtista)
-                    {
-                        $ins = false;
                     }
                 }
                 if($ins == true)
@@ -771,15 +783,34 @@ class WebServiceController extends AbstractController
                     $maquetasC->setDescripcion($descripcion);
                     $maquetasC->setNombre($nombre);
                     //RECORDAR CREAR FECHA DE CREACION EN LA BBDD
+
                     $entityManager = $this->getDoctrine()->getManager();
                     $entityManager->persist($maquetasC);
                     $entityManager->flush();
 
-                    $datos = array("inserccion" => "Maqueta creada correctamente");
+                    $maquetasM = $this->getDoctrine()->getRepository(Maquetas::class)->findAll();
+                    $maquetasMM = array();
+                    $count = 0;
+                    foreach ($maquetasM as $maqueta)
+                    {
+                        $count = $count +1;
+                        $artistas = $this->getDoctrine()->getRepository(Artista::class)->findAll();
+                        $artistaM = new Artista();
+                        foreach($artistas as $artista)
+                        {
+                            if($maqueta->getIdArtista() == $artista->getIdArtista())
+                            {
+                                $artistaM = $artista;
+                            }
+                        }
+                        $maquetasMM[$count] = array("maquetas" => $maqueta, "artista" => $artistaM);
+                    }
+
+                    $datos = array("inserccion" => "Maqueta creada correctamente", "error" => null, "maquetas" => $maquetasMM);
                 }
                 else
                 {
-                    $datos = array("error" => "Maqueta ya existente");
+                    $datos = array("error" => "Maqueta ya existente", "inserccion" => null, "maquetas" => null);
                 }
             }
         }

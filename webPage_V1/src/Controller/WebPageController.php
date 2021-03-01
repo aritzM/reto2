@@ -84,8 +84,8 @@ class WebPageController extends AbstractController
         $response = $client->request('POST', 'http://127.0.0.1:8001/mostrmaquetaciones', $data);
 
         $datos = $response->toArray();
-
-        $parametros = array('maquetaciones' => $datos);
+        $parametros = array('datos' => $datos);
+        //$parametros = array('maquetaciones' => $datos, 'mensaje' => ['inserccion' => null, 'error' => null]);
 
 
         //RECIBIR DATOS
@@ -269,7 +269,7 @@ class WebPageController extends AbstractController
 
         $datos = $response->toArray();
 
-        $parametros = array('maquetaciones' => $datos);
+        $parametros = array('datos' => $datos);
 
 
         //RECIBIR DATOS
@@ -332,32 +332,23 @@ class WebPageController extends AbstractController
         if ($_SERVER['REQUEST_METHOD'] == 'POST')
         {
             //comprobar campos no vacios
-            if(isset($_POST['btnCrear']))
-            {
-                /*$eventos = new Eventos();
-                $eventos->setNombre($_POST['nombreEvento']);*/
+            /*$eventos = new Eventos();
+            $eventos->setNombre($_POST['nombreEvento']);*/
 
-                $data = array('json' => ["nombre" => "h"]);
-
-            }
-            if(isset($_POST['btnActualizar']))
-            {
-                $data = array('json' => ["nombre" => "h"]);
-            }
+            $data = array('json' => ["tipo" => "Crear", "nombre" => $_POST['nombre'], "nombreArtista" => $_POST['artista'], "descripcion" => $_POST['descripcion']]);
         }
 
         $client = HttpClient::create();
-        $response = $client->request('POST', 'http://192.168.4.96:8000', $data);
-
+        //$response = $client->request('POST', 'http://192.168.4.96:8000', $data);
+        $response = $client->request('POST', 'http://127.0.0.1:8001/cractmaquetacion', $data);
         $datos = $response->toArray();
 
-        $parametros = array('prueba' => $datos);
-
+        $parametros = array('datos' => $datos);
 
         //RECIBIR DATOS
 
         //INTERPRETAR DATOS (MOSTRARLOS)
-        return $this->render('prueba.html.twig', $parametros);
+        return $this->render('gestionmaquetas.html.twig', $parametros);
     }
     /**
      * @Route("/comprInstru", name="comprInstru")
