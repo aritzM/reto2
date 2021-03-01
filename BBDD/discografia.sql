@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 28-02-2021 a las 23:05:04
+-- Tiempo de generación: 01-03-2021 a las 03:55:14
 -- Versión del servidor: 5.7.33-0ubuntu0.18.04.1
 -- Versión de PHP: 7.2.24-0ubuntu0.18.04.7
 
@@ -86,9 +86,8 @@ CREATE TABLE `clientes` (
 --
 
 INSERT INTO `clientes` (`id_Cliente`, `nombre`, `apellidos`, `genero`, `telefono`, `email`, `password`, `passwordtext`) VALUES
-(1, 'aritz', 'martin', 'masculino', 1, 'a1@a.com', 'Almi123', ''),
-(2, 'aritz2', 'martin', 'masculino', 2, 'a@a.com', 'Almi123', ''),
-(3, 'a', 'a', 'masculino', 2, 'b@a.com', '$2y$10$60AGLDK9tefr8F/y1SG6KO8778PjPZ7v4E/Pv47tsRTJVzjEika5C', '');
+(3, 'a', 'a', 'masculino', 2, 'b@a.com', '$2y$10$60AGLDK9tefr8F/y1SG6KO8778PjPZ7v4E/Pv47tsRTJVzjEika5C', 'Almi123'),
+(4, 'algo', 'algo', 'masculino', 1, 'algo@a.com', '$2y$10$keSAAwvM7B0l.ApnSvKFHeL1DOjpWhxkTV2I8P3i/OI4bCgqMgBIS', 'Almi123');
 
 -- --------------------------------------------------------
 
@@ -187,7 +186,8 @@ CREATE TABLE `maquetas` (
 
 INSERT INTO `maquetas` (`id_maquetas`, `nombre`, `id_artista`, `descripcion`) VALUES
 (1, 'shars 2019', 1, 'aaaaaaaa'),
-(2, 'maquetassss', 1, 'aaaaaa');
+(2, 'maquetassss', 1, 'aaaaaa'),
+(12, 'kartuuuuuuu111', 1, 'asadasdads');
 
 -- --------------------------------------------------------
 
@@ -349,7 +349,7 @@ ALTER TABLE `carteleras`
 -- AUTO_INCREMENT de la tabla `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `id_Cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_Cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT de la tabla `compran`
 --
@@ -374,7 +374,7 @@ ALTER TABLE `instrumentos`
 -- AUTO_INCREMENT de la tabla `maquetas`
 --
 ALTER TABLE `maquetas`
-  MODIFY `id_maquetas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_maquetas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT de la tabla `organizan`
 --
