@@ -13,6 +13,12 @@
     </div>
 {% endblock %}
 {% block table %}
+    {% if datos.inserccion %}
+        {{ datos.inserccion }}
+    {% endif %}
+    {% if datos.error %}
+        {{ datos.error }}
+    {% endif %}
     <div style="position: relative; top: 150px;">
         <table>
             <thead>
@@ -30,7 +36,7 @@
         <table>
             <tbody>
             {% set count = 1 %}
-            {% for  maqueta in maquetaciones.maquetas %}
+            {% for maqueta in datos.maquetas %}
             <ul style="display: flex;">
                 <div class="portfolio-item mx-auto col-md-6 col-lg-4 mb- portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100" data-toggle="modal" data-target="#portfolioModal{{ count }}">
                     <li style="width: 100%; display: inline;">Rap</li>
@@ -54,7 +60,7 @@
     </div>
     <!--Portfolio -->
     {% set count = 1 %}
-{% for maqueta in maquetaciones.maquetas %}
+{% for maqueta in datos.maquetas %}
     <!-- Portfolio Modal 1-->
 
     <div class="portfolio-modal modal fade" id="portfolioModal{{ count }}" tabindex="-1" role="dialog" aria-labelledby="portfolioModal1Label" aria-hidden="true">
@@ -123,23 +129,23 @@
                                     <div class="divider-custom-line"></div>
                                 </div>
                                 <!-- Portfolio Modal - Image-->
-                                <form method="post">
+                                <form method="post" action="{{ path('cractmaquetacion') }}">
                                     <label for="nombre">Nombre:</label>
                                     <input type="text" name="nombre"><br><br>
                                     <label for="email">Artista:</label>
-                                    <input type="text" name="artisrta"><br><br>
+                                    <input type="text" name="artista"><br><br>
                                     <label for="descripcion">Descripcion:</label>
                                     <input type="text" name="descripcion"><br><br>
-
+                                    <button class="btn btn-primary">
+                                        Crear
+                                    </button>
+                                    <button class="btn btn-primary">
+                                        Cancelar
+                                    </button>
                                 </form>
                                 <!-- Portfolio Modal - Text-->
                                 <p class="mb-5"></p>
-                                <button class="btn btn-primary">
-                                    Crear
-                                </button>
-                                <button class="btn btn-primary">
-                                    Cancelar
-                                </button>
+
 
                             </div>
                         </div>
