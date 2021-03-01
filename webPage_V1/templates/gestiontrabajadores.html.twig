@@ -34,9 +34,6 @@
                 <div class="portfolio-item mx-auto col-md-6 col-lg-4 mb- portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                     <li style="width: 100%; display: inline;">ID</li>
                 </div>&nbsp;&nbsp;
-                <li style="width: 100%; display: inline;">NOMBRE</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <li style="width: 100%; display: inline;">DESCRIPCION</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <li style="width: 100%; display: inline;">SONIDO</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
                 <li style="width: 100%; display: inline;">dni</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <li style="width: 100%; display: inline;">nombre</li>
@@ -53,15 +50,23 @@
         <table>
             <tbody>
             {% set count = 1 %}
-            {% for  maqueta in maquetaciones.maquetas %}
+            {% for trabajador in trabajadores.trabajadores %}
+
             <ul style="display: flex;">
                 <div class="portfolio-item mx-auto col-md-6 col-lg-4 mb- portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100" data-toggle="modal" data-target="#portfolioModal13">
                     <li style="width: 100%; display: inline;">Are</li>
                 </div>&nbsp;&nbsp;
-                <li style="width: 100%; display: inline;">Arenal sound</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <li style="width: 100%; display: inline;">Es un festival en Valencia</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <li style="width: 100%; display: inline;">De todo tipo</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <li style="width: 100%; display: inline; ">15/07/2021</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <li style="width: 100%; display: inline;">{{ trabajador.dni }}</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <li style="width: 100%; display: inline;">{{ trabajador.nombre }}</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <li style="width: 100%; display: inline;">{{ trabajador.apellidos }}</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <li style="width: 100%; display: inline; ">{{ trabajador.direccion }}</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <li style="width: 100%; display: inline; ">{{ trabajador.telefono }}</li>
+                <li style="width: 100%; display: inline; ">{{ trabajador.email }}</li>
+                <li style="width: 100%; display: inline; ">{{ trabajador.password }}</li>
+                <li style="width: 100%; display: inline; ">{{ trabajador.sexo}}</li>
+
+
+
             </ul>
                 {% set count = count + 1 %}
             {% endfor %}
@@ -300,8 +305,10 @@
                 </div>
             </div>
         </div>
-    </div>
+  </div>
+
 {% endblock %}
+            {% endblock %}
 
 
 
