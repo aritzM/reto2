@@ -10,35 +10,38 @@
 {% block menu %}
     {% include 'menu/menu.html.twig' %}
     <!--El titulo y la bienvenida -->
-    {% if datos %}
 
-        {% if datos.error %}
-            {{ datos.error }}
-        {% else %}
-            {% if datos.tipo == 'cliente' %}
-                {{ datos.login }}
-                {{ datos.usuario.idCliente }}
-                {{ datos.usuario.nombre }}
-                {{ datos.usuario.apellidos }}
-                {{ datos.usuario.telefono }}
-                {{ datos.usuario.genero }}
-            {% endif %}
-            {% if datos.tipo == 'trabajador' %}
-                {{ datos.login }}
-                {{ datos.usuario.idTrabajador }}
-                {{ datos.usuario.dni }}
-                {{ datos.usuario.nombre }}
-                {{ datos.usuario.apellidos }}
-                {{ datos.usuario.direccion }}
-                {{ datos.usuario.telefono }}
-                {{ datos.usuario.sexo }}
-            {% endif %}
-        {% endif %}
-    {% endif %}
     <header class="masthead bg-primary text-white text-center">
         <div class="container d-flex align-items-center flex-column">
             <h3 class="masthead-heading" style="color: black; position: relative; top: -50px;">Bienvenidos</h3>
             <!-- Masthead Avatar Image-->
+            {% if datos %}
+                {% if datos.inserccion %}
+                    {{ datos.inserccion }}
+                {% endif %}
+                {% if datos.error %}
+                    {{ datos.error }}
+                {% else %}
+                    {% if datos.tipo == 'cliente' %}
+                        {{ datos.login }}
+                        {{ datos.usuario.idCliente }}
+                        {{ datos.usuario.nombre }}
+                        {{ datos.usuario.apellidos }}
+                        {{ datos.usuario.telefono }}
+                        {{ datos.usuario.genero }}
+                    {% endif %}
+                    {% if datos.tipo == 'trabajador' %}
+                        {{ datos.login }}
+                        {{ datos.usuario.idTrabajador }}
+                        {{ datos.usuario.dni }}
+                        {{ datos.usuario.nombre }}
+                        {{ datos.usuario.apellidos }}
+                        {{ datos.usuario.direccion }}
+                        {{ datos.usuario.telefono }}
+                        {{ datos.usuario.sexo }}
+                    {% endif %}
+                {% endif %}
+            {% endif %}
             <img class="masthead-avatar mb-5" src="assets/img/burbu.jpg" alt=""/>
             <!-- Masthead Heading-->
             <h1 class="masthead-heading text-uppercase mb-0">Burbujon Records</h1>
@@ -105,7 +108,7 @@
 
 
 
-            <form method="post">
+            <form method="post" action="{{ path('crearUsu') }}">
                 <span id='jump_to_this_location'></span>
                 <script>
                     function jump()
@@ -127,12 +130,12 @@
                 <input type="tel" name="telefono">
 
                 <h4>Sexo:</h4>
-                <input type="radio" id="hombre" name="sexo" value="hombre">
-                <label for="hombre">Hombre</label><br>
-                <input type="radio" id="mujer" name="sexo" value="mujer">
-                <label for="hombre">Mujer</label><br>
-                <input type="radio" id="otro" name="sexo" value="otro">
-                <label for="otro">Otro</label><br><br>
+                <select name="genero">
+                    <option value="Mujer">Mujer</option>
+                    <option value="Hombre">Hombre</option>
+                    <option value="Otro">Otro</option>
+                </select>
+                <
                 <button type="submit">Registrate</button>
 
 

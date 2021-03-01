@@ -150,7 +150,6 @@ class WebServiceController extends AbstractController
                         $cliente->setGenero($genero);
                         $cliente->setTelefono($telefono);
                         $cliente->setEmail($email);
-
                         //ENCODEPASSWORD
                         $passwordE=password_hash($password,PASSWORD_DEFAULT,[15]);
                         $cliente->setPasswordtext($password);
@@ -353,7 +352,7 @@ class WebServiceController extends AbstractController
                 //sin encryptar
                 if($email == $usuario->getEmail() && password_verify($usuario->getPasswordtext(), $password))
                 {
-                    $datos = array("login" => "true", "tipo" => "cliente", "error" => null, "usuario" => ["idCliente" => $usuario->getIdCliente(), "nombre" => $usuario->getNombre(), "apellidos" => $usuario->getApellidos(),  "telefono" => $usuario->getTelefono(), "genero" => $usuario->getGenero()]);
+                    $datos = array("login" => "true", "inserccion" => null,"tipo" => "cliente", "error" => null, "usuario" => ["idCliente" => $usuario->getIdCliente(), "nombre" => $usuario->getNombre(), "apellidos" => $usuario->getApellidos(),  "telefono" => $usuario->getTelefono(), "genero" => $usuario->getGenero()]);
                     return $this->jsonDam($datos);
                 }
                 else

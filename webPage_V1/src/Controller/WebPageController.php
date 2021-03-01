@@ -115,17 +115,26 @@ class WebPageController extends AbstractController
     public function crearUsu()
     {
         //CREAR JSON
-        $data = array('json' => ["nombre" => "h"]);
-        //ENVIAR PETICION
 
 
-        $client = HttpClient::create();
-        $response = $client->request('POST', 'http://192.168.4.96:8000', $data);
+        if($_POST['password'] == $_POST['repetirpassword'])
+        {
+            $data = array('json' => ["tipo" => "Crear", "tipoUsu" => "Cliente", "nombre" => $_POST['nombre'], "apellidos" => $_POST['apellidos'], "genero" => $_POST['genero'], "telefono" => $_POST['telefono'], "email" => $_POST['email'], "password" => $_POST['password']]);
+            //ENVIAR PETICION
 
-        $datos = $response->toArray();
 
-        $parametros = array('prueba' => $datos);
+            $client = HttpClient::create();
+            //$response = $client->request('POST', 'http://192.168.4.96:8000', $data);
+            $response = $client->request('POST', 'http://127.0.0.1:8001/crearModUsu', $data);
+            $datos = $response->toArray();
 
+            $parametros = array('datos' => $datos);
+        }
+        else
+        {
+            $datos = array('error' => "Las contraseñas no coinciden");
+            $parametros = array('datos' => $datos);
+        }
 
         //RECIBIR DATOS
 
