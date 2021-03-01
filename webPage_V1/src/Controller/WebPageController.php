@@ -62,7 +62,23 @@ class WebPageController extends AbstractController
      */
     public function gestioneventos()
     {
-        return $this->render('gestioneventos.html.twig');
+        $data = array('json' => ["nombre" => "h"]);
+        //ENVIAR PETICION
+
+
+        $client = HttpClient::create();
+        $response = $client->request('GET', 'http://127.0.0.1:8001/eventosM', $data);
+
+        $datos = $response->toArray();
+        $parametros = array('datos' => $datos);
+        //$parametros = array('maquetaciones' => $datos, 'mensaje' => ['inserccion' => null, 'error' => null]);
+
+
+        //RECIBIR DATOS
+
+        //INTERPRETAR DATOS (MOSTRARLOS)
+
+        return $this->render('gestioneventos.html.twig', $parametros);
     }
     /**
      * @Route("/ventamaquetas", name="ventamaquetas")
@@ -226,25 +242,15 @@ class WebPageController extends AbstractController
         if ($_SERVER['REQUEST_METHOD'] == 'POST')
         {
             //comprobar campos no vacios
-            if(isset($_POST['btnModificar']))
-            {
-                /*$eventos = new Eventos();
-                $eventos->setNombre($_POST['nombreEvento']);*/
 
-                $data = array('json' => ["nombre" => "h"]);
-
-            }
-            if(isset($_POST['btnEliminar']))
-            {
-                $data = array('json' => ["nombre" => "Q"]);
-            }
+            $data = array('json' => ["tipo" => "Crear"]);
         }
         $client = HttpClient::create();
-        $response = $client->request('GET', '192.168.4.96:8000', $data);
-
+        //$response = $client->request('GET', '192.168.4.96:8000', $data);
+        $response = $client->request('POST', '127.0.0.1:8001/crmodeventos', $data);
         $datos = $response->toArray();
 
-        $parametros = array('prueba' => $datos);
+        $parametros = array('datos' => $datos);
 
 
         //RECIBIR DATOS
@@ -337,7 +343,7 @@ class WebPageController extends AbstractController
 
             $data = array('json' => ["tipo" => "Crear", "nombre" => $_POST['nombre'], "nombreArtista" => $_POST['artista'], "descripcion" => $_POST['descripcion']]);
         }
-
+        //ACTUALIZAR HAY QUE PASAR ID DE MAQUETACION DE ALGUNA FORMA
         $client = HttpClient::create();
         //$response = $client->request('POST', 'http://192.168.4.96:8000', $data);
         $response = $client->request('POST', 'http://127.0.0.1:8001/cractmaquetacion', $data);

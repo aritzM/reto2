@@ -11,6 +11,7 @@
 
 
 {% block tablaeventos %}
+
     <div style="margin-top: 160px; position: relative; top: 50px;">
         <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal10" style="margin-top: 205px;">
             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
@@ -26,7 +27,7 @@
                 </div>&nbsp;&nbsp;
                 <li style="width: 100%; display: inline;">NOMBRE</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <li style="width: 100%; display: inline;">DESCRIPCION</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <li style="width: 100%; display: inline;">SONIDO</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <li style="width: 100%; display: inline;">UBICACION</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <li style="width: 100%; display: inline;">FECHA</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </ul>
 
@@ -34,44 +35,22 @@
         </table>
         <table>
             <tbody>
+            {% set count = 1 %}
+            {% for evento in datos.eventos %}
 
             <ul style="display: flex;">
-                <div class="portfolio-item mx-auto col-md-6 col-lg-4 mb- portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100" data-toggle="modal" data-target="#portfolioModal13">
+
+                <div class="portfolio-item mx-auto col-md-6 col-lg-4 mb- portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100" data-toggle="modal" data-target="#portfolioModal{{ count }}">
                     <li style="width: 100%; display: inline;">Are</li>
                 </div>&nbsp;&nbsp;
-                <li style="width: 100%; display: inline;">Arenal sound</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <li style="width: 100%; display: inline;">Es un festival en Valencia</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <li style="width: 100%; display: inline;">De todo tipo</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <li style="width: 100%; display: inline; ">15/07/2021</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            </ul>
-            <ul style="display: flex;">
-                <div class="portfolio-item mx-auto col-md-6 col-lg-4 mb- portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100" data-toggle="modal" data-target="#portfolioModal2">
-                    <li style="width: 100%; display: inline;">Tomo</li>
-                </div>&nbsp;&nbsp;
-                <li style="width: 100%; display: inline;">Tomorrowland</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <li style="width: 100%; display: inline;">Es un evento en Belgica</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <li style="width: 100%; display: inline;">TECH</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <li style="width: 100%; display: inline; ">24/07/2021</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            </ul>
-            <ul style="display: flex;">
-                <div class="portfolio-item mx-auto col-md-6 col-lg-4 mb- portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100" data-toggle="modal" data-target="#portfolioModal3">
-                    <li style="width: 100%; display: inline;">RBF</li>
-                </div>&nbsp;&nbsp;
-                <li style="width: 100%; display: inline;">Reggaeton beach festival</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <li style="width: 100%; display: inline;">El evento esta situado en santander y barcelona</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <li style="width: 100%; display: inline;">Reggaeton</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <li style="width: 100%; display: inline; ">13/08/2021</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            </ul>
-            <ul style="display: flex;">
-                <div class="portfolio-item mx-auto col-md-6 col-lg-4 mb- portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100" data-toggle="modal" data-target="#portfolioModal4">
-                    <li style="width: 100%; display: inline;">Sonus</li>
-                </div>&nbsp;&nbsp;
-                <li style="width: 100%; display: inline;">Sonus festival</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <li style="width: 100%; display: inline;">El evento esta situado en el sur de croacia</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <li style="width: 100%; display: inline;">Tech</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <li style="width: 100%; display: inline; ">15/08/2021</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            </ul>
+                <li style="width: 100%; display: inline;">{{ evento.evento.nombre }}</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <li style="width: 100%; display: inline;">{{ evento.evento.descripcion }}</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <li style="width: 100%; display: inline;">{{ evento.evento.ubicacion }}</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <li style="width: 100%; display: inline; ">{{ evento.evento.fechaevento }}</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
+            </ul>
+                {% set count = count + 1 %}
+            {% endfor %}
             </tbody>
         </table>
         <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal10">
@@ -94,7 +73,7 @@
                             <div class="col-lg-8">
                                 <!-- Portfolio Modal - Title-->
                                 <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="portfolioModal1Label">Arenal sound</h2>
-                                <form method="post">
+                                <form method="post" action="{{ path('crmodevento') }}">
                                     <label for="nombre">Nombre:</label>
                                     <input type="text" name="nombre"><br><br>
                                     <label for="email">Ubicacion:</label>
@@ -104,14 +83,14 @@
                                     <label for="fecha">Fecha del evento:</label>
                                     <input type="date" name="fecha"><br><br>
                                     <label for="fecha">Organizador:</label>
-                                    <input type="text" name="fecha"><br><br>
+                                    <input type="text" name="organizador"><br><br>
+                                    <button class="btn btn-primary">
+                                        Crear
+                                    </button>
+                                    <button class="btn btn-primary">
+                                        Cancelar
+                                    </button>
                                 </form>
-                                <button class="btn btn-primary">
-                                    Crear
-                                </button>
-                                <button class="btn btn-primary">
-                                    Cancelar
-                                </button>
                             </div>
                         </div>
                     </div>
@@ -120,7 +99,10 @@
         </div>
     </div>
     <!-- Portfolio Modal 1-->
-    <div class="portfolio-modal modal fade" id="portfolioModal13" tabindex="-1" role="dialog" aria-labelledby="portfolioModal1Label" aria-hidden="true">
+    {% set count = 1 %}
+    {% for evento in datos.eventos %}
+
+    <div class="portfolio-modal modal fade" id="portfolioModal{{ count }}" tabindex="-1" role="dialog" aria-labelledby="portfolioModal1Label" aria-hidden="true">
         <div class="modal-dialog modal-xl" role="document">
             <div class="modal-content">
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
@@ -134,22 +116,22 @@
                                 <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="portfolioModal1Label">Arenal sound</h2>
                                 <form method="post">
                                     <label for="nombre">Nombre:</label>
-                                    <input type="text" name="nombre"><br><br>
+                                    <input type="text" name="nombre" value="{{ evento.evento.nombre }}"><br><br>
                                     <label for="email">Ubicacion:</label>
-                                    <input type="text" name="artisrta"><br><br>
+                                    <input type="text" name="artisrta" value="{{ evento.evento.descripcion }}"><br><br>
                                     <label for="descripcion">Descripcion:</label>
-                                    <input type="text" name="descripcion"><br><br>
+                                    <input type="text" name="descripcion" value="{{ evento.evento.ubicacion }}"><br><br>
                                     <label for="fecha">Fecha del evento:</label>
-                                    <input type="date" name="fecha"><br><br>
+                                    <input type="date" name="fecha" value="{{ evento.evento.fechaevento }}"><br><br>
                                     <label for="fecha">Organizador:</label>
-                                    <input type="text" name="fecha"><br><br>
+                                    <input type="text" name="organizador" value="{{ evento.organizador.nombre }}"><br><br>
+                                    <button class="btn btn-primary">
+                                        Modificar
+                                    </button>
+                                    <button class="btn btn-primary">
+                                        Eliminar
+                                    </button>
                                 </form>
-                                <button class="btn btn-primary">
-                                    Modificar
-                                </button>
-                                <button class="btn btn-primary">
-                                    Eliminar
-                                </button>
                             </div>
                         </div>
                     </div>
@@ -157,122 +139,8 @@
             </div>
         </div>
     </div>
-    <!-- Portfolio Modal 2-->
-    <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-labelledby="portfolioModal2Label" aria-hidden="true">
-        <div class="modal-dialog modal-xl" role="document">
-            <div class="modal-content">
-                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true"><i class="fas fa-times"></i></span>
-                </button>
-                <div class="modal-body text-center">
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-8">
-                                <!-- Portfolio Modal - Title-->
-                                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="portfolioModal2Label">Tomorrowland</h2>
-                                <form method="post">
-                                    <label for="nombre">Nombre:</label>
-                                    <input type="text" name="nombre"><br><br>
-                                    <label for="email">Ubicacion:</label>
-                                    <input type="text" name="artisrta"><br><br>
-                                    <label for="descripcion">Descripcion:</label>
-                                    <input type="text" name="descripcion"><br><br>
-                                    <label for="fecha">Fecha del evento:</label>
-                                    <input type="date" name="fecha"><br><br>
-                                    <label for="fecha">Organizador:</label>
-                                    <input type="text" name="fecha"><br><br>
-                                </form>
-                                <button class="btn btn-primary">
-                                    Modificar
-                                </button>
-                                <button class="btn btn-primary">
-                                    Eliminar
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Portfolio Modal 3-->
-    <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-labelledby="portfolioModal3Label" aria-hidden="true">
-        <div class="modal-dialog modal-xl" role="document">
-            <div class="modal-content">
-                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true"><i class="fas fa-times"></i></span>
-                </button>
-                <div class="modal-body text-center">
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-8">
-                                <!-- Portfolio Modal - Title-->
-                                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="portfolioModal3Label">RBF</h2>
-                                <form method="post">
-                                    <label for="nombre">Nombre:</label>
-                                    <input type="text" name="nombre"><br><br>
-                                    <label for="email">Ubicacion:</label>
-                                    <input type="text" name="artisrta"><br><br>
-                                    <label for="descripcion">Descripcion:</label>
-                                    <input type="text" name="descripcion"><br><br>
-                                    <label for="fecha">Fecha del evento:</label>
-                                    <input type="date" name="fecha"><br><br>
-                                    <label for="fecha">Organizador:</label>
-                                    <input type="text" name="fecha"><br><br>
-                                </form>
-                                <button class="btn btn-primary">
-                                    Modificar
-                                </button>
-                                <button class="btn btn-primary">
-                                    Eliminar
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Portfolio Modal 4-->
-
-    <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-labelledby="portfolioModal4Label" aria-hidden="true">
-        <div class="modal-dialog modal-xl" role="document">
-            <div class="modal-content">
-                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true"><i class="fas fa-times"></i></span>
-                </button>
-                <div class="modal-body text-center">
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-8">
-                                <!-- Portfolio Modal - Title-->
-                                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="portfolioModal4Label">Sonus fest</h2>
-                                <form method="post">
-                                    <label for="nombre">Nombre:</label>
-                                    <input type="text" name="nombre"><br><br>
-                                    <label for="email">Ubicacion:</label>
-                                    <input type="text" name="artisrta"><br><br>
-                                    <label for="descripcion">Descripcion:</label>
-                                    <input type="text" name="descripcion"><br><br>
-                                    <label for="fecha">Fecha del evento:</label>
-                                    <input type="date" name="fecha"><br><br>
-                                    <label for="fecha">Organizador:</label>
-                                    <input type="text" name="fecha"><br><br>
-                                </form>
-                                <button class="btn btn-primary">
-                                    Modificar
-                                </button>
-                                <button class="btn btn-primary">
-                                    Eliminar
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+        {% set count = count + 1 %}
+    {% endfor %}
 {% endblock %}
 
 
