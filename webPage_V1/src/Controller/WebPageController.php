@@ -67,8 +67,8 @@ class WebPageController extends AbstractController
 
 
         $client = HttpClient::create();
-        $response = $client->request('GET', 'http://127.0.0.1:8001/eventosM', $data);
-
+        //$response = $client->request('GET', 'http://127.0.0.1:8001/eventosM', $data);
+        $response = $client->request('GET', 'http://192.168.4.96:8000/eventosM', $data);
         $datos = $response->toArray();
         $parametros = array('datos' => $datos);
         //$parametros = array('maquetaciones' => $datos, 'mensaje' => ['inserccion' => null, 'error' => null]);
@@ -97,8 +97,8 @@ class WebPageController extends AbstractController
 
 
         $client = HttpClient::create();
-        $response = $client->request('POST', 'http://127.0.0.1:8001/mostrmaquetaciones', $data);
-
+        //$response = $client->request('POST', 'http://127.0.0.1:8001/mostrmaquetaciones', $data);
+        $response = $client->request('POST', 'http://192.168.4.96:8000/mostrmaquetaciones', $data);
         $datos = $response->toArray();
         $parametros = array('datos' => $datos);
         //$parametros = array('maquetaciones' => $datos, 'mensaje' => ['inserccion' => null, 'error' => null]);
@@ -124,8 +124,8 @@ class WebPageController extends AbstractController
 
 
             $client = HttpClient::create();
-            //$response = $client->request('POST', 'http://192.168.4.96:8000', $data);
-            $response = $client->request('POST', 'http://127.0.0.1:8001/crearModUsu', $data);
+            $response = $client->request('POST', 'http://192.168.4.96:8000/crearModUsu', $data);
+            //$response = $client->request('POST', 'http://127.0.0.1:8001/crearModUsu', $data);
             $datos = $response->toArray();
 
             $parametros = array('datos' => $datos);
@@ -156,9 +156,9 @@ class WebPageController extends AbstractController
             //ENVIAR PETICION
 
             $client = HttpClient::create();
-            //$response = $client->request('POST', 'http://192.168.4.96:8000', $data);
+            $response = $client->request('POST', 'http://192.168.4.96:8000/login', $data);
 
-            $response = $client->request('POST', 'http://127.0.0.1:8001/login', $data);
+            //$response = $client->request('POST', 'http://127.0.0.1:8001/login', $data);
             $datos = $response->toArray();
 
             $parametros = array('datos' => $datos);
@@ -186,8 +186,8 @@ class WebPageController extends AbstractController
 
         $client = HttpClient::create();
 
-        //$response = $client->request('GET', 'http://192.168.4.96:8000', $data);
-        $response = $client->request('GET', 'http://127.0.0.1:8001/eventosM', $data);
+        $response = $client->request('GET', 'http://192.168.4.96:8000/eventosM', $data);
+        //$response = $client->request('GET', 'http://127.0.0.1:8001/eventosM', $data);
         //RECIBIR DATOS
         $datos = $response->toArray();
 
@@ -255,8 +255,8 @@ class WebPageController extends AbstractController
             $data = array('json' => ["tipo" => "Crear"]);
         }
         $client = HttpClient::create();
-        //$response = $client->request('GET', '192.168.4.96:8000', $data);
-        $response = $client->request('POST', '127.0.0.1:8001/crmodeventos', $data);
+        $response = $client->request('POST', '192.168.4.96:8000/crmodeventos', $data);
+        //$response = $client->request('POST', '127.0.0.1:8001/crmodeventos', $data);
         $datos = $response->toArray();
 
         $parametros = array('datos' => $datos);
@@ -279,8 +279,8 @@ class WebPageController extends AbstractController
 
 
         $client = HttpClient::create();
-        //$response = $client->request('GET', '192.168.4.96:8000', $data);
-        $response = $client->request('POST', 'http://127.0.0.1:8001/mostrmaquetaciones', $data);
+        $response = $client->request('POST', 'http://192.168.4.96:8000/mostrmaquetaciones', $data);
+        //$response = $client->request('POST', 'http://127.0.0.1:8001/mostrmaquetaciones', $data);
 
         $datos = $response->toArray();
 
@@ -354,8 +354,8 @@ class WebPageController extends AbstractController
         }
         //ACTUALIZAR HAY QUE PASAR ID DE MAQUETACION DE ALGUNA FORMA
         $client = HttpClient::create();
-        //$response = $client->request('POST', 'http://192.168.4.96:8000', $data);
-        $response = $client->request('POST', 'http://127.0.0.1:8001/cractmaquetacion', $data);
+        $response = $client->request('POST', 'http://192.168.4.96:8000/cractmaquetacion', $data);
+        //$response = $client->request('POST', 'http://127.0.0.1:8001/cractmaquetacion', $data);
         $datos = $response->toArray();
 
         $parametros = array('datos' => $datos);
@@ -376,7 +376,7 @@ class WebPageController extends AbstractController
 
 
         $client = HttpClient::create();
-        $response = $client->request('POST', '192.168.4.96:8000', $data);
+        $response = $client->request('POST', 'http://192.168.4.96:8000', $data);
 
         $datos = $response->toArray();
 
@@ -398,7 +398,7 @@ class WebPageController extends AbstractController
         //ENVIAR PETICION
 
         $client = HttpClient::create();
-        $response = $client->request('POST', '192.168.4.96:8000', $data);
+        $response = $client->request('POST', 'http://192.168.4.96:8000', $data);
 
         $datos = $response->toArray();
 
@@ -439,8 +439,8 @@ class WebPageController extends AbstractController
         //ENVIAR PETICION
 
         $client = HttpClient::create();
-        //$response = $client->request('POST', '192.168.4.96:8000', $data);
-        $response = $client->request('GET', 'http://127.0.0.1:8001/trabajadores', $data);
+        $response = $client->request('GET', 'http://192.168.4.96:8000/trabajadores', $data);
+        //$response = $client->request('GET', 'http://127.0.0.1:8001/trabajadores', $data);
 
         $datos = $response->toArray();
 
@@ -472,8 +472,8 @@ class WebPageController extends AbstractController
         //ENVIAR PETICION
 
         $client = HttpClient::create();
-        //$response = $client->request('POST', '192.168.4.96:8000', $data);
-        $response = $client->request('POST', 'http://127.0.0.1:8001/crearModUsu', $data);
+        $response = $client->request('POST', 'http://192.168.4.96:8000/crearModUsu', $data);
+        //$response = $client->request('POST', 'http://127.0.0.1:8001/crearModUsu', $data);
 
         $datos = $response->toArray();
 
@@ -498,8 +498,8 @@ class WebPageController extends AbstractController
         //ENVIAR PETICION
 
         $client = HttpClient::create();
-        //$response = $client->request('POST', '192.168.4.96:8000', $data);
-        $response = $client->request('POST', 'http://127.0.0.1:8001/crearModUsu', $data);
+        $response = $client->request('POST', 'http://192.168.4.96:8000/crearModUsu', $data);
+        //$response = $client->request('POST', 'http://127.0.0.1:8001/crearModUsu', $data);
 
         $datos = $response->toArray();
 
